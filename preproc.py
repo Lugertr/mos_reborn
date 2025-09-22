@@ -5,7 +5,7 @@ from PIL import Image
 
 
 def deskew(image: np.ndarray, max_angle: float = 15.0) -> np.ndarray:
-    """Выравнивание перекоса текста с защитой от переворота."""
+    """Выравнивание перекоса текста с защитой от  переворота."""
     coords = np.column_stack(np.where(image > 0))
     if coords.shape[0] == 0:
         return image
