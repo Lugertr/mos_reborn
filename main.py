@@ -131,9 +131,9 @@ async def ocr(
         return {"engine": "tesseract", "avg_conf": avg_conf, "plain_text": text, "blocks": blocks}
 
 
+# main.py в /ocr_lines
 @app.post("/ocr_lines")
 async def ocr_lines(file: UploadFile = File(...), langs: str = Query("rus+eng")):
-    """ Разбиваем на строки Tesseract'ом, каждую строку читает TrOCR """
     file_path = os.path.join(UPLOAD_DIR, file.filename)
     with open(file_path, "wb") as buf:
         shutil.copyfileobj(file.file, buf)
@@ -144,10 +144,11 @@ async def ocr_lines(file: UploadFile = File(...), langs: str = Query("rus+eng"))
         return JSONResponse({"error": f"can't open image: {e}"}, status_code=400)
 
     prep = preprocess_for_hand(pil_img)
-    result = recognize_handwriting_by_lines(prep, langs=langs)  # <-- теперь словарь
-    # result = {"engine": "trocr_line", "plain_text": "...", "lines": [...]}
+    lines = recognize_handwriting_by_lines(prep, langs=langs)   # вернёт list[dict]
+    plain = "\n".join([ln["text"] for ln in lines if (ln["text"] or "").strip()])
 
-    return result
+    return {"engine": "trocr_line", "plain_text": plain, "lines": lines}
+
 
 
 
