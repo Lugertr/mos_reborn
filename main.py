@@ -144,10 +144,11 @@ async def ocr_lines(file: UploadFile = File(...), langs: str = Query("rus+eng"))
         return JSONResponse({"error": f"can't open image: {e}"}, status_code=400)
 
     prep = preprocess_for_hand(pil_img)
-    lines = recognize_handwriting_by_lines(prep, langs=langs)
-    plain = "\n".join([ln["text"] for ln in lines if (ln["text"] or "").strip()])
+    result = recognize_handwriting_by_lines(prep, langs=langs)  # <-- теперь словарь
+    # result = {"engine": "trocr_line", "plain_text": "...", "lines": [...]}
 
-    return {"engine": "trocr_line", "plain_text": plain, "lines": lines}
+    return result
+
 
 
 # ---------- Новый job-based API ----------
