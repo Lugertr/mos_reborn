@@ -12,7 +12,7 @@ def preprocess_handwritten(img: Image.Image) -> Image.Image:
     - ч/б
     - увеличение контраста
     - бинаризация
-    - ресайз до 384x384
+    - ресайз до  384x384
     """
     # Ч/б
     img = img.convert("L")
