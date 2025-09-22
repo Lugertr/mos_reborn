@@ -1,0 +1,9 @@
+/venv
+/__pycache__
+/checkpoints
+/prpreproc_results
+/uploads
+/trocr-base-handwritten
+/trocr-finetuned
+/trocr-base-handwritten-ru
+/data
