@@ -1,0 +1,20 @@
+(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py# # 2.1 Печатный
+(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py# curl -X POST -F "file=@/root/ocr_project/test.png" "http://127.0.0.1:8000/ocr?mode=print"
+ 2.2 Рукописный
+curl -X POST -F "file=@/root/ocr_project/test_hand4.png" "http://127.0.0.1:8000/ocr?mode=hand"
+
+# 2.3 Авто
+curl -X POST -F "file=@/root/ocr_project/test_hand4.png" "http://127.0.0.1:8000/ocr?mode=auto"
+
+# 2.4 Построчно (рукопись)
+curl -X POST -F "file=@/root/ocr_project/test_hand4.png" "http://127.0.0.1:8000/ocr_lines"
+{"engine":"tesseract","avg_conf":0.0,"plain_text":"","blocks":[]}(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py#
+(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py# # 2.2 Рукописный
+(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py# curl -X POST -F "file=@/root/ocr_project/test_hand4.png" "http://127.0.0.1:8000/ocr?mode=hand"
+{"engine":"trocr","plain_text":"МИ","blocks":[{"text":"МИ","bbox":[0,0,50,20],"conf":null,"engine":"trocr"}]}(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py#
+(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py# # 2.3 Авто
+(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py# curl -X POST -F "file=@/root/ocr_project/test_hand4.png" "http://127.0.0.1:8000/ocr?mode=auto"
+{"engine":"trocr","fallback_from":{"avg_conf":33.46111111111111,"words":180},"plain_text":"МИ","blocks":[{"text":"МИ","bbox":[0,0,50,20],"conf":null,"engine":"trocr"}]}(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py#
+(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py# # 2.4 Построчно (рукопись)
+(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py# curl -X POST -F "file=@/root/ocr_project/test_hand4.png" "http://127.0.0.1:8000/ocr_lines"
+{"engine":"trocr_line","plain_text":"МИ\nчен ий\nи их.\nпомёк ками\nЕнный в сти\nк. ичи\nбринатный\n7\nПрачением\nбаличный\nнимполь.\nл. мных\nлибчточ\nзазный каща\nк ил. и\nЕзный\nЧо\nэсл\nЕничами\nхолькам\n-н.\nл.\nн-\nбычания\nс т\nначтича\nд\nкомяюталь\nзы и\nдажный и\nстийный\nЕвгр.\nжимания\nХ.\nЛаль ич\nлий ичания\n1)\n1)","lines":[{"text":"МИ","bbox":[0,0,5417,4458]},{"text":"чен ий","bbox":[286,191,1512,454]},{"text":"и их.","bbox":[1588,400,1985,426]},{"text":"помёк ками","bbox":[392,424,1960,550]},{"text":"Енный в сти","bbox":[272,550,1668,722]},{"text":"к. ичи","bbox":[1720,641,2035,668]},{"text":"бринатный","bbox":[286,647,2305,825]},{"text":"7","bbox":[764,802,790,829]},{"text":"Прачением","bbox":[71,790,2216,939]},{"text":"баличный","bbox":[107,919,2039,1042]},{"text":"нимполь.","bbox":[1305,974,1698,1004]},{"text":"л. мных","bbox":[1236,994,1835,1022]},{"text":"либчточ","bbox":[278,1015,1872,1179]},{"text":"зазный каща","bbox":[273,1118,1774,1315]},{"text":"к ил. и","bbox":[1854,1221,2017,1262]},{"text":"Езный","bbox":[447,1261,1269,1412]},{"text":"Чо","bbox":[1058,1166,1196,1294]},{"text":"эсл","bbox":[923,1220,1013,1241]},{"text":"Еничами","bbox":[113,1332,2040,1547]},{"text":"холькам","bbox":[108,1509,1769,1713]},{"text":"-н.","bbox":[1787,1615,1918,1638]},{"text":"л.","bbox":[472,1646,545,1681]},{"text":"н-","bbox":[1881,1732,1971,1756]},{"text":"бычания","bbox":[100,1726,2017,2185]},{"text":"с т","bbox":[435,1945,473,1962]},{"text":"начтича","bbox":[383,1950,2339,2131]},{"text":"д","bbox":[1430,2150,1473,2191]},{"text":"комяюталь","bbox":[404,2145,1880,2310]},{"text":"зы и","bbox":[1042,2227,1325,2287]},{"text":"дажный и","bbox":[1333,2241,2178,2340]},{"text":"стийный","bbox":[224,2210,2082,2423]},{"text":"Евгр.","bbox":[276,2098,2259,2766]},{"text":"жимания","bbox":[405,2454,1810,2590]},{"text":"Х.","bbox":[1907,2523,1989,2546]},{"text":"Лаль ич","bbox":[1973,2651,2398,2692]},{"text":"лий ичания","bbox":[204,2680,2313,3050]},{"text":"1)","bbox":[2737,1827,2793,2602]},{"text":"1)","bbox":[2731,1827,2798,2775]}]}(venv) root@DESKTOP-IM2V8OQ:~/retro-ocr/ocr-service-py#
