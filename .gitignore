@@ -8,3 +8,4 @@
 /trocr-finetuned
 /trocr-base-handwritten-ru
 /data
+/train/__pycache__
