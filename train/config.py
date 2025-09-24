@@ -1,39 +1,55 @@
-# config.py
 """
-Конфигурация для пайплайна обучения TrOCR.
-Отредактируй пути под свою структуру при необходимости.
+Центральная конфигурация для проекта TrOCR.
 """
+import os
+import tempfile
+from typing import List, Tuple
 
-# --- Tokenizer / Processor ---
-# Куда сохранить/загрузить созданный processor (tokenizer + feature_extractor)
-TOKENIZER_OUT_DIR = "./trocr-processor"
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
-# Если хочешь тренировать BPE на корпусе — включи True и укажи пути в CORPUS_PATHS
-TRAIN_TOKENIZER_FROM_CORPUS = False
-CORPUS_PATHS = []  # пример: ["../corpus/old1.txt", "../corpus/old2.txt"]
+DATA_DIR = os.path.join(PROJECT_ROOT, "data", "handwritten")
+TRAIN_IMAGES_SUBDIR = "train"
+TEST_IMAGES_SUBDIR = "test"
+TRAIN_IMAGES_DIR = os.path.join(DATA_DIR, TRAIN_IMAGES_SUBDIR)
+TEST_IMAGES_DIR = os.path.join(DATA_DIR, TEST_IMAGES_SUBDIR)
 
-# Размер словаря при обучении BPE (если TRAIN_TOKENIZER_FROM_CORPUS=True)
+TRAIN_JSON_FILENAME = "train.json"
+TEST_JSON_FILENAME = "test.json"
+TRAIN_JSON_PATH = os.path.join(DATA_DIR, TRAIN_JSON_FILENAME)
+TEST_JSON_PATH = os.path.join(DATA_DIR, TEST_JSON_FILENAME)
+
+TMP_DIR = tempfile.gettempdir()
+TMP_CORPUS_FILENAME = "trocr_corpus.txt"
+TMP_CORPUS_PATH = os.path.join(TMP_DIR, TMP_CORPUS_FILENAME)
+
+IMAGE_EXTENSIONS: List[str] = [".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".tif", ".webp"]
+
+# Tokenizer / processor
+TOKENIZER_OUT_DIR = os.path.join(PROJECT_ROOT, "trocr-processor")
+TRAIN_TOKENIZER_FROM_TEST_SPLIT = False
 TOKENIZER_VOCAB_SIZE = 8000
+TOKENIZER_SPECIAL_TOKENS = ["[PAD]", "[UNK]", "[BOS]", "[EOS]"]
+TOKENIZER_IMAGE_SIZE: Tuple[int, int] = (384, 384)
 
-# Размер картинок для feature extractor (height, width)
-TOKENIZER_IMAGE_SIZE = (384, 384)
+# Training / checkpoints / logging
+CHECKPOINTS_DIR = os.path.join(PROJECT_ROOT, "train", "checkpoints")
+CHECKPOINT_PREFIX = "checkpoint-"    # checkpoint-1, checkpoint-2...
+BEST_CHECKPOINT_NAME = "best"
+CHECKPOINTS_KEEP_LAST = 5            # retention policy: keep last N checkpoints (excluding best)
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "trocr-finetuned")
+LOG_DIR = os.path.join(PROJECT_ROOT, "logs")
 
-# --- Данные ---
-# DATA_DIR — папка, где лежат train.json и test.json (jsonl или массив/поле "data")
-DATA_DIR = "./data/handwritten"
-# Поддиректория с изображениями (от DATA_DIR)
-IMAGES_SUBDIR = "images"
+# TFRecord cache (optional)
+USE_TFRECORD_CACHE = False
+TFRECORD_DIR = os.path.join(PROJECT_ROOT, "train", "tfrecords")
+TFRECORD_SHARDS = 1
 
-# --- Сохранение / чекпоинты / логирование ---
-CHECKPOINTS_DIR = "./checkpoints"
-OUTPUT_DIR = "./trocr-finetuned"
-LOG_DIR = "./logs"
-
-# --- Тренировочные параметры ---
+# Hyperparams
 NUM_TRAIN_EPOCHS = 3
 PER_DEVICE_TRAIN_BATCH_SIZE = 1
 PER_DEVICE_EVAL_BATCH_SIZE = 1
-DEBUG_TRAIN_SAMPLES = 0   # >0 — использовать маленький поднабор для отладки
+
+DEBUG_TRAIN_SAMPLES = 0
 DEBUG_EVAL_SAMPLES = 0
 
 GENERATION_MAX_LENGTH = 128
@@ -43,11 +59,18 @@ TB_EXAMPLES_TO_LOG = 5
 LEARNING_RATE = 5e-5
 SEED = 42
 
-# --- Примечания ---
-# Формат JSON-файлов: предпочтительно JSONL (каждая строка — отдельный JSON объект):
-# {"file_name": "img1.png", "text": "Текст"}
-# {"file_name": "img2.png", "text": "Еще"}
-#
-# Если у вас JSON вида {"data": [ {...}, {...} ]}, загрузка автоматически попробует поле "data".
-#
-# Проверяйте, что images/ содержит файлы с именами, совпадающими с file_name в json.
+# Model/runtime tweaks
+GRAD_CLIP_NORM = 1.0
+ENABLE_TF_GPU_MEMORY_GROWTH = True
+
+# Mixed precision & gradient accumulation
+ENABLE_MIXED_PRECISION = False
+GRADIENT_ACCUMULATION_STEPS = 1
+
+# Checkpointing behavior
+SAVE_CHECKPOINT_EVERY_STEPS = 0
+
+# Inference
+DEFAULT_INFER_BATCH_SIZE = 4
+DEFAULT_INFER_MAX_LENGTH = 128
+DEFAULT_MODEL_DIR = OUTPUT_DIR

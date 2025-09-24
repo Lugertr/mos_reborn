@@ -10,3 +10,5 @@
 /data
 /train/__pycache__
 /logs
+/train/checkpoints
+/train/utils/__pycache__
