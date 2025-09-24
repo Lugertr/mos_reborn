@@ -1,12 +1,16 @@
+# coding: utf-8
 """
-Центральная конфигурация для проекта TrOCR.
+config.py — центральная конфигурация проекта TrOCR.
+Редактируйте параметры по необходимости.
 """
+
 import os
 import tempfile
 from typing import List, Tuple
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
+# Папка с данными (изображения + json)
 DATA_DIR = os.path.join(PROJECT_ROOT, "data", "handwritten")
 TRAIN_IMAGES_SUBDIR = "train"
 TEST_IMAGES_SUBDIR = "test"
@@ -18,6 +22,7 @@ TEST_JSON_FILENAME = "test.json"
 TRAIN_JSON_PATH = os.path.join(DATA_DIR, TRAIN_JSON_FILENAME)
 TEST_JSON_PATH = os.path.join(DATA_DIR, TEST_JSON_FILENAME)
 
+# Временные файлы
 TMP_DIR = tempfile.gettempdir()
 TMP_CORPUS_FILENAME = "trocr_corpus.txt"
 TMP_CORPUS_PATH = os.path.join(TMP_DIR, TMP_CORPUS_FILENAME)
@@ -33,16 +38,10 @@ TOKENIZER_IMAGE_SIZE: Tuple[int, int] = (384, 384)
 
 # Training / checkpoints / logging
 CHECKPOINTS_DIR = os.path.join(PROJECT_ROOT, "train", "checkpoints")
-CHECKPOINT_PREFIX = "checkpoint-"    # checkpoint-1, checkpoint-2...
+CHECKPOINT_PREFIX = "checkpoint-"
 BEST_CHECKPOINT_NAME = "best"
-CHECKPOINTS_KEEP_LAST = 5            # retention policy: keep last N checkpoints (excluding best)
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, "trocr-finetuned")
 LOG_DIR = os.path.join(PROJECT_ROOT, "logs")
-
-# TFRecord cache (optional)
-USE_TFRECORD_CACHE = False
-TFRECORD_DIR = os.path.join(PROJECT_ROOT, "train", "tfrecords")
-TFRECORD_SHARDS = 1
 
 # Hyperparams
 NUM_TRAIN_EPOCHS = 3
@@ -63,12 +62,23 @@ SEED = 42
 GRAD_CLIP_NORM = 1.0
 ENABLE_TF_GPU_MEMORY_GROWTH = True
 
-# Mixed precision & gradient accumulation
+# Mixed precision (optional)
 ENABLE_MIXED_PRECISION = False
+
+# Gradient accumulation: сколько шагов интегрировать перед apply_gradients
 GRADIENT_ACCUMULATION_STEPS = 1
 
 # Checkpointing behavior
-SAVE_CHECKPOINT_EVERY_STEPS = 0
+SAVE_CHECKPOINT_EVERY_STEPS = 0  # 0 = отключено
+CHECKPOINTS_KEEP_LAST = 5        # retention policy: сколько последних хранить
+# Async accum vars options
+SAVE_ACCUM_VARS = True                      # сохранять ли accum_vars (npz)
+SAVE_ACCUM_VARS_ONLY_ON_EPOCH_END = False   # сохранять accum_vars только на конце эпохи/при сигнале
+CHECKPOINTS_THREADPOOL_MAX_WORKERS = 2      # пул потоков для фоновых сохранений
+
+# TFRecord pipeline (ускорение предобработки)
+USE_TFRECORDS = False         # при True — создадим/прочитаем TFRecord с уже готовыми pixel_values
+TFRECORDS_DIR = os.path.join(PROJECT_ROOT, "train", "tfrecords")
 
 # Inference
 DEFAULT_INFER_BATCH_SIZE = 4

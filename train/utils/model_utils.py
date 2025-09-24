@@ -1,5 +1,8 @@
+# coding: utf-8
 """
-model_utils.py — сборка модели, fallback decode, evaluate & final save.
+utils/model_utils.py
+
+Создание модели "с нуля", батчевый greedy-декодер и оценка.
 """
 import logging
 from typing import List, Tuple, Dict
@@ -81,12 +84,12 @@ def batched_greedy_decode_tf(model, processor, pixel_values: tf.Tensor, max_leng
             outputs = model(pixel_values=pixel_values, decoder_input_ids=cur, training=False)
             logits = getattr(outputs, "logits", None)
             if logits is None:
-                raise RuntimeError("Model returned no logits for decoder_input_ids call.")
+                raise RuntimeError("Model returned no logits for decoder_input_ids")
         except Exception:
             outputs = model(pixel_values=pixel_values, training=False)
             logits = getattr(outputs, "logits", None)
             if logits is None:
-                raise RuntimeError("Model did not return logits in generation fallback.")
+                raise RuntimeError("Model did not return logits in fallback")
         last_logits = logits[:, -1, :]
         next_ids = tf.cast(tf.argmax(last_logits, axis=-1), tf.int32)
         next_ids_exp = tf.expand_dims(next_ids, axis=1)
@@ -107,7 +110,7 @@ def batched_greedy_decode_tf(model, processor, pixel_values: tf.Tensor, max_leng
     return seqs
 
 
-def evaluate_and_log(model, processor, eval_ds, tb_writer, epoch: int, tb_examples: int = 5):
+def evaluate_and_log(model, processor, eval_ds, tb_writer, epoch: int, tb_examples: int = 5) -> Dict[str, float]:
     all_preds = []
     all_labels = []
     sample_pairs = []
@@ -142,6 +145,7 @@ def evaluate_and_log(model, processor, eval_ds, tb_writer, epoch: int, tb_exampl
             lines = [f"REF: {r}\nPRED: {p}" for r, p in sample_pairs]
             tf.summary.text("eval/examples", tf.convert_to_tensor(lines), step=epoch)
     tb_writer.flush()
+    logger.info("Оценка после эпохи %d: %s", epoch, metrics)
     return metrics
 
 
@@ -150,13 +154,12 @@ def save_final_model_and_processor(model, processor, out_dir: str):
     os.makedirs(out_dir, exist_ok=True)
     try:
         model.save_pretrained(out_dir)
-    except Exception as e:
-        logger.warning("save_final_model_and_processor: model.save_pretrained failed: %s", e)
+    except Exception:
         try:
             model.save(out_dir, include_optimizer=False)
-        except Exception as e2:
-            logger.error("save_final_model_and_processor: fallback save failed: %s", e2)
+        except Exception:
+            logger.exception("Сохранение финальной модели не удалось.")
     try:
         processor.save_pretrained(out_dir)
-    except Exception as e:
-        logger.warning("save_final_model_and_processor: processor.save_pretrained failed: %s", e)
+    except Exception:
+        logger.exception("Сохранение processor не удалось.")

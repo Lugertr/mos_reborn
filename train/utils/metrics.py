@@ -1,5 +1,8 @@
+# coding: utf-8
 """
-metrics.py — вычисление метрик (WER) и вспомогательной нормализации текста.
+utils/metrics.py
+
+Вычисление WER и нормализация текста.
 """
 import unicodedata
 import string
