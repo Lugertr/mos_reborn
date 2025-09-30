@@ -1,0 +1,55 @@
+@let docs = documents();
+
+<div class="toolbar">
+  <mat-form-field class="no-bottom-space">
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (input)="filter.set($any($event.target).value)"
+      [value]="filter()"
+      placeholder="Поиск документов"
+      #input
+    />
+  </mat-form-field>
+
+  @if (docs.length) {
+  <div>
+    <button mat-icon-button (click)="refresh()" class="primary">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-icon-button (click)="addDocument()" class="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  }
+</div>
+
+<app-dashboard-table
+  class="mat-card"
+  [class.display-none]="!docs?.length"
+  [documents]="docs"
+  (rowSelected)="selectDocument($event)"
+  [filter]="filter()"
+></app-dashboard-table>
+
+@if (!docs.length) {
+<div class="empty">
+  <h2>Ещё нет документов</h2>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="isLoading()"
+    (click)="addDocument()"
+  >
+    <mat-icon>add</mat-icon>
+    Добавить документ
+  </button>
+</div>
+} @let selectedDocument = selectedDoc(); @if (selectedDocument) {
+<app-dashboard-card
+  class="mat-card"
+  [doc]="selectedDocument"
+></app-dashboard-card>
+} @else {
+<span class="empty">Выберите документ из списка слева</span>
+}

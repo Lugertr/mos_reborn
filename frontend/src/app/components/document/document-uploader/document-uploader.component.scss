@@ -1,0 +1,30 @@
+.uploader-card {
+  border: 2px dashed var(--mat-sys-outline, #bbb);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  display: grid;
+  gap: 8px;
+  align-content: center;
+  justify-items: center;
+  min-height: 40vh;
+}
+
+.big-icon {
+  font-size: 64px;
+  opacity: 0.6;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.upload-btn {
+  display: inline-block;
+}

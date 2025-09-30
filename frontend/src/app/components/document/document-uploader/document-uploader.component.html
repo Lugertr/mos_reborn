@@ -1,0 +1,20 @@
+<div class="uploader-card">
+  <mat-icon class="big-icon">upload_file</mat-icon>
+  <div class="title">Загрузите изображения документов</div>
+  <div class="subtitle">
+    Поддерживаются загрузка одного или нескольких файлов
+  </div>
+
+  <input
+    #input
+    type="file"
+    accept="image/*"
+    multiple
+    (change)="onSelectFiles($event)"
+    hidden
+  />
+  <button mat-raised-button color="primary" (click)="input.click()">
+    <mat-icon>cloud_upload</mat-icon>
+    Выбрать файлы
+  </button>
+</div>

@@ -1,0 +1,9 @@
+@let img = data(); @switch (img?.type ) { @case (userDocumentType.Image) {
+<img class="img" [src]="img.base64" [alt]="img.name || 'preview'" />
+<mat-icon class="info-icon">open_in_full</mat-icon>
+} @case (userDocumentType.Pdf) {
+<mat-icon class="img-icon">picture_as_pdf</mat-icon>
+<mat-icon class="info-icon">download</mat-icon>
+} @default {
+<mat-icon class="img-icon">help_center</mat-icon>
+} }

@@ -1,0 +1,36 @@
+<mat-card>
+  <h2>Регистрация</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Login</mat-label>
+      <input matInput formControlName="login" autocomplete="username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        autocomplete="new-password"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>ФИО</mat-label>
+      <input matInput formControlName="full_name" />
+    </mat-form-field>
+
+    <a mat-button [routerLink]="signInLink">Уже есть аккаунт?</a>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid || isLoading()"
+    >
+      @if (!isLoading()) { Зарегистрироваться } @else { Идёт регистрация... }
+    </button>
+  </form>
+</mat-card>

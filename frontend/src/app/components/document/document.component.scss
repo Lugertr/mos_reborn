@@ -1,0 +1,53 @@
+:host {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 16px;
+  padding: 12px;
+  width: 100%;
+}
+
+.sidebar {
+  border: 1px solid var(--mat-sys-outline-variant, #ddd);
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+mat-nav-list {
+  overflow: auto;
+  flex: 1 1 auto;
+}
+
+a.mat-mdc-list-item.active {
+  background: color-mix(in lch, var(--mat-sys-primary, #3f51b5) 15%, white);
+}
+
+.viewer {
+  border: 1px solid var(--mat-sys-outline-variant, #ddd);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.viewer-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.doc-title {
+  min-width: 320px;
+  flex: 0 0 420px;
+}

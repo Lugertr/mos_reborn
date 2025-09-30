@@ -1,0 +1,50 @@
+<div
+  class="drop-zone"
+  (dragover)="$event.preventDefault()"
+  (drop)="onDrop($event)"
+>
+  <p>
+    Перетащите файлы сюда или
+    <button mat-button (click)="fileInput.click()">выберите их</button>
+  </p>
+
+  <input
+    #fileInput
+    type="file"
+    multiple
+    (change)="onFileInput($event)"
+    hidden
+  />
+
+  @let filesLimit = maxFiles(); @if (files().length && filesLimit > 1) {
+  <p class="count">Добавлено файлов: {{ files().length }} / {{ filesLimit }}</p>
+  } @if (!files().length) {
+  <p class="hint">Можно добавить до {{ filesLimit }} файла(ов).</p>
+  }
+
+  <ul class="files-list">
+    @for (file of files(); track file) {
+    <li class="file-row">
+      <div class="file-meta">
+        <span class="file-size"
+          >{{ file.size ? (file.size | number) : "-" }} B</span
+        >
+        <button
+          mat-icon-button
+          aria-label="Удалить файл"
+          (click)="removeFile(file)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <span class="file-name">{{ file.name }}</span>
+      </div>
+
+      <mat-progress-bar
+        class="progress"
+        mode="determinate"
+        [value]="uploadProgress()[file.name] || 0"
+      ></mat-progress-bar>
+    </li>
+    }
+  </ul>
+</div>

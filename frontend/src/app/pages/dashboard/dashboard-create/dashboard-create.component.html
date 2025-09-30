@@ -1,0 +1,103 @@
+<h2 mat-dialog-title>
+  {{ data ? "Редактировать документ" : "Создать документ" }}
+</h2>
+<div mat-dialog-content [formGroup]="form">
+  <div class="file content-column">
+    <div class="file-action">
+      <mat-slide-toggle [formControl]="form.controls.isNeedSave"
+        >Нужно ли сохранить файл документа</mat-slide-toggle
+      >
+      <button mat-icon-button [disabled]="isLoading()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <app-file-drop
+      class="file-drop"
+      [maxFiles]="1"
+      [allowedTypes]="['image/png', 'image/jpeg']"
+      [allowedExtensions]="['png', 'jpg', 'jpeg']"
+      [maxFileSize]="5 * 1024 * 1024"
+      (filesChange)="onFilesChanged($event)"
+    ></app-file-drop>
+  </div>
+  <div class="content-column">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Название документа</mat-label>
+      <input matInput formControlName="title" required />
+    </mat-form-field>
+
+    <mat-slide-toggle class="toggle" [formControl]="form.controls.isPublic"
+      >Документ виден для других пользователей</mat-slide-toggle
+    >
+
+    <div class="content-column-half">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Дата документа</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="documentDate"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Тип документа</mat-label>
+        <mat-select formControlName="typeId">
+          <mat-option [value]="privacyEnum.Public">public</mat-option>
+          <mat-option [value]="privacyEnum.Private">private</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Автор</mat-label>
+      <input matInput formControlName="authorName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Теги документа</mat-label>
+      <mat-chip-grid
+        #chipGrid
+        aria-label="Enter keywords"
+        [formControl]="form.controls.tags"
+      >
+        @for (keyword of form.controls.tags.value; track $index) {
+        <mat-chip-row (removed)="removeTag(keyword)">
+          {{ keyword }}
+          <button matChipRemove [attr.aria-label]="'remove ' + keyword">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+        }
+      </mat-chip-grid>
+      <input
+        placeholder="Введите тег"
+        [matChipInputFor]="chipGrid"
+        (matChipInputTokenEnd)="addTag($event)"
+      />
+    </mat-form-field>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Текст документа</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field appearance="outline" class="full-width">
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="3"
+        ></textarea>
+      </mat-form-field>
+    </mat-expansion-panel>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Отмена</button>
+  <button mat-flat-button color="primary" (click)="submit()">
+    {{ data ? "Изменить" : "Создать" }}
+  </button>
+</div>

@@ -1,0 +1,29 @@
+<mat-card>
+  <h2>Вход в аккаунт</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Login</mat-label>
+      <input matInput formControlName="login" autocomplete="username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        autocomplete="current-password"
+      />
+    </mat-form-field>
+    <a mat-button [routerLink]="signUpLink">Ещё нет аккаунта?</a>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid || isLoading()"
+    >
+      @if (!isLoading()) { Войти } @else { Идёт вход... }
+    </button>
+  </form>
+</mat-card>

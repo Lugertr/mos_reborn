@@ -1,0 +1,44 @@
+<input
+  type="file"
+  accept="image/*,application/pdf"
+  (change)="onFile($event)"
+  [disabled]="disabled()"
+  class="input-loader"
+  #fileUploader
+/>
+@let doc = value(); @if (doc) {
+<div class="file">
+  <app-document-preview [data]="doc"></app-document-preview>
+  <div class="file-label">
+    <span>
+      <div>{{ doc.name }}</div>
+      <div class="file-label-info">{{ sizeText() }}</div>
+    </span>
+    <button
+      mat-mini-fab
+      type="button"
+      (click)="clear()"
+      [disabled]="disabled()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
+} @else {
+<div class="uploader">
+  <div class="title">Нажмите, чтобы загрузить изображение или PDF</div>
+  <div class="hint">
+    Максимальный размер файла: {{ maxImageMb() }} MB (для изображения), {{ maxPdfMb() }} MB (для PDF)
+  </div>
+</div>
+@if (errors()) {
+<div class="errors">
+  @if (errors()['invalidType']) {
+  <div>Неподдерживаемый тип файла.</div>
+  } @if (errors()['tooLarge']) {
+  <div>Файл слишком большой (макс {{ allowedMb() }} MB).</div>
+  } @if (errors()['convertFailed']) {
+  <div>Не удалось конвертировать файл.</div>
+  }
+</div>
+} }

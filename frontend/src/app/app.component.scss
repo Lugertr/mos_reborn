@@ -1,0 +1,21 @@
+:host {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content 1fr min-content;
+}
+
+.content {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0 1fr;
+  grid-template-rows: 100%;
+}
+
+.content-without-padding {
+  padding: 0;
+  max-width: 100%;
+}

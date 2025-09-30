@@ -1,0 +1,50 @@
+:host {
+  width: 90vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.mat-mdc-dialog-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  gap: 1rem;
+}
+
+.content-column {
+  padding: 1rem;
+  overflow: auto;
+}
+
+.content-column-half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.toggle {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.file {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  gap: 10px;
+  height: 100%;
+}
+
+.file-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.file-action .mdc-icon-button {
+  color: var(--mat-sys-primary);
+}

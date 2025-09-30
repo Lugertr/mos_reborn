@@ -1,0 +1,18 @@
+<div class="container" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <div class="close">
+    <button
+      mat-icon-button
+      type="button"
+      (click)="close()"
+      aria-label="Закрыть"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  @if (data?.base64) {
+  <img class="full" [src]="data.base64" [alt]="data.name || 'preview'" />
+  } @else {
+  <div class="no-preview">Нет превью</div>
+  }
+</div>

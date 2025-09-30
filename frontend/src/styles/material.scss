@@ -1,0 +1,75 @@
+@use "@angular/material" as mat;
+
+html {
+  color-scheme: light dark;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  color-scheme: light;
+
+  --mat-dialog-container-max-width: 100vw;
+}
+
+body.dark {
+  color-scheme: dark;
+}
+
+body .mat-mdc-table {
+  background-color: inherit;
+
+  .mat-mdc-row.hover {
+    &:hover {
+      cursor: pointer;
+      background-color: var(--mat-sys-inverse-primary);
+    }
+  }
+}
+
+body {
+  .no-bottom-space {
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+}
+
+body {
+  .primary {
+    color: var(--mat-sys-primary);
+  }
+
+  .warn {
+    color: var(----mat-sys-error);
+  }
+}
+
+.mat-card {
+  background-color: var(
+    --mdc-elevated-card-container-color,
+    var(--mat-sys-surface-container-low)
+  );
+  border-color: var(
+    --mdc-elevated-card-container-color,
+    var(--mat-sys-surface-container-low)
+  );
+  border-radius: var(
+    --mdc-elevated-card-container-shape,
+    var(--mat-sys-corner-medium)
+  );
+  box-shadow: var(
+    --mdc-elevated-card-container-elevation,
+    var(--mat-sys-level1)
+  );
+}

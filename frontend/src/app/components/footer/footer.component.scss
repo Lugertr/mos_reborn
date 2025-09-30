@@ -1,0 +1,14 @@
+:host {
+  border-top: solid 1px var(--mat-sys-outline-variant);
+  width: 100%;
+}
+
+.footer {
+  padding: 1rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: var(--max-width);
+  width: 100%;
+}

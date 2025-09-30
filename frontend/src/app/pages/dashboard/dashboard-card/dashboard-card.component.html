@@ -1,0 +1,54 @@
+@let d = doc();
+<div class="header">
+  <div class="header-title">
+    <span class="header-title-text">{{ d.title }}</span>
+    <span class="header-title-subtitle">ID: {{ d.doc_id }}</span>
+  </div>
+
+  <div class="header-actions">
+    <button
+      mat-icon-button
+      class="primary"
+      (click)="onEdit()"
+      [disabled]="!d.can_requester_edit"
+      matTooltip="{{ d.can_requester_edit ? 'Редактировать' : 'Недоступно' }}"
+      [attr.aria-disabled]="!d.can_requester_edit"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      class="warn"
+      (click)="onRemove()"
+      [disabled]="!d.can_requester_edit"
+      matTooltip="{{ d.can_requester_edit ? 'Удалить' : 'Недоступно' }}"
+      [attr.aria-disabled]="!d.can_requester_edit"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="content">
+  <div class="row">
+    <span class="label">Автор:</span
+    ><span class="value">{{ d.author ?? "-" }}</span>
+  </div>
+  <div class="row">
+    <span class="label">Тип (ID):</span
+    ><span class="value">{{ d.type_id ?? "-" }}</span>
+  </div>
+  <div class="row">
+    <span class="label">Дата документа:</span
+    ><span class="value">{{ formatDate(d.document_date) }}</span>
+  </div>
+  <div class="row">
+    <span class="label">Создано:</span
+    ><span class="value">{{ formatDate(d.created_at) }}</span>
+  </div>
+  <div class="row">
+    <span class="label">Видимость:</span>
+    <span class="value">{{ d.privacy | privacyLabel }}</span>
+  </div>
+</div>

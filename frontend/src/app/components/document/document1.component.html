@@ -1,0 +1,30 @@
+@let fileForm = form.controls.file; @switch ( stage() ) { @case
+(documentStage.FileReader) {
+<app-document-reader
+  class="reader mat-card"
+  [formControl]="fileForm"
+></app-document-reader>
+<div
+  [matTooltip]="
+    !!fileForm.getRawValue()
+      ? ''
+      : 'Загрузите файл для перехода на следующий этап'
+  "
+>
+  <button
+    mat-fab
+    extended
+    [disabled]="!fileForm.getRawValue()"
+    (click)="nexStage(documentStage.FileForm)"
+  >
+    <mat-icon>arrow_right_alt</mat-icon>
+    Далее
+  </button>
+</div>
+
+} @case (documentStage.FileForm) { @let docForm = form.controls.doc;
+<div class="mat-card form">
+  <app-document-preview [data]="fileForm.getRawValue()"></app-document-preview>
+  <app-document-form [docForm]="docForm"></app-document-form>
+</div>
+}}

@@ -1,0 +1,24 @@
+:host {
+  margin: auto;
+  width: 100%;
+  max-width: min(100%, 50vw);
+}
+
+mat-card {
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+a {
+  width: fit-content;
+  margin-left: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

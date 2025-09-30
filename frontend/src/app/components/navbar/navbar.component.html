@@ -1,0 +1,24 @@
+  <div class="content">
+    <h1>ЛЦТ №9</h1>
+    <div class="content-list">
+      @for (menu of menuItems; track menu) { @if (!menu.private || isAuth) {
+      <a
+        mat-button
+        [routerLink]="menu.path"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        {{ menu.title }}
+        <mat-icon>{{ menu.icon }}</mat-icon>
+      </a>
+      } }
+    </div>
+
+    <div class="control">
+      <button mat-icon-button (click)="themeService.toggle()">
+        <mat-icon>{{
+          themeService.isDark() ? "wb_sunny" : "nights_stay"
+        }}</mat-icon>
+      </button>
+    </div>
+  </div>

@@ -1,0 +1,58 @@
+@if (!hasDocuments()) {
+<app-document-uploader
+  (filesSelected)="onFilesSelected($event)"
+></app-document-uploader>
+} @else {
+<div class="sidebar">
+  <div class="sidebar-header">
+    <button mat-raised-button color="primary" (click)="onAddDocument()">
+      <mat-icon>add</mat-icon>
+      Добавить
+    </button>
+  </div>
+
+  <mat-nav-list>
+    @for (doc of documents; let i = $index; track i) {
+    <a
+      mat-list-item
+      (click)="onSelectDocument(i)"
+      [class.active]="i === selectedIndex()"
+    >
+      <mat-icon matListItemIcon>description</mat-icon>
+      <div matListItemTitle>
+        {{ doc.get("document_name")?.value || "Документ " + (i + 1) }}
+      </div>
+      <button
+        mat-icon-button
+        (click)="$event.stopPropagation(); removeDocument(i)"
+        aria-label="Удалить"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </a>
+    }
+  </mat-nav-list>
+</div>
+
+<div class="viewer">
+  @if (selectedDocument(); as sel) {
+  <div class="viewer-toolbar">
+    <mat-form-field appearance="outline" class="doc-title">
+      <mat-label>Название документа</mat-label>
+      <input matInput [formControl]="sel.controls.documentTitle" />
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" (click)="onGenerate()">
+      <mat-icon>auto_fix_high</mat-icon>
+      Сгенерировать
+    </button>
+  </div>
+
+  <app-document-image
+    [imageSrc]="sel.get('file')?.value"
+    [fieldsFormArray]="sel.controls.fields"
+  >
+  </app-document-image>
+  }
+</div>
+}

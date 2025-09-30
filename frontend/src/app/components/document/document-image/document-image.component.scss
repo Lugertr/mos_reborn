@@ -1,0 +1,30 @@
+.image-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.image-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.overlay {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  /* small elevation */
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,.15));
+}
+
+.overlay-field {
+  min-width: 180px;
+}

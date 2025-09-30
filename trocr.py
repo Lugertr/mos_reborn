@@ -526,6 +526,8 @@ class TrainConfig:
     mixed_precision: bool = False
     seed: int = 42
     label_smoothing: float = 0.0
+    learning_rate: float = 2e-4
+    init_weights: Optional[str] = None
 
 
 def save_config(cfg: TrainConfig, charset: Charset):
@@ -537,7 +539,7 @@ def save_config(cfg: TrainConfig, charset: Charset):
     charset.save(os.path.join(cfg.run_dir, "charset.json"))
 
 
-def build_and_compile(cfg: TrainConfig, vocab_size: int, charset: Charset) -> TrOCR:
+def build_and_compile(cfg: TrainConfig, vocab_size: int, charset: Charset, freeze_encoder: bool = False) -> tf.keras.Model:
     if cfg.mixed_precision:
         try:
             from tensorflow.keras import mixed_precision as mp
@@ -599,7 +601,9 @@ def build_and_compile(cfg: TrainConfig, vocab_size: int, charset: Charset) -> Tr
             return ret
 
     wrapper = TrainWrapper(model, vocab_size=vocab_size, label_smoothing=cfg.label_smoothing)
-    wrapper.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=2e-4, beta_1=0.9, beta_2=0.98, epsilon=1e-9, clipnorm=1.0), jit_compile=False)
+    if freeze_encoder:
+        wrapper.encoder.trainable = False
+    wrapper.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=cfg.learning_rate, beta_1=0.9, beta_2=0.98, epsilon=1e-9, clipnorm=1.0), jit_compile=False)
     return wrapper
 
 
@@ -632,6 +636,13 @@ def train_entry(cfg: TrainConfig, subset: str):
     train_ds, val_ds, charset, train_samples, val_samples = prepare_datasets(cfg, subset)
     save_config(cfg, charset)
     model = build_and_compile(cfg, vocab_size=len(charset.tokens), charset=charset)
+    if cfg.init_weights:
+        dummy = {"image": tf.zeros([1, cfg.img_h, cfg.img_w, 1], tf.float32),
+                 "decoder_input": tf.fill([1, cfg.max_text_len], tf.cast(charset.sos_id, tf.int32))}
+        _ = model(dummy, training=False)
+        wpath = cfg.init_weights if os.path.isabs(cfg.init_weights) else os.path.join(cfg.run_dir, cfg.init_weights)
+        model.load_weights(wpath)
+        logger.info(f"Loaded initial weights from {wpath}")
     os.makedirs(os.path.join(cfg.run_dir, 'checkpoints'), exist_ok=True)
     ckpt_path = os.path.join(cfg.run_dir, 'checkpoints', 'epoch_{epoch:03d}.weights.h5')
     best_path = os.path.join(cfg.run_dir, 'best.weights.h5')
@@ -666,7 +677,7 @@ def train_entry(cfg: TrainConfig, subset: str):
     logger.info("Обучение завершено. Сохранены last.weights.h5 и best.weights.h5 (по метрике из EvalCallback).")
 
 
-def load_model_from_run(run_dir: str) -> Tuple[TrOCR, Charset, TrainConfig]:
+def load_model_from_run(run_dir: str) -> Tuple[tf.keras.Model, Charset, TrainConfig]:
     charset_path = os.path.join(run_dir, 'charset.json')
     cfg_path = os.path.join(run_dir, 'config.json')
     if not os.path.exists(charset_path):
@@ -722,6 +733,73 @@ def infer_entry(data_root: str, split: str, run_dir: str, weights: str,
         print(f"AVG WER: {total_wer / n:.4f}")
 
 
+def finetune_entry(base_run: str, new_run: str, data_root: str, subset: str,
+                   weights: str, epochs: int, steps_per_epoch: Optional[int], batch_size: int,
+                   img_h: Optional[int], img_w: Optional[int], max_text_len: Optional[int],
+                   lr: float, freeze_encoder: bool, enc_dropout: Optional[float], dec_dropout: Optional[float],
+                   label_smoothing: Optional[float], mixed_precision: bool):
+    setup_hardware()
+    _, base_charset, base_cfg = load_model_from_run(base_run)
+    cfg = TrainConfig(
+        data_root=data_root or base_cfg.data_root,
+        run_dir=new_run,
+        img_h=img_h or base_cfg.img_h,
+        img_w=img_w or base_cfg.img_w,
+        max_text_len=max_text_len or base_cfg.max_text_len,
+        batch_size=batch_size or base_cfg.batch_size,
+        epochs=epochs or base_cfg.epochs,
+        steps_per_epoch=steps_per_epoch,
+        d_model=base_cfg.d_model,
+        num_heads=base_cfg.num_heads,
+        dff=base_cfg.dff,
+        enc_dropout=enc_dropout if enc_dropout is not None else base_cfg.enc_dropout,
+        dec_dropout=dec_dropout if dec_dropout is not None else base_cfg.dec_dropout,
+        dec_layers=base_cfg.dec_layers,
+        monitor_metric=base_cfg.monitor_metric,
+        mixed_precision=mixed_precision if mixed_precision is not None else base_cfg.mixed_precision,
+        label_smoothing=label_smoothing if label_smoothing is not None else base_cfg.label_smoothing,
+        learning_rate=lr if lr is not None else base_cfg.learning_rate,
+    )
+    if subset not in ('full', 'tt'):
+        raise ValueError("subset must be 'full' or 'tt'")
+    train_ds, val_ds, charset_tmp, train_samples, val_samples = prepare_datasets(cfg, subset)
+    charset = base_charset
+    save_config(cfg, charset)
+    model = build_and_compile(cfg, vocab_size=len(charset.tokens), charset=charset, freeze_encoder=freeze_encoder)
+    dummy = {"image": tf.zeros([1, cfg.img_h, cfg.img_w, 1], tf.float32),
+             "decoder_input": tf.fill([1, cfg.max_text_len], tf.cast(charset.sos_id, tf.int32))}
+    _ = model(dummy, training=False)
+    wpath = weights
+    if weights in ('best.weights.h5', 'last.weights.h5') and not os.path.isabs(weights):
+        wpath = os.path.join(base_run, weights)
+    model.load_weights(wpath)
+    logger.info(f"Loaded base weights from {wpath}")
+    os.makedirs(os.path.join(cfg.run_dir, 'checkpoints'), exist_ok=True)
+    ckpt_path = os.path.join(cfg.run_dir, 'checkpoints', 'epoch_{epoch:03d}.weights.h5')
+    best_path = os.path.join(cfg.run_dir, 'best.weights.h5')
+    val_steps = min(cfg.val_batches_for_eval, max(1, math.ceil(len(val_samples) / cfg.batch_size)))
+    callbacks = [
+        tf.keras.callbacks.ModelCheckpoint(ckpt_path, save_weights_only=True, save_freq='epoch'),
+        EvalCallback(val_ds, charset, val_steps, cfg.run_dir, best_path, monitor_metric=cfg.monitor_metric),
+        tf.keras.callbacks.CSVLogger(os.path.join(cfg.run_dir, 'history.csv')),
+        tf.keras.callbacks.TerminateOnNaN(),
+        tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=False),
+    ]
+    steps = cfg.steps_per_epoch or math.ceil(len(train_samples) / cfg.batch_size)
+    logger.info("Гиперпараметры (fine-tune): " + json.dumps(asdict(cfg), ensure_ascii=False))
+    model.fit(
+        train_ds,
+        epochs=cfg.epochs,
+        steps_per_epoch=steps,
+        validation_data=val_ds,
+        validation_steps=val_steps,
+        callbacks=callbacks,
+        verbose=1,
+    )
+    model.save_weights(os.path.join(cfg.run_dir, 'last.weights.h5'))
+    logger.info("Дообучение завершено. Сохранены last.weights.h5 и best.weights.h5.")
+
+
 def parse_args():
     p = argparse.ArgumentParser(description="TrOCR (TensorFlow/Keras)")
     sub = p.add_subparsers(dest='cmd', required=True)
@@ -739,6 +817,9 @@ def parse_args():
     p_train.add_argument('--enc-dropout', type=float, default=0.1)
     p_train.add_argument('--dec-dropout', type=float, default=0.1)
     p_train.add_argument('--label-smoothing', type=float, default=0.05)
+    p_train.add_argument('--learning-rate', type=float, default=2e-4)
+    p_train.add_argument('--init-weights', type=str, default=None)
+
     p_smoke = sub.add_parser('smoke')
     p_smoke.add_argument('--data-root', type=str, default=default_data_root)
     p_smoke.add_argument('--run-dir', type=str, required=True)
@@ -751,6 +832,9 @@ def parse_args():
     p_smoke.add_argument('--enc-dropout', type=float, default=0.05)
     p_smoke.add_argument('--dec-dropout', type=float, default=0.05)
     p_smoke.add_argument('--label-smoothing', type=float, default=0.1)
+    p_smoke.add_argument('--learning-rate', type=float, default=2e-4)
+    p_smoke.add_argument('--init-weights', type=str, default=None)
+
     p_infer = sub.add_parser('infer')
     p_infer.add_argument('--data-root', type=str, default=default_data_root)
     p_infer.add_argument('--split', type=str, default='tt', choices=['tt','test','train'])
@@ -760,6 +844,26 @@ def parse_args():
     p_infer.add_argument('--img-h', type=int, default=None)
     p_infer.add_argument('--img-w', type=int, default=None)
     p_infer.add_argument('--max-text-len', type=int, default=None)
+
+    p_ft = sub.add_parser('finetune')
+    p_ft.add_argument('--base-run', type=str, required=True)
+    p_ft.add_argument('--new-run', type=str, required=True)
+    p_ft.add_argument('--data-root', type=str, default=default_data_root)
+    p_ft.add_argument('--subset', type=str, choices=['full','tt'], default='full')
+    p_ft.add_argument('--weights', type=str, default='best.weights.h5')
+    p_ft.add_argument('--epochs', type=int, default=10)
+    p_ft.add_argument('--steps-per-epoch', type=int, default=None)
+    p_ft.add_argument('--batch-size', type=int, default=32)
+    p_ft.add_argument('--img-h', type=int, default=None)
+    p_ft.add_argument('--img-w', type=int, default=None)
+    p_ft.add_argument('--max-text-len', type=int, default=None)
+    p_ft.add_argument('--lr', type=float, default=5e-5)
+    p_ft.add_argument('--freeze-encoder', action='store_true')
+    p_ft.add_argument('--enc-dropout', type=float, default=None)
+    p_ft.add_argument('--dec-dropout', type=float, default=None)
+    p_ft.add_argument('--label-smoothing', type=float, default=None)
+    p_ft.add_argument('--mixed-precision', action='store_true')
+
     return p.parse_args()
 
 
@@ -780,6 +884,8 @@ def main():
             enc_dropout=getattr(args, 'enc_dropout', 0.1),
             dec_dropout=getattr(args, 'dec_dropout', 0.1),
             label_smoothing=getattr(args, 'label_smoothing', 0.0),
+            learning_rate=getattr(args, 'learning_rate', 2e-4),
+            init_weights=getattr(args, 'init_weights', None),
         )
         train_entry(cfg, subset=subset)
     elif args.cmd == 'infer':
@@ -792,6 +898,26 @@ def main():
             img_w=args.img_w,
             max_text_len=args.max_text_len,
             batch_size=args.batch_size,
+        )
+    elif args.cmd == 'finetune':
+        finetune_entry(
+            base_run=args.base_run,
+            new_run=args.new_run,
+            data_root=args.data_root,
+            subset=args.subset,
+            weights=args.weights,
+            epochs=args.epochs,
+            steps_per_epoch=args.steps_per_epoch,
+            batch_size=args.batch_size,
+            img_h=args.img_h,
+            img_w=args.img_w,
+            max_text_len=args.max_text_len,
+            lr=args.lr,
+            freeze_encoder=args.freeze_encoder,
+            enc_dropout=args.enc_dropout,
+            dec_dropout=args.dec_dropout,
+            label_smoothing=args.label_smoothing,
+            mixed_precision=args.mixed_precision,
         )
     else:
         raise ValueError("Unknown command")
