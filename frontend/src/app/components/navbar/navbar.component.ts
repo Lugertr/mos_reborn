@@ -5,8 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '@core/auth/auth.service';
+import { RouterModule } from '@angular/router';
 import { ThemeService } from '@core/services/theme.service';
 import { MENU_ITEMS, MenuItem, PathWithSlash, RoutesPath } from 'src/app/app.routes';
 
@@ -26,8 +25,6 @@ import { MENU_ITEMS, MenuItem, PathWithSlash, RoutesPath } from 'src/app/app.rou
 export class NavbarComponent {
   @Output() menuToggle = new EventEmitter<void>();
   readonly themeService = inject(ThemeService);
-  private readonly router = inject(Router);
-  private readonly auth = inject(AuthService);
   private readonly bp = inject(BreakpointObserver);
   private readonly destroy$ = inject(DestroyRef);
 
@@ -44,15 +41,6 @@ export class NavbarComponent {
 
   get userLink(): string {
     return PathWithSlash(RoutesPath.About);
-  }
-
-  get isAuth(): boolean {
-    return !!this.auth.token();
-  }
-
-  signOut(): void {
-    this.auth.clearToken();
-    this.router.navigateByUrl(PathWithSlash(RoutesPath.SignIn));
   }
 
   menuToggleClick(): void {

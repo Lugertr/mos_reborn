@@ -1,7 +1,7 @@
   <div class="content">
     <h1>ЛЦТ №9</h1>
     <div class="content-list">
-      @for (menu of menuItems; track menu) { @if (!menu.private || isAuth) {
+      @for (menu of menuItems; track menu) { @if (!menu.private) {
       <a
         mat-button
         [routerLink]="menu.path"

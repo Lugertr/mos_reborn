@@ -1,4 +1,3 @@
-import { NgStyle } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,17 +10,9 @@ import { PathWithSlash, RoutesPath } from 'src/app/app.routes';
   styleUrl: './about.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatIconModule, MatButtonModule,
-
-    RouterModule,
-  ]
+  imports: [MatIconModule, MatButtonModule, RouterModule],
 })
 export class AboutComponent {
-
-  get dashboardUrl(): string {
-    return PathWithSlash(RoutesPath.Dashboard);
-  }
-
   get converterUrl(): string {
     return PathWithSlash(RoutesPath.Conversion);
   }

@@ -1,14 +1,4 @@
 /.venv
-/venv
 /__pycache__
-/checkpoints
-/preproc_results
-/uploads
-/trocr-base-handwritten
-/trocr-finetuned
-/trocr-base-handwritten-ru
 /data
-/train/__pycache__
-/logs
-/train/checkpoints
-/train/utils/__pycache__
+/runs

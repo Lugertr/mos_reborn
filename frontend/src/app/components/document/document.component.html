@@ -1,17 +1,26 @@
 @if (!hasDocuments()) {
 <app-document-uploader
+  class="uploader"
   (filesSelected)="onFilesSelected($event)"
 ></app-document-uploader>
 } @else {
 <div class="sidebar">
   <div class="sidebar-header">
-    <button mat-raised-button color="primary" (click)="onAddDocument()">
+    <input
+      #input
+      type="file"
+      accept="image/*"
+      multiple
+      (change)="onAddDocument($event)"
+      hidden
+    />
+    <button mat-raised-button color="primary" (click)="input.click()">
       <mat-icon>add</mat-icon>
       Добавить
     </button>
   </div>
 
-  <mat-nav-list>
+  <mat-nav-list class="mat-card">
     @for (doc of documents; let i = $index; track i) {
     <a
       mat-list-item
@@ -20,7 +29,7 @@
     >
       <mat-icon matListItemIcon>description</mat-icon>
       <div matListItemTitle>
-        {{ doc.get("document_name")?.value || "Документ " + (i + 1) }}
+        {{ doc.value.documentTitle || "Документ " + (i + 1) }}
       </div>
       <button
         mat-icon-button
@@ -35,24 +44,53 @@
 </div>
 
 <div class="viewer">
-  @if (selectedDocument(); as sel) {
+  @if (selectedDocument(); as selectedVal) {
   <div class="viewer-toolbar">
     <mat-form-field appearance="outline" class="doc-title">
       <mat-label>Название документа</mat-label>
-      <input matInput [formControl]="sel.controls.documentTitle" />
+      <input matInput [formControl]="selectedVal.controls.documentTitle" />
     </mat-form-field>
 
-    <button mat-raised-button color="accent" (click)="onGenerate()">
+    <button mat-raised-button class="primary" (click)="onGenerate()">
       <mat-icon>auto_fix_high</mat-icon>
       Сгенерировать
     </button>
+
+    <button mat-raised-button (click)="test()">
+      <mat-icon>auto_fix_high</mat-icon>
+      тест
+    </button>
   </div>
 
-  <app-document-image
-    [imageSrc]="sel.get('file')?.value"
-    [fieldsFormArray]="sel.controls.fields"
-  >
+  <app-document-image class="mat-card" [data]="selectedVal">
   </app-document-image>
+
+  <mat-nav-list class="mat-card">
+    @for (seg of selectedVal.controls.fields.controls; let i = $index; track i)
+    {
+    <a
+      mat-list-item
+      (click)="onSelectDocument(i)"
+      [class.active]="i === selectedIndex()"
+    >
+      <mat-icon matListItemIcon>description</mat-icon>
+      <input
+        class="overlay-input"
+        [formControl]="seg.controls.strValue"
+        placeholder="{{ seg.controls.strValue?.value }}"
+      />
+      <button
+        mat-icon-button
+        (click)="$event.stopPropagation()"
+        aria-label="Удалить"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </a>
+    } @empty {
+    <span class="empty">Нажмите кнопку "сгенерировать"</span>
+    }
+  </mat-nav-list>
   }
 </div>
 }
