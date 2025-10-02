@@ -1,5 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+Purpose
+-------
+TensorFlow/Keras-реализация TrOCR с минимально необходимой обвязкой:
+  • конвейер данных (чтение json-списков, препроцессинг, аугментации),
+  • модель: CNN-энкодер → последовательность признаков → Transformer-декодер,
+  • обучение с masked CE и валидацией через Greedy decode (EvalCallback),
+  • функции train/finetune и загрузка сохранённого ранa для инференса.
+
+Design notes
+------------
+- Вход — кроп строки; сначала нормализация по высоте до `img_h`, затем паддинг/кроп до `img_w`.
+- Маска ключей энкодера (`enc_key_mask`) строится из фактической ширины признаков (W/8).
+- Выходной словарь жёстко задан через Charset (включая дореформенные буквы и римские цифры).
+- Сохранение `config.json` и `charset.json` в папку run позволяет воспроизводить инференс.
+"""
 
 from __future__ import annotations
 import os
@@ -34,6 +50,16 @@ logger.addHandler(ch)
 
 # -------------------- АППАРАТУРА --------------------
 def setup_hardware(seed: Optional[int] = None):
+    """
+    Подготовка окружения TF: отключение XLA/оптимизаторов макета, memory growth на GPU,
+    установка сидов.
+
+    Args:
+        seed: Если задан — детерминирует NumPy/TF/Random.
+
+    Notes:
+        Без memory growth TF может «съесть» всю видеопамять на старте.
+    """
     try:
         tf.config.optimizer.set_jit(False)
         tf.config.optimizer.set_experimental_options({'layout_optimizer': False})
@@ -77,8 +103,18 @@ SPECIAL_TOKENS = {
     "UNK": "<unk>",
 }
 
-
 class Charset:
+    """
+    Словарь символов и служебных токенов:
+      • фиксированный набор REQUIRED_CHARS,
+      • дополнительные символы из обучающего текста (опционально),
+      • отображения char↔id и token↔id.
+
+    Methods:
+        encode(text, add_sos_eos): список id (с опциональными <s> ... </s>)
+        decode(ids, strip_special): строка без служебных токенов (по умолчанию)
+        save/load: сериализация в JSON-файл.
+    """
     def __init__(self, extra_texts: List[str] | None = None):
         base_chars = list(dict.fromkeys(REQUIRED_CHARS))
         extra = []
@@ -109,12 +145,20 @@ class Charset:
     def unk_id(self) -> int: return self.token_to_id[SPECIAL_TOKENS["UNK"]]
 
     def encode(self, text: str, add_sos_eos: bool = False) -> List[int]:
+        """Преобразовать строку в последовательность id (с опциональными <s> и </s>)."""
         ids = [self.char_to_id.get(ch, self.unk_id) for ch in text]
         if add_sos_eos:
             return [self.sos_id] + ids + [self.eos_id]
         return ids
 
     def decode(self, ids: List[int], strip_special: bool = True) -> str:
+        """
+        Преобразовать id → строка.
+
+        Args:
+            ids: последовательность индексов.
+            strip_special: если True — служебные токены не включаются в вывод.
+        """
         out = []
         for i in ids:
             if i == self.pad_id and strip_special:
@@ -126,11 +170,13 @@ class Charset:
         return "".join(out)
 
     def save(self, path: str):
+        """Сохранить список токенов в JSON-файл."""
         with open(path, "w", encoding="utf-8") as f:
             json.dump({"tokens": self.tokens}, f, ensure_ascii=False, indent=2)
 
     @staticmethod
     def load(path: str) -> "Charset":
+        """Загрузить словарь из JSON-файла, восстановив отображения id↔token/char."""
         with open(path, "r", encoding="utf-8") as f:
             obj = json.load(f)
         c = Charset(extra_texts=None)
@@ -143,6 +189,7 @@ class Charset:
 
 # -------------------- МЕТРИКИ --------------------
 def _levenshtein(a: List[str], b: List[str]) -> int:
+    """Стандартное расстояние Левенштейна между последовательностями символов/слов."""
     n, m = len(a), len(b)
     if n == 0: return m
     if m == 0: return n
@@ -154,15 +201,15 @@ def _levenshtein(a: List[str], b: List[str]) -> int:
             dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost)
     return dp[n][m]
 
-
 def cer(ref: str, hyp: str) -> float:
+    """Character Error Rate (по символам)."""
     ref_chars, hyp_chars = list(ref), list(hyp)
     if len(ref_chars) == 0:
         return float(len(hyp_chars) > 0)
     return _levenshtein(ref_chars, hyp_chars) / max(1, len(ref_chars))
 
-
 def wer(ref: str, hyp: str) -> float:
+    """Word Error Rate (по словам)."""
     ref_words, hyp_words = ref.split(), hyp.split()
     if len(ref_words) == 0:
         return float(len(hyp_words) > 0)
@@ -171,11 +218,16 @@ def wer(ref: str, hyp: str) -> float:
 
 @dataclass
 class Sample:
+    """Единица датасета: путь к картинке и соответствующий целевой текст."""
     path: str
     text: str
 
-
 def read_json_list(json_path: str, images_dir: str) -> List[Sample]:
+    """
+    Прочитать список образцов из JSON: [{"file_name": "...", "text": "..."}].
+
+    Логирует предупреждения для отсутствующих файлов и пустых целевых строк.
+    """
     with open(json_path, "r", encoding="utf-8") as f:
         arr = json.load(f)
     samples: List[Sample] = []
@@ -202,6 +254,12 @@ def read_json_list(json_path: str, images_dir: str) -> List[Sample]:
 
 # -------------------- ПРЕПРОЦЕССИНГ --------------------
 def preprocess_image(img, img_h: int, img_w: int):
+    """
+    Нормализовать вход под размеры модели:
+      • конвертация в float32 [0..1] и одноканальный вид (H, W, 1),
+      • масштабирование по высоте до img_h с сохранением пропорций,
+      • правый паддинг до ширины img_w (белым), либо кроп при избыточной ширине.
+    """
     img = tf.image.convert_image_dtype(img, tf.float32)
     if img.shape.rank == 3 and img.shape[-1] != 1:
         if tf.shape(img)[-1] > 1:
@@ -223,8 +281,11 @@ def preprocess_image(img, img_h: int, img_w: int):
         img = tf.image.crop_to_bounding_box(img, 0, 0, img_h, img_w)
     return img
 
-
 def augment_image(img):
+    """
+    Небольшие аугментации для робастности: контраст/яркость/шум/случайный сдвиг по ширине.
+    Используется только для train-пайплайна.
+    """
     img = tf.image.random_contrast(img, 0.9, 1.1)
     img = tf.image.random_brightness(img, 0.1)
     noise = tf.random.normal(tf.shape(img), stddev=0.02)
@@ -237,11 +298,28 @@ def augment_image(img):
     img = tf.image.crop_to_bounding_box(pad, 0, start, h, w)
     return img
 
-
 def make_dataset(samples: List[Sample], charset: Charset, img_h: int, img_w: int,
                 max_text_len: int, batch_size: int, shuffle: bool = True,
                 repeat: bool = True, shard_desc: str = "", include_meta: bool = False,
                 augment: bool = False) -> tf.data.Dataset:
+    """
+    Построить tf.data.Dataset для обучения/валидации/инференса.
+
+    Args:
+        samples: список Sample(path,text).
+        charset: словарь символов для кодирования целей.
+        img_h, img_w: размеры входа модели.
+        max_text_len: фиксированная длина декодера.
+        batch_size: размер батча.
+        shuffle/repeat: поведение датасета.
+        shard_desc: метка для логов ("train"/"val"/"infer").
+        include_meta: если True — в батч будут добавлены "text"/"path".
+        augment: если True — применяются лёгкие аугментации.
+
+    Returns:
+        Dataset с полями:
+            image, decoder_input, target, target_mask, enc_key_mask [, text, path]
+    """
     paths = [s.path for s in samples]
     texts = [s.text for s in samples]
     enc_T_max = int(math.ceil(img_w / 8.0))
@@ -322,6 +400,7 @@ def make_dataset(samples: List[Sample], charset: Charset, img_h: int, img_w: int
 
 # -------------------- МОДЕЛЬ --------------------
 class PositionalEncoding(tf.keras.layers.Layer):
+    """Синусоидальные позиционные эмбеддинги (как в оригинальном Transformer)."""
     def __init__(self, d_model: int, max_len: int = 10000, **kwargs):
         super().__init__(**kwargs)
         pos = np.arange(max_len)[:, None]
@@ -340,8 +419,11 @@ class PositionalEncoding(tf.keras.layers.Layer):
     def compute_output_shape(self, input_shape):
         return input_shape
 
-
 def conv_encoder(img_h: int, img_w: int, d_model: int, dropout: float = 0.1) -> tf.keras.Model:
+    """
+    Лёгкий CNN-энкодер: несколько Conv2D-блоков с downsample по ширине, затем
+    усреднение по высоте → Dense(d_model) → позиционные эмбеддинги.
+    """
     inp = tf.keras.Input(shape=(img_h, img_w, 1), name="image")
     x = inp
     for filters, k, s in [(64, 3, 1), (64, 3, 2), (128, 3, 1), (128, 3, 2),
@@ -356,9 +438,14 @@ def conv_encoder(img_h: int, img_w: int, d_model: int, dropout: float = 0.1) -> 
     x = PositionalEncoding(d_model)(x)
     return tf.keras.Model(inp, x, name="cnn_encoder")
 
-
 def transformer_decoder(num_layers: int, d_model: int, num_heads: int, dff: int,
                         vocab_size: int, dropout: float, max_len: int, pad_id: int) -> tf.keras.Model:
+    """
+    Transformer-декодер с:
+      • causal self-attention по декодерным позициям,
+      • cross-attention на выход энкодера (маска по enc_key_mask),
+      • feed-forward блоки и weight tying для выходного слоя (через Embedding).
+    """
     dec_inp = tf.keras.Input(shape=(max_len,), dtype=tf.int32, name="decoder_input")
     enc_out = tf.keras.Input(shape=(None, d_model), dtype=tf.float32, name="encoder_output")
     enc_key_mask_inp = tf.keras.Input(shape=(None,), dtype=tf.bool, name="enc_key_mask")
@@ -393,6 +480,7 @@ def transformer_decoder(num_layers: int, d_model: int, num_heads: int, dff: int,
     x = tf.keras.layers.LayerNormalization(epsilon=1e-6)(x)
 
     class TiedOutput(tf.keras.layers.Layer):
+        """Выходной слой, «связанный» с матрицей эмбеддингов (weight tying)."""
         def __init__(self, emb_layer, vocab_size, **kwargs):
             super().__init__(**kwargs)
             self.emb_layer = emb_layer
@@ -406,8 +494,11 @@ def transformer_decoder(num_layers: int, d_model: int, num_heads: int, dff: int,
     logits = TiedOutput(tok_emb, vocab_size)(x)
     return tf.keras.Model([dec_inp, enc_out, enc_key_mask_inp], logits, name="transformer_decoder")
 
-
 class TrOCR(tf.keras.Model):
+    """
+    Модель: CNN-encoder → Transformer-decoder.
+    Хранит `max_text_len` и открывает доступ к encoder/decoder для внешних вызовов.
+    """
     def __init__(self, img_h: int, img_w: int, vocab_size: int, max_text_len: int,
                 d_model: int = 256, num_heads: int = 8, dff: int = 512,
                 enc_dropout: float = 0.1, dec_dropout: float = 0.1, dec_layers: int = 4,
@@ -419,6 +510,11 @@ class TrOCR(tf.keras.Model):
                                         dropout=dec_dropout, max_len=max_text_len, pad_id=pad_id)
 
     def call(self, inputs, training=False):
+        """
+        Прямой проход: inputs = {"image", "decoder_input", ["enc_key_mask"]} → logits.
+
+        Если `enc_key_mask` не передан — берётся маска из полной длины выхода энкодера.
+        """
         img = inputs["image"]
         dec_inp = inputs["decoder_input"]
         enc_key_mask = inputs.get("enc_key_mask")
@@ -433,6 +529,11 @@ class TrOCR(tf.keras.Model):
 
 # -------------------- ЛОСС --------------------
 def masked_ce(y_true, y_pred, mask, vocab_size, label_smoothing: float = 0.0):
+    """
+    Маскированная кросс-энтропия для последовательностей:
+      • поддержка label smoothing,
+      • усреднение только по валидным (mask==1) позициям.
+    """
     y_pred = tf.cast(y_pred, tf.float32)
     if label_smoothing and label_smoothing > 0.0:
         y1 = tf.one_hot(y_true, depth=vocab_size, dtype=tf.float32)
@@ -449,6 +550,12 @@ def masked_ce(y_true, y_pred, mask, vocab_size, label_smoothing: float = 0.0):
 
 # -------------------- КОЛЛБЭКИ --------------------
 class EvalCallback(tf.keras.callbacks.Callback):
+    """
+    Валидация после каждой эпохи через greedy-декод:
+      • считает CER/WER на `max_batches` батчах вал-данных,
+      • пишет отчёт в run_dir,
+      • сохраняет best.weights.h5 по выбранной метрике (cer|wer).
+    """
     def __init__(self, val_ds: tf.data.Dataset, charset: Charset, max_batches: int,
                 run_dir: str, best_ckpt_path: str, monitor_metric: str = 'cer'):
         super().__init__()
@@ -491,9 +598,24 @@ class EvalCallback(tf.keras.callbacks.Callback):
             logger.info(f"New best {self.monitor_metric.upper()} {self.best_score:.4f}. "
                         f"Saved weights to {self.best_ckpt_path}")
 
-
 def greedy_decode(model: TrOCR, images: tf.Tensor, enc_key_mask: tf.Tensor,
                 charset: Charset, max_len: int) -> List[str]:
+    """
+    Простой жадный декодер:
+      • инициализирует <s> и пошагово выбирает argmax для следующего токена,
+      • останавливается по EOS или по достижении max_len,
+      • возвращает список строк, очищая служебные токены.
+
+    Args:
+        model: Объёрнутая модель (TrainWrapper или TrOCR), у которой есть encoder/decoder.
+        images: Тензор (B, H, W, 1).
+        enc_key_mask: Маска по времени для выхода энкодера (или None — тогда генерируется полностью).
+        charset: Для извлечения id токенов и финального декода.
+        max_len: Фиксированная длина для декодера.
+
+    Returns:
+        List[str]: Тексты для каждого элемента батча.
+    """
     B = tf.shape(images)[0]
     dec = tf.fill([B, max_len], tf.cast(charset.pad_id, tf.int32))
     first_col = tf.stack([tf.range(B, dtype=tf.int32), tf.zeros([B], dtype=tf.int32)], axis=1)
@@ -528,6 +650,7 @@ def greedy_decode(model: TrOCR, images: tf.Tensor, enc_key_mask: tf.Tensor,
 # -------------------- КОНФИГ, ПРОФИЛИ, NAMES --------------------
 @dataclass
 class TrainConfig:
+    """Конфигурация обучения/дообучения и инференса (сохраняется в run_dir/config.json)."""
     data_root: str
     run_dir: str
     img_h: int = 120
@@ -552,18 +675,17 @@ class TrainConfig:
     lr_decay_rate: float = 0.98
     early_stop_patience: int = 6
 
-
 def dict_update(dst: dict, src: dict) -> dict:
+    """Копия словаря `dst` с обновлением только непустых значений из `src`."""
     out = dict(dst)
     out.update({k: v for k, v in src.items() if v is not None})
     return out
 
-
 def load_user_config(path: Optional[str]) -> Tuple[dict, dict]:
     """
-    Возвращает (config_dict, presets_dict).
-    Поддерживает JSON и .py (ожидает в .py словари CONFIG и необязательный PRESETS).
-    Если path=None, возвращает ({}, {}).
+    Прочитать конфигурацию пользователя:
+      • JSON: словарь параметров и опционально PRESETS;
+      • .py: ожидать глобальные переменные CONFIG и (опц.) PRESETS.
     """
     if not path:
         return {}, {}
@@ -585,8 +707,8 @@ def load_user_config(path: Optional[str]) -> Tuple[dict, dict]:
         obj = json.load(f)
     return obj, obj.get("PRESETS", {})
 
-
 def apply_profile(base_cfg: dict, profile: Optional[str], presets: dict) -> dict:
+    """Наложить профиль из PRESETS на базовый конфиг (если профиль существует)."""
     if not profile:
         return base_cfg
     if profile not in presets:
@@ -594,13 +716,14 @@ def apply_profile(base_cfg: dict, profile: Optional[str], presets: dict) -> dict
         return base_cfg
     return dict_update(base_cfg, presets[profile])
 
-
 def build_effective_config(args, defaults: TrainConfig) -> Tuple[TrainConfig, dict]:
     """
-    1) dataclass defaults -> dict
-    2) CONFIG из --config
-    3) профиль из PRESETS (--profile)
-    4) CLI-оверрайды (если явно заданы)
+    Слияние конфигов (приоритет сверху вниз):
+      1) дефолты dataclass,
+      2) CONFIG из файла,
+      3) профиль PRESETS,
+      4) CLI-оверайды.
+    Возвращает (TrainConfig, «сырой» объединённый словарь для логов/отладки).
     """
     base = asdict(defaults)
     user_cfg, presets = load_user_config(getattr(args, "config", None))
@@ -630,12 +753,12 @@ def build_effective_config(args, defaults: TrainConfig) -> Tuple[TrainConfig, di
     tc = TrainConfig(**tc_kwargs)
     return tc, merged
 
-
 def normalize_subset_name(name: str) -> str:
     """
-    'full'      -> train/test
-    'postTest'  -> пост-тестовый набор (postTest + postTest.json)
-    также понимает: 'tt' как 'postTest'
+    Привести имя поднабора к канону:
+      'tt'/'posttest'/'post_test' → 'postTest'
+      'full' → 'full' (используется для train; для ft/val читаем train/test)
+      иначе ошибка
     """
     low = name.lower()
     if low in ("tt", "posttest", "post_test"):
@@ -646,9 +769,9 @@ def normalize_subset_name(name: str) -> str:
         return "postTest"
     raise ValueError("subset must be 'full' or 'postTest'")
 
-
 # -------------------- СЕРИАЛИЗАЦИЯ РАНА --------------------
 def save_config(cfg: TrainConfig, charset: Charset):
+    """Сохранить текущий TrainConfig и charset в run_dir."""
     os.makedirs(cfg.run_dir, exist_ok=True)
     with open(os.path.join(cfg.run_dir, "config.json"), "w", encoding="utf-8") as f:
         obj = asdict(cfg)
@@ -656,9 +779,12 @@ def save_config(cfg: TrainConfig, charset: Charset):
         json.dump(obj, f, ensure_ascii=False, indent=2)
     charset.save(os.path.join(cfg.run_dir, "charset.json"))
 
-
 def build_and_compile(cfg: TrainConfig, vocab_size: int, charset: Charset,
                     freeze_encoder: bool = False) -> tf.keras.Model:
+    """
+    Построить TrOCR и обёртку для train/test step’ов, с оптимизатором и (опц.) mixed precision.
+    Параметр `freeze_encoder` фиксирует веса CNN-энкодера (для финтюнинга).
+    """
     if cfg.mixed_precision:
         try:
             from tensorflow.keras import mixed_precision as mp
@@ -675,6 +801,10 @@ def build_and_compile(cfg: TrainConfig, vocab_size: int, charset: Charset,
     )
 
     class TrainWrapper(tf.keras.Model):
+        """
+        Обёртка над TrOCR, реализующая `train_step`/`test_step` с masked CE, и
+        предоставляющая доступ к encoder/decoder/save_weights для совместимости.
+        """
         def __init__(self, inner: TrOCR, vocab_size: int, label_smoothing: float = 0.05, **kwargs):
             super().__init__(**kwargs)
             self.inner = inner
@@ -722,8 +852,11 @@ def build_and_compile(cfg: TrainConfig, vocab_size: int, charset: Charset,
     wrapper.compile(optimizer=optimizer, jit_compile=False)
     return wrapper
 
-
 def prepare_datasets(cfg: TrainConfig, subset: str) -> Tuple[tf.data.Dataset, Optional[tf.data.Dataset], Charset, List[Sample], List[Sample]]:
+    """
+    Сконструировать train/val датасеты и Charset. Для 'full' валидируемся на test,
+    для 'postTest' используем один и тот же набор (быстрый цикл отладки).
+    """
     root = cfg.data_root
     subset = normalize_subset_name(subset)
     if subset == 'full':
@@ -751,6 +884,13 @@ def prepare_datasets(cfg: TrainConfig, subset: str) -> Tuple[tf.data.Dataset, Op
 
 # -------------------- ТРЕНИРОВКА/ФТ --------------------
 def train_entry(cfg: TrainConfig, subset: str):
+    """
+    Полное обучение с сохранением:
+      • чекпойнтов по эпохам,
+      • best.weights.h5 (по метрике из EvalCallback),
+      • last.weights.h5 (последняя эпоха),
+      • history.csv и per-epoch отчётов в run_dir.
+    """
     setup_hardware(seed=cfg.seed)
     train_ds, val_ds, charset, train_samples, val_samples = prepare_datasets(cfg, subset)
     save_config(cfg, charset)
@@ -803,8 +943,12 @@ def train_entry(cfg: TrainConfig, subset: str):
     model.save_weights(os.path.join(cfg.run_dir, 'last.weights.h5'))
     logger.info("Обучение завершено. Сохранены last.weights.h5 и best.weights.h5 (по метрике из EvalCallback).")
 
-
 def load_model_from_run(run_dir: str) -> Tuple[tf.keras.Model, Charset, TrainConfig]:
+    """
+    Восстановить модель/charset/config из сохранённого запуска:
+      • читает `charset.json` и `config.json`,
+      • собирает модель и компилирует её (без обучения).
+    """
     charset_path = os.path.join(run_dir, 'charset.json')
     cfg_path = os.path.join(run_dir, 'config.json')
     if not os.path.exists(charset_path):
@@ -818,15 +962,20 @@ def load_model_from_run(run_dir: str) -> Tuple[tf.keras.Model, Charset, TrainCon
     model = build_and_compile(cfg, vocab_size=len(charset.tokens), charset=charset)
     return model, charset, cfg
 
-
 def finetune_entry(base_run: str, new_run: str, data_root: str, subset: str,
                 weights: str, epochs: int, steps_per_epoch: Optional[int], batch_size: int,
                 img_h: Optional[int], img_w: Optional[int], max_text_len: Optional[int],
                 lr: float, freeze_encoder: bool, enc_dropout: Optional[float], dec_dropout: Optional[float],
                 label_smoothing: Optional[float], mixed_precision: bool,
                 monitor_metric: Optional[str] = None, lr_decay_rate: Optional[float] = None,
-                early_stop_patience: Optional[int] = None, val_batches_for_eval: Optional[int] = None,
+                early_stop_patience: Optional[float] = None, val_batches_for_eval: Optional[int] = None,
                 seed: Optional[int] = None):
+    """
+    Дообучение от базового run:
+      • копируем ключевые гиперпараметры из base_run (кроме явно переопределённых),
+      • загружаем base-веса, опционально «замораживаем» энкодер,
+      • обучаем и сохраняем новый run в new_run.
+    """
     setup_hardware(seed=seed)
 
     _, base_charset, base_cfg = load_model_from_run(base_run)
@@ -909,6 +1058,12 @@ def finetune_entry(base_run: str, new_run: str, data_root: str, subset: str,
 
 # -------------------- CLI --------------------
 def parse_args():
+    """
+    CLI-обёртка для сценариев обучения:
+      • train — полное обучение,
+      • smoke — быстрый прогон (как train, но можно задать короткие циклы),
+      • finetune — дообучение от существующего запуска.
+    """
     p = argparse.ArgumentParser(description="TrOCR (TensorFlow/Keras)")
     p.add_argument('--config', type=str, default=None,
                 help="Путь к конфигу (JSON или .py с CONFIG/PRESETS)")
@@ -985,6 +1140,7 @@ def parse_args():
     return p.parse_args()
 
 def main():
+    """Основная CLI-ветка: train/smoke/finetune с формированием effective_config.json."""
     args = parse_args()
 
     if args.cmd in ('train', 'smoke'):
@@ -1042,7 +1198,6 @@ def main():
         )
     else:
         raise ValueError("Unknown command")
-
 
 if __name__ == '__main__':
     main()

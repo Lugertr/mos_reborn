@@ -1,4 +1,18 @@
 # trocr/runtime.py
+"""
+Purpose
+-------
+Лёгкий рантайм-обёртка для инференса TrOCR из API:
+  • лениво загружает модель/charset/config один раз (`init_trocr`);
+  • готовит батч из PIL-изображений строк и вызывает greedy-декод;
+  • предоставляет `recognize_batch(images)` для использования в пайплайне.
+
+Notes
+-----
+- Параметры пути к запуску и весам берутся из config: `TROCR_RUN_DIR`, `TROCR_WEIGHTS_FILE`.
+- При инициализации выполняется «прогрев» на белом квадрате (ускоряет первый реальный вызов).
+"""
+
 from typing import List, Optional
 from PIL import Image
 import numpy as np
@@ -19,6 +33,17 @@ _CFG: Optional[TrainConfig] = None
 _READY: bool = False
 
 def init_trocr() -> bool:
+    """
+    Инициализировать глобальные объекты TrOCR для инференса (модель/charset/config).
+
+    Returns:
+        True, если модель успешно загружена и прогрета; False при любой ошибке.
+
+    Side effects:
+        - Загружает модель и веса из `TROCR_RUN_DIR` / `TROCR_WEIGHTS_FILE`.
+        - Выполняет «прогрев» через recognize_batch([white_img]).
+        - Заполняет глобальные `_MODEL`, `_CHARSET`, `_CFG`, `_READY`.
+    """
     global _MODEL, _CHARSET, _CFG, _READY
     try:
         with timeblock(logger, "trocr_load", run=TROCR_RUN_DIR):
@@ -49,6 +74,16 @@ def init_trocr() -> bool:
         return False
 
 def _pil_to_tensor_batch(images: List[Image.Image], h: int, w: int) -> tf.Tensor:
+    """
+    Преобразовать список PIL.Image в 4D-тензор (B, H, W, 1) с нормализацией/паддингом.
+
+    Args:
+        images: Список кропов строк (PIL.Image, обычно "L", но допускается RGB).
+        h, w: Целевой размер модели.
+
+    Returns:
+        tf.Tensor формы (batch, h, w, 1) в диапазоне [0..1], паддинг справа белым.
+    """
     tensors = []
     for im in images:
         arr = np.array(im)
@@ -62,7 +97,16 @@ def _pil_to_tensor_batch(images: List[Image.Image], h: int, w: int) -> tf.Tensor
 
 def recognize_batch(images: List[Image.Image]) -> List[str]:
     """
-    Батч-инференс TrOCR. Вернёт распознанные строки.
+    Выполнить батч-инференс TrOCR и вернуть распознанные строки.
+
+    Args:
+        images: список PIL.Image, каждый — одна строка текста.
+
+    Returns:
+        Список строк-предсказаний (len == len(images)).
+
+    Raises:
+        RuntimeError: если TrOCR ещё не инициализирован (`init_trocr()` не вызывался).
     """
     if _MODEL is None or _CHARSET is None or _CFG is None:
         raise RuntimeError("TrOCR is not initialized")

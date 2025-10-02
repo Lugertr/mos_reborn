@@ -1,5 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+Purpose
+-------
+Скрипт офлайн-инференса и анализа качества модели TrOCR (TensorFlow).
+Два режима:
+  • `recognize` — прогон датасета (train/test/postTest), сохранение TSV с (path, pred, ref),
+                  логирование средних CER/WER.
+  • `analyze`   — пост-анализ ранее сохранённого TSV и вывод сводного отчёта.
+
+Key flow (recognize)
+--------------------
+1) Загрузка модели/charset/config из каталога run.
+2) (Опционально) переопределение размеров/макс. длины/корня данных.
+3) Инициализация графа и загрузка весов.
+4) Чтение split’а из *.json, сбор tf.data.Dataset.
+5) Greedy-декодирование батчами, расчёт CER/WER, сохранение TSV.
+
+CLI
+---
+Пример:
+    python -m trocr.infer recognize --run runs/base --weights best.weights.h5 --split postTest
+    python -m trocr.infer analyze   --run runs/base --split postTest
+"""
 
 from __future__ import annotations
 import os
@@ -28,6 +51,17 @@ from trocr.trocr_modified import (
 )
 
 def normalize_subset_name(name: str) -> str:
+    """
+    Приводит имя поднабора к каноническому виду.
+
+    Поддержка синонимов:
+      "tt" / "posttest" / "post_test" → "postTest";
+      "postTest" → "postTest";
+      "full" — разрешён только для обучения (не для инференса).
+
+    Raises:
+        ValueError: если передано неразрешённое значение для инференса.
+    """
     low = name.lower()
     if low in ("tt", "posttest", "post_test"):
         return "postTest"
@@ -37,10 +71,16 @@ def normalize_subset_name(name: str) -> str:
         return "postTest"
     raise ValueError("split must be 'train'/'test'/'postTest' (или 'full' только для обучения)")
 
-
 def save_predictions_tsv(out_path: str, rows: List[Tuple[str, str, str]]):
     """
-    rows: list of (path, pred, ref)
+    Сохранить результат инференса в TSV-таблицу.
+
+    Args:
+        out_path: Путь к TSV.
+        rows: Список кортежей (path, pred, ref) построчно.
+
+    Notes:
+        Внутренние табы/переводы строк в pred/ref заменяются, чтобы не ломать формат TSV.
     """
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
@@ -51,15 +91,27 @@ def save_predictions_tsv(out_path: str, rows: List[Tuple[str, str, str]]):
             f.write(f"{p}\t{pred}\t{ref}\n")
     logger.info(f"Saved predictions to {out_path}")
 
-
 def recognize_entry(run: str, split: str, weights: str, out: Optional[str] = None,
                     batch_size: int = 32,
                     img_h: Optional[int] = None, img_w: Optional[int] = None,
                     max_text_len: Optional[int] = None,
                     data_root: Optional[str] = None):
     """
-    Распознаёт split (postTest/test/train), сохраняет TSV с предсказаниями и эталонами.
-    По умолчанию конфигурация загружается из runs/<run>/config.json.
+    Прогон датасета (postTest/test/train), сохранение TSV с (path, pred, ref).
+
+    Args:
+        run: Каталог запуска с config.json/charset.json/весами.
+        split: Какой поднабор использовать: 'postTest' | 'test' | 'train'.
+        weights: Имя/путь файла весов (.h5). Относительный путь считается относительно `run`.
+        out: Куда писать TSV (по умолчанию `<run>/predictions.tsv`).
+        batch_size: Размер батча на инференсе.
+        img_h, img_w, max_text_len, data_root: Переопределения из config, при необходимости.
+
+    Behavior:
+        • Сначала грузится модель+конфиг из `run`, при необходимости переопределяются поля.
+        • Строится граф (прогон dummy), затем подгружаются веса.
+        • Собирается tf.data.Dataset для нужного split и выполняется greedy-декод.
+        • Подсчитываем средние CER/WER и логируем.
     """
     model, charset, cfg = load_model_from_run(run)
     # опционально перекрыть размеры
@@ -124,11 +176,18 @@ def recognize_entry(run: str, split: str, weights: str, out: Optional[str] = Non
         logger.info(f"AVG CER: {total_cer / n:.4f}")
         logger.info(f"AVG WER: {total_wer / n:.4f}")
 
-
 def analyze_entry(run: str, split: str, in_path: Optional[str], out_prefix: Optional[str]):
     """
-    Анализирует готовый predictions.tsv и пишет текстовый отчёт с CER/WER в runs/<run>/.
-    Если in_path не указан, берёт runs/<run>/predictions.tsv.
+    Пост-анализ готового predictions.tsv: построчные CER/WER и сводка.
+
+    Args:
+        run: Каталог запуска (куда положим отчёт).
+        split: Для имени отчёта (чисто информативно).
+        in_path: Путь к TSV; по умолчанию `<run>/predictions.tsv`.
+        out_prefix: Префикс имени отчёта; по умолчанию `analysis_<split>`.
+
+    Output:
+        `<run>/<out_prefix>.txt` — список строк с (path|pred|ref|cer|wer) и средние значения в конце.
     """
     if not os.path.isabs(run):
         run = run
@@ -172,8 +231,8 @@ def analyze_entry(run: str, split: str, in_path: Optional[str], out_prefix: Opti
         f.write("\n".join(lines))
     logger.info(f"Saved analysis to {out_txt}")
 
-
 def parse_args():
+    """Парсер CLI для сабкоманд `recognize` и `analyze`."""
     p = argparse.ArgumentParser(description="TrOCR inference/analyze")
     sub = p.add_subparsers(dest='cmd', required=True)
 
@@ -196,8 +255,8 @@ def parse_args():
 
     return p.parse_args()
 
-
 def main():
+    """Точка входа CLI: делегирует в recognize/analyze по аргументу `cmd`."""
     args = parse_args()
     if args.cmd == 'recognize':
         recognize_entry(
@@ -209,7 +268,6 @@ def main():
         analyze_entry(run=args.run, split=args.split, in_path=args.in_path, out_prefix=args.out_prefix)
     else:
         raise ValueError("Unknown command")
-
 
 if __name__ == '__main__':
     main()

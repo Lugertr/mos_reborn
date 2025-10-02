@@ -1,4 +1,23 @@
 # api/routes.py
+"""
+Purpose
+-------
+HTTP-эндпоинт распознавания и поток прогресса (SSE). В этом модуле собран
+весь «сквозной» пайплайн: приём файла → проверка лимитов → автоповорот (OSD) →
+предобработка → сегментация на строки Tesseract'ом → выбор «сомнительных» строк →
+опциональный fallback в TrOCR → расчёт метрики WER → сборка ответа.
+
+Key concepts
+------------
+- Порог уверенности Tesseract (`conf_threshold`) решает, какие строки уйдут в TrOCR.
+- `wer_mode`: "proxy" (приближённая оценка) или "exact" (по референсу `ref_text`).
+- SSE-режим: отдаём события `hello` → `progress` ... → `result` по `text/event-stream`.
+
+Endpoints
+---------
+POST /ocr_segments  — обычный JSON-ответ или потоковый SSE (по флагу `stream`).
+"""
+
 from __future__ import annotations
 import asyncio
 import time
@@ -31,11 +50,32 @@ router = APIRouter()
 
 # ---------- небольшая утилита для шагов/таймингов ----------
 class StepTrace:
+    """
+    Накопитель этапов пайплайна с относительными таймингами.
+
+    Использование:
+        trace = StepTrace()
+        trace.mark("preprocess_done", {"duration_ms": 123})
+
+    Хранит список словарей вида:
+        {"step": <str>, "t_ms": <int>, **extra}
+    где t_ms — миллисекунды от момента создания `StepTrace`.
+    """
     def __init__(self):
         self.trace: List[Dict[str, Any]] = []
         self._t0 = time.perf_counter()
 
     def mark(self, name: str, extra: Dict[str, Any] | None = None) -> Dict[str, Any]:
+        """
+        Добавить отметку в журнал этапов.
+
+        Args:
+            name: Человекочитаемое имя шага (например, "segment_lines_done").
+            extra: Любые дополнительные поля (кол-во строк, длительность и т.п.).
+
+        Returns:
+            Добавленный элемент журнала (dict).
+        """
         now = time.perf_counter()
         item = {
             "step": name,
@@ -50,8 +90,16 @@ class StepTrace:
 # ---------- безопасное чтение UploadFile с лимитом ----------
 async def read_upload_limited(file: UploadFile, limit: int) -> bytes:
     """
-    Читает не более (limit+1) байт из UploadFile.
-    Если превышение — 413. Возвращает байты файла.
+    Прочитать из UploadFile не более `limit` байт (жёсткий контроль размера).
+
+    Поведение:
+    - если фактический размер превышает лимит → HTTP 413 Payload Too Large;
+    - если файл пустой → HTTP 400;
+    - иначе вернуть байтовое содержимое.
+
+    Note:
+        UploadFile.read() читает из временного файла асинхронно — блокировки event loop
+        нет, но мы всё равно контролируем объём для надёжности и диагностики.
     """
     # NB: UploadFile.read() уже асинхронно читает содержимое из temp/spooled файла
     chunk = await file.read(limit + 1)
@@ -78,9 +126,27 @@ async def run_pipeline(
     emit: Optional[Callable[[str, Dict[str, Any]], None]] = None,
 ) -> Dict[str, Any]:
     """
-    Выполняет весь /ocr_segments и:
-      - если emit=None → просто возвращает dict (подходит для JSON ответа);
-      - если emit задан → дергает emit("progress", {...}) на каждом этапе и в конце возвращает итоговый dict (для SSE).
+    Выполнить полный OCR-конвейер для одной страницы.
+
+    Args:
+        request: FastAPI Request (используется для чтения заголовков, напр. content-length).
+        file: Загруженный файл изображения (страница документа).
+        img_w, img_h: Размеры исходного изображения, переданные с фронта (в статистику).
+        langs: Языки Tesseract (например, "rus+eng").
+        tess_level: Уровень сегментации Tesseract (обычно 4 — строки; 5 — слова).
+        psm: Page Segmentation Mode Tesseract.
+        preproc_mode: "soft" | "hard" — режим предобработки печатного текста.
+        conf_threshold: Порог средней уверенности строки для fallback в TrOCR.
+        wer_mode: "proxy" | "exact" — способ оценки WER.
+        ref_text: Эталонный текст для "exact" WER, разбивается по строкам.
+        emit: Колбэк для эмита событий прогресса в SSE. Если None — прогресс не шлём.
+
+    Returns:
+        Dict, совместимый со схемой `SegmentsResponse` (result + stats + trace).
+
+    Notes:
+        - Прогресс по этапам отправляется через emit("progress", {...}) при наличии emit.
+        - Fallback в TrOCR применяется только к «сомнительным» строкам и только если он включён.
     """
     def progress(phase: str, pct: int, **kw):
         payload = {"phase": phase, "progress": max(0, min(100, pct))}
@@ -88,21 +154,21 @@ async def run_pipeline(
         if emit:
             emit("progress", payload)
 
-    # лимит размера по заголовку, если есть
+    # Лимит на размер тела по заголовку (если клиент его прислал).
     cl = request.headers.get("content-length")
     if cl:
         try:
             if int(cl) > MAX_UPLOAD_BYTES:
                 raise HTTPException(status_code=413, detail="Payload too large")
         except ValueError:
-            # игнорируем некорректный заголовок — отработаем лимитом ниже
+            # Некорректный заголовок — игнорируем, реальный лимит будет ниже.
             pass
 
     trace = StepTrace()
     progress("received", 3, note="upload received")
     trace.mark("received", {"filename": file.filename})
 
-    # читаем файл с жёстким лимитом, открываем PIL из байтов
+    # Читаем файл в память с жёстким лимитом, дальше открываем через PIL.
     t0 = time.perf_counter()
     blob = await read_upload_limited(file, MAX_UPLOAD_BYTES)
     trace.mark("read_limited_done", {"duration_ms": int((time.perf_counter() - t0) * 1000), "bytes": len(blob)})
@@ -110,17 +176,18 @@ async def run_pipeline(
     try:
         pil = Image.open(BytesIO(blob)).convert("RGB")
     except Exception as e:
+        # Ошибки чтения/декодирования изображения → 400 Bad Request
         raise HTTPException(status_code=400, detail=f"Bad image: {e}")
     trace.mark("image_opened", {"size": pil.size})
     progress("osd_rotation", 8)
 
-    # OSD-поворот
+    # OSD-поворот (распознаём ориентацию и разворот страницы).
     t0 = time.perf_counter()
     pil = apply_osd_rotation(pil)
     trace.mark("osd_rotation_done", {"duration_ms": int((time.perf_counter() - t0) * 1000)})
     progress("preprocess", 18, mode=preproc_mode)
 
-    # предобработка
+    # Лёгкая/жёсткая предобработка печатного текста.
     t0 = time.perf_counter()
     if preproc_mode == "hard":
         prep = preprocess_for_print_hard(pil)
@@ -129,34 +196,35 @@ async def run_pipeline(
     trace.mark("preprocess_done", {"duration_ms": int((time.perf_counter() - t0) * 1000)})
     progress("segment_lines", 35, langs=langs, psm=psm)
 
-    # сегментация строк (level==4)
+    # Сегментация на строки через Tesseract (level==4). Возвращает список словарей со
+    # строками: bbox, распознанный текст, ср. уверенность, кол-во слов.
     t0 = time.perf_counter()
     lines = segment(prep, langs=langs, psm=psm, level=tess_level, oem=TESS_OEM)
     seg_ms = int((time.perf_counter() - t0) * 1000)
     trace.mark("segment_lines_done", {"duration_ms": seg_ms, "lines": len(lines)})
     progress("segment_lines_done", 55, lines=len(lines))
 
-    # отберём сомнительные для fallback
+    # Отбор «сомнительных» строк: низкая уверенность или слишком мало слов/символов.
     low = [
         ln for ln in lines
         if (ln["avg_conf"] < conf_threshold) or (ln["words"] < TESS_MIN_WORDS and len(ln["text"]) < TESS_MIN_TEXT_LEN)
     ]
     trace.mark("low_conf_selected", {"count": len(low), "threshold": conf_threshold})
 
-    # подготовим ссылки на референс построчно (для точного WER)
+    # Референс для exact-WER (линейно по индексам строк).
     ref_lines: List[str] = []
     if wer_mode == "exact" and ref_text is not None:
         ref_lines = [clean_spaces(s) for s in ref_text.splitlines()]
 
-    # возможный fallback: TrOCR на сомнительных
+    # Опциональный fallback в TrOCR для «сомнительных» строк.
     trocr_texts: List[str] = []
     if TROCR_ENABLED and low:
         progress("trocr_fallback", 65, count=len(low))
         try:
-            from trocr.runtime import recognize_batch  # ленивый импорт
+            from trocr.runtime import recognize_batch  # ленивый импорт, тяжёлые зависимости
             crops = [pil.crop(ln["bbox"]) for ln in low]
             t0 = time.perf_counter()
-            # В отдельном потоке, чтобы не блокировать event loop
+            # Запуск в отдельном потоке (CPU/GPU работа модели), чтобы не блокировать event loop.
             trocr_texts = await asyncio.to_thread(recognize_batch, crops)
             trace.mark("trocr_done", {
                 "duration_ms": int((time.perf_counter() - t0) * 1000),
@@ -168,7 +236,7 @@ async def run_pipeline(
     else:
         trace.mark("trocr_skipped", {"enabled": bool(TROCR_ENABLED), "low_conf": len(low)})
 
-    # собрать сегменты
+    # Сборка финальных сегментов (bbox → ширина/высота; финальный текст с учётом fallback).
     segments: List[SegmentOut] = []
     trocr_i = 0
     for idx, ln in enumerate(lines):
@@ -183,20 +251,21 @@ async def run_pipeline(
             final_text = clean_spaces(trocr_texts[trocr_i])
             trocr_i += 1
 
-        # WER
+        # Расчёт WER:
+        # - "exact": сравнение с соответствующей строкой `ref_text` (если есть).
+        # - "proxy": оценка на основе conf Tesseract или расхождения Tesseract/TrOCR.
         if wer_mode == "exact" and idx < len(ref_lines):
             wer_val = wer_exact(ref_lines[idx], final_text)
         else:
             if TROCR_ENABLED and final_text != tesser_text:
-                # прокси через расхождение предсказаний
                 wer_val = wer_proxy_between(tesser_text, final_text)
             else:
                 wer_val = wer_proxy_from_conf(ln["avg_conf"])
 
         segments.append(SegmentOut(
             coords=(x1, y1),
-            value=final_text,            # финальное (TrOCR при фолбэке, иначе Tesseract)
-            preview_value=tesser_text,   # предпросмотр (Tesseract)
+            value=final_text,            # финальный текст (TrOCR при фолбэке, иначе Tesseract)
+            preview_value=tesser_text,   # предпросмотр: версия от Tesseract
             wer=wer_val,
             width=w,
             height=h
@@ -204,6 +273,7 @@ async def run_pipeline(
 
     progress("assembling", 88, segments=len(segments))
 
+    # Статистика по задаче + трассировка этапов.
     stats = {
         "total_lines": len(lines),
         "fallback_to_trocr": len(low) if TROCR_ENABLED else 0,
@@ -229,16 +299,25 @@ async def ocr_segments(
     img_height: int = Form(...),
     langs: str = Form(TESS_LANGS),
     psm: int = Form(TESS_PSM),
-    tess_level: int = Form(TESS_LEVEL),          # <— НОВОЕ: 4|5
-    preproc: str = Form(PREPROC_MODE_DEFAULT),   # "soft"|"hard"
+    tess_level: int = Form(TESS_LEVEL),          # уровень детализации распознавания Tesseract (4: строки, 5: слова)
+    preproc: str = Form(PREPROC_MODE_DEFAULT),   # "soft"|"hard" — режим предобработки печати
     conf_threshold: float = Form(TESS_CONF_THRESHOLD),
     wer_mode: str = Form("proxy"),               # "proxy"|"exact"
     ref_text: Optional[str] = Form(None),
     stream: bool = Form(False),
 ):
     """
-    По умолчанию возвращает JSON с результатом и stats.trace (тайминги шагов).
-    Если stream=true — возвращает SSE-поток (text/event-stream) с событиями 'progress' и финальным 'result'.
+    Универсальный эндпоинт распознавания страницы.
+
+    Режимы:
+      - `stream=false` (по умолчанию): вернуть единый JSON (`SegmentsResponse`) после завершения пайплайна.
+      - `stream=true`: вернуть Server-Sent Events (SSE) — события `hello`, последовательность `progress`,
+        и финальное `result` с тем же содержимым, что и обычный JSON.
+
+    Ошибки:
+      - 400: некорректное изображение / некорректные параметры.
+      - 413: превышен лимит загрузки.
+      - 500: непредвиденная ошибка во время пайплайна.
     """
 
     if not stream:
@@ -251,15 +330,23 @@ async def ocr_segments(
 
     # --- Потоковый SSE-режим ---
     def _make_emitter(queue: asyncio.Queue[bytes]):
+        """
+        Обёртка, превращающая emit(event, data) → байтовый чанκ формата SSE,
+        который кладём в очередь для StreamingResponse.
+        """
         def emit(event_name: str, data: Dict[str, Any]):
             queue.put_nowait(sse(event_name, data))
         return emit
 
     async def gen():
+        """
+        Асинхронный генератор — читает байты событий из очереди `q` и отдаёт их клиенту.
+        Пустой байтовый блок `b""` — маркер завершения стрима.
+        """
         q: asyncio.Queue[bytes] = asyncio.Queue()
         emit_cb = _make_emitter(q)
 
-        # стартовое событие
+        # стартовое событие для инициализации со стороны клиента
         emit_cb("hello", {"phase": "start", "progress": 0})
 
         async def _run():
@@ -278,7 +365,7 @@ async def ocr_segments(
                 # маркер завершения
                 q.put_nowait(b"")
 
-        # запускаем пайплайн в фоне
+        # запускаем пайплайн в фоне (чтобы генератор мог отдавать прогресс по мере готовности)
         task = asyncio.create_task(_run())
 
         # отдаём из очереди по мере появления
@@ -292,7 +379,7 @@ async def ocr_segments(
 
     headers = {
         "Cache-Control": "no-cache",
-        "X-Accel-Buffering": "no",  # важно для nginx, чтобы не буферил
+        "X-Accel-Buffering": "no",  # важно для nginx, чтобы не буферил стрим
         "Connection": "keep-alive",
     }
     return StreamingResponse(gen(), media_type="text/event-stream", headers=headers)

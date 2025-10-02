@@ -1,4 +1,23 @@
 # api/train.py
+"""
+Purpose
+-------
+HTTP-API для запуска обучения/дообучения модели TrOCR в фоне и опроса статуса.
+Подходит для локального/офлайн сценария. В продовой среде состояние задач
+следует хранить во внешнем хранилище (БД/Redis), а не в памяти процесса.
+
+Endpoints
+---------
+POST /train/start   — создать задачу обучения/finetune, вернуть job_id.
+GET  /train/status/{job_id} — получить текущее состояние задачи.
+
+Implementation notes
+--------------------
+- Используется ThreadPoolExecutor с max_workers=1 для последовательного запуска задач.
+- Логи обучения пишутся в `<run_dir>/train.log` (туда же дублируется лог API-модуля).
+- Формат датасета быстро валидируется перед стартом (наличие папок/файлов и JSON-структура).
+"""
+
 import asyncio
 import os
 import uuid
@@ -24,24 +43,37 @@ from trocr.trocr_modified import (
 logger = setup_logger("ocr.train")
 router = APIRouter()
 
-# Пул для фоновых задач обучения
+# Пул для фоновых задач обучения (1 воркер — исключает параллельные тренировки).
 _EXECUTOR = ThreadPoolExecutor(max_workers=1)
 
-# Память о задачах (в проде — вынести в БД/Redis)
+# Память о задачах (в проде — вынести в БД/Redis; здесь — простейшая in-memory карта).
 TRAIN_JOBS: Dict[str, Dict[str, Any]] = {}
 
 
 # --------- утилиты ---------
 
 def _norm(path: str) -> str:
+    """Нормализовать путь под ОС (удалить лишние `..`, слэши и т.п.)."""
     return os.path.normpath(path)
 
 def _ensure_dataset_present(data_root: str, subset: str) -> None:
     """
-    Быстрая валидация структуры датасета:
-    - subset='full'  -> train/, test/, train.json, test.json
-    - subset='postTest' -> postTest/, postTest.json
-    JSON формат: {"file_name": "...", "text": "..."}
+    Быстрая валидация структуры датасета для выбранного `subset`.
+
+    Ожидаемые варианты:
+      - subset='full':
+          data_root/
+            ├─ train.json   # список объектов {"file_name": "...", "text": "..."}
+            ├─ test.json
+            ├─ train/       # изображения для train.json
+            └─ test/        # изображения для test.json
+      - subset='postTest':
+          data_root/
+            ├─ postTest.json
+            └─ postTest/
+
+    Также читаем первые несколько записей *.json, чтобы убедиться,
+    что это список словарей с ключами "file_name" и "text".
     """
     data_root = _norm(data_root)
     if subset == "full":
@@ -89,7 +121,7 @@ def _ensure_dataset_present(data_root: str, subset: str) -> None:
 
 
 def _attach_file_handler(logger_name: str, log_path: str):
-    """Добавить FileHandler к логгеру на время обучения и вернуть функцию-отцепитель."""
+    """Добавить FileHandler к логгеру на время обучения и вернуть функцию-«отцепитель»."""
     import logging
     lg = setup_logger(logger_name)
     fh = logging.FileHandler(log_path, encoding="utf-8")
@@ -98,6 +130,7 @@ def _attach_file_handler(logger_name: str, log_path: str):
     lg.addHandler(fh)
 
     def _detach():
+        """Удалить временный FileHandler и закрыть файл лога (без падений при ошибках)."""
         try:
             lg.removeHandler(fh)
             fh.close()
@@ -108,7 +141,13 @@ def _attach_file_handler(logger_name: str, log_path: str):
 
 
 def _build_train_config(req: TrainRequest) -> TrainConfig:
-    """Создать TrainConfig из запроса с учётом опциональных полей."""
+    """
+    Построить `TrainConfig` из параметров запроса, заполняя разумные значения по умолчанию.
+
+    Замечания:
+    - Для режима `train` поле `init_weights` не используется.
+    - Для режима `finetune` веса задаются отдельно в `finetune_entry`.
+    """
     # Базовые значения соответствуют датаклассу TrainConfig
     cfg = TrainConfig(
         data_root=_norm(req.data_root),
@@ -140,8 +179,15 @@ def _build_train_config(req: TrainRequest) -> TrainConfig:
 
 def _train_worker(job_id: str, req: TrainRequest) -> None:
     """
-    Функция, которая реально запускает обучение (в фоне).
-    Обновляет TRAIN_JOBS[job_id] по мере выполнения.
+    Фоновая функция обучения (исполняется в ThreadPoolExecutor).
+
+    Обязанности:
+      - обновляет состояние TRAIN_JOBS[job_id] (status, timestamps, error, logs_path);
+      - валидирует датасет и конфиг;
+      - запускает либо `train_entry`, либо `finetune_entry`;
+      - пишет логи в `<run_dir>/train.log`.
+
+    Исключения перехватываются, статус помечается как "failed".
     """
     job = TRAIN_JOBS[job_id]
     job["status"] = "running"
@@ -214,8 +260,12 @@ def _train_worker(job_id: str, req: TrainRequest) -> None:
 @router.post("/train/start", response_model=TrainStartResponse)
 async def start_training(req: TrainRequest):
     """
-    Запускает обучение/дообучение в фоне.
-    Возвращает job_id, который можно опрашивать по /train/status/{job_id}.
+    Создать фоновую задачу обучения/дообучения и вернуть `job_id`.
+
+    Правила:
+      - режим `finetune` требует `base_run` (путь к базовому запуску/весам);
+      - параметры запроса валидируются Pydantic'ом (доп. проверки — в этом методе);
+      - состояние задачи сохраняется в памяти процесса (для продакшна лучше Redis/БД).
     """
     # Базовая валидация pydantic уже сделал; дополнительно проверим поля режима
     try:
@@ -252,7 +302,16 @@ async def start_training(req: TrainRequest):
 @router.get("/train/status/{job_id}", response_model=TrainStatusResponse)
 async def training_status(job_id: str):
     """
-    Возвращает статус задачи обучения.
+    Получить актуальный статус задачи обучения.
+
+    Возвращает:
+      - статус (`queued` | `running` | `finished` | `failed`);
+      - временные метки (created/started/finished);
+      - путь к каталогу запуска и лог-файлу (если есть);
+      - сообщение об ошибке при `failed`.
+
+    Ошибки:
+      - 404, если `job_id` неизвестен текущему процессу.
     """
     job = TRAIN_JOBS.get(job_id)
     if not job:
