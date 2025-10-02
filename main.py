@@ -78,4 +78,3 @@ def health():
         {"status": "ok"}
     """
     return {"status": "ok"}
-```

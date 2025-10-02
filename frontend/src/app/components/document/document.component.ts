@@ -1,5 +1,15 @@
+/**
+ * DocumentComponent
+ * -----------------
+ * контейнер для списка документов. Управляет:
+ *  - загрузкой файлов (через DocumentUploaderComponent -> FileConversionService),
+ *  - вызовом OCR (DocumentService.predictEvents) и прогрессом загрузки (resolveProgress),
+ *  - хранением распознанных сегментов (FormArray<FormGroup<DocumentsFieldForm>>),
+ *  - выгрузкой CSV.
+ *
+ */
 import { Component, ChangeDetectionStrategy, signal, inject, Signal, DestroyRef, ChangeDetectorRef, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule, } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,7 +35,7 @@ export interface DocumentForm {
   documentTitle: FormControl<string>;
   file: FormControl<File>;
   fields: FormArray<FormGroup<DocumentsFieldForm>>;
-  size: FormControl<[number, number]>;
+  size: FormControl<[number, number]>; // [width,height]
 }
 
 export interface DocumentsFieldForm {
@@ -75,28 +85,27 @@ export class DocumentComponent implements OnInit {
   private readonly fileConversion = inject(FileConversionService);
   private readonly cdr = inject(ChangeDetectorRef);
 
-  readonly form = new FormArray<FormGroup<DocumentForm>>([])
+  readonly form = new FormArray<FormGroup<DocumentForm>>([]);
   readonly selectedIndex = signal<number>(0);
   readonly generatedCount = signal<number>(0);
 
   readonly fileProgressMap = new Map<number, ProgressStatus>();
   readonly isLoading: Signal<boolean> = toSignal(this.loadingBarSrv.show$);
-  hasDocuments: Signal<boolean> = toSignal(this.form.valueChanges.pipe(map(val => !!val?.length)));
+  // Показываем uploader, если нет документов
+  hasDocuments: Signal<boolean> = toSignal(this.form.valueChanges.pipe(map(val => !!val?.length)), { initialValue: false });
   readonly fieldFormState = FieldFormState;
-
 
   get documents(): FormGroup<DocumentForm>[] {
     return this.form.controls;
   }
 
   ngOnInit(): void {
-    this.docSrv.serverConnection().pipe(
-      this.loadingBarSrv.withLoading(),
-      takeUntilDestroyed(this.destroyRef)).subscribe(({
-        error: (err) => {
-          this.informer.error(err, 'Нет подключения к серверу');
-        }
-      }))
+    // Быстрая проверка соединения с сервером
+    this.docSrv.serverConnection()
+      .pipe(this.loadingBarSrv.withLoading(), takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        error: (err) => this.informer.error(err, 'Нет подключения к серверу')
+      });
   }
 
   get selectedDocument(): FormGroup<DocumentForm> {
@@ -124,6 +133,7 @@ export class DocumentComponent implements OnInit {
     this.selectedIndex.set(idx);
   }
 
+  // Экспорт в CSV
   downloadCsv(): void {
     const docs = this.form.getRawValue();
 
@@ -140,29 +150,30 @@ export class DocumentComponent implements OnInit {
       }
     }
 
-    const csv = buildCsvFromFormArray(raws,
+    const csv = buildCsvFromFormArray(
+      raws,
       ['ind','title','coords[0]', 'coords[1]', 'strValue', 'strOcr'],
       ['id','Название документа','x', 'y', 'значение', 'предварительное значение']
     );
 
     downloadCsv(csv, 'document_fields.csv');
-
   }
 
   removeDocument(idx: number): void {
     if (idx < 0 || idx >= this.documents.length) return;
     this.fileProgressMap.delete(idx);
     this.form.removeAt(idx);
+
     if (this.documents.length === 0) {
       this.selectedIndex.set(0);
     } else if (this.selectedIndex() >= this.documents.length) {
       this.selectedIndex.set(this.documents.length - 1);
     }
     this.cdr.markForCheck();
-
   }
 
   onSelectSegment(seg: FormGroup<DocumentsFieldForm>, arr: FormGroup<DocumentsFieldForm>[]): void {
+    // Выделяем ровно один сегмент (удобно для перемещения/редактирования)
     arr.forEach(arrSeg => arrSeg.patchValue({ isSelected: arrSeg === seg }));
   }
 
@@ -175,16 +186,19 @@ export class DocumentComponent implements OnInit {
     const doc = this.selectedDocument;
     const file = doc?.getRawValue()?.file;
     if (!file) return;
+
     const selectedInd = this.selectedIndex();
-    this.fileProgressMap.set(selectedInd, STATUS_MAP.get(OcrPhase.Start))
+    this.fileProgressMap.set(selectedInd, STATUS_MAP.get(OcrPhase.Start));
 
     const docData = doc.getRawValue();
+    // size = [width, height] => отправляем в том же порядке
     this.docSrv.predictEvents({
-      file: file,
-      img_width: `${docData.size[1]}`,
-      img_height: `${docData.size[0]}`
+      file,
+      img_width: `${docData.size[0]}`,
+      img_height: `${docData.size[1]}`
     })
       .pipe(
+        // Стрим прогресса фаз (осмысленная мапа для UX)
         tap(ev => {
           if (ev.kind !== 'progress') return;
           const s = resolveProgress(ev.data);
@@ -194,17 +208,17 @@ export class DocumentComponent implements OnInit {
         filter(ev => ev?.kind === 'result'),
         map(ev => (ev as { kind: 'result', data: { segments: SegmentOut[] } }).data.segments),
         this.loadingBarSrv.withLoading(),
-        takeUntilDestroyed(this.destroyRef))
+        takeUntilDestroyed(this.destroyRef)
+      )
       .subscribe({
         next: resp => {
           this.generatedCount.update(v => v + 1);
+
           const docFields: FormGroup<DocumentsFieldForm>[] = [];
           for (const item of resp) {
-            if (!item || !isFilledArray(item.coords)) {
-              continue;
-            }
+            if (!item || !isFilledArray(item.coords)) continue;
+
             const [x, y] = item.coords;
-            console.log(item);
             docFields.push(new FormGroup({
               coords: new FormControl<[number, number]>([x || 0, y || 0]),
               strValue: new FormControl<string>(item.value),
@@ -215,47 +229,51 @@ export class DocumentComponent implements OnInit {
               isSelected: new FormControl(false),
               wer: new FormControl(item.wer)
             }));
-
           }
+
           const newFormArr = new FormArray<FormGroup<DocumentsFieldForm>>(docFields);
           doc.setControl('fields', newFormArr);
         },
         error: (err) => {
           this.informer.error(err, 'Не удалось проанализировать документ');
-              this.fileProgressMap.set(selectedInd, STATUS_MAP.get(OcrPhase.Error))
+          this.fileProgressMap.set(selectedInd, STATUS_MAP.get(OcrPhase.Error));
         }
       });
   }
 
+  // Utility: обмен местами OCR/значения (пост-редактура)
   swapSegmentValue(seg: FormGroup<DocumentsFieldForm>): void {
     const str = seg.controls.strValue.getRawValue();
     seg.controls.strValue.setValue(seg.controls.strOcr.getRawValue());
     seg.controls.strOcr.setValue(str);
   }
 
-  private addDocument(file: FileData, fields: Array<{ x: number; y: number; strValue: string; strOcr: string }>) {
-
+  private addDocument(
+    file: FileData,
+    fields: Array<{ x: number; y: number; strValue: string; strOcr: string }>
+  ) {
     const documentForm = new FormGroup({
       documentTitle: new FormControl(file.name),
       file: new FormControl(file.file),
       fields: new FormArray<FormGroup<DocumentsFieldForm>>([]),
-      size: new FormControl({ disabled: true, value: file.size })
+      size: new FormControl({ disabled: true, value: file.size }) // [w,h], disabled чтобы не редактировали руками
     });
+
     for (const f of fields) {
-      if (!isNumber(!f.x) && isNumber(!f.y)) {
-        continue;
-      }
+      if (!isNumber(f.x) || !isNumber(f.y)) continue;
+
       documentForm.controls.fields.push(new FormGroup({
         coords: new FormControl<[number, number]>([f.x, f.y]),
         strValue: new FormControl<string>(f.strValue),
         strOcr: new FormControl<string>(f.strOcr),
         state: new FormControl<FieldFormState>(FieldFormState.Default),
-        width: new FormControl(null),
-        height: new FormControl(null),
+        width: new FormControl<number | null>(null),
+        height: new FormControl<number | null>(null),
         isSelected: new FormControl(false),
-        wer: new FormControl(null)
+        wer: new FormControl<number | null>(null)
       }));
     }
+
     this.form.push(documentForm);
   }
 }

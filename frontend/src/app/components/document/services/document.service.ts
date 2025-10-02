@@ -1,3 +1,6 @@
+/**
+ * клиентские вызовы OCR API.
+ */
 import { Injectable, inject } from '@angular/core';
 import { EMPTY, from, map, mergeMap, Observable, takeWhile } from 'rxjs';
 import { RestHttpClient } from '@core/rest-http-client/rest-http-client.service';
@@ -47,19 +50,21 @@ export class DocumentService {
   private readonly httpRaw = inject(HttpClient);
   private _buffer = '';
 
+  // Простая версия без стрима
   predict(req: InferDocReq): Observable<SegmentOut[]> {
     const fd = new FormData();
     fd.append('file', req.file, req.file.name);
     fd.append('img_width', req.img_width);
     fd.append('img_height', req.img_height);
     fd.append('stream', '1');
-    return this.http.post<SegmentsResponse>('/ocr_segments', fd).pipe(map(req => req?.segments || []));
+    return this.http.post<SegmentsResponse>('/ocr_segments', fd).pipe(map(r => r?.segments || []));
   }
 
   serverConnection(): Observable<void> {
     return this.http.get<void>('/health');
   }
 
+  // Потоковая версия (SSE-like) через partialText
   predictEvents(req: InferDocReq): Observable<PredictEvent> {
     const fd = new FormData();
     fd.append('file', req.file, req.file.name);
@@ -67,10 +72,10 @@ export class DocumentService {
     fd.append('img_height', req.img_height);
     fd.append('stream', '1');
 
-    // используем низкоуровневый request, чтобы получить HttpDownloadProgressEvent.partialText
+    // Низкоуровневый request: получаем HttpDownloadProgressEvent.partialText
     return this.httpRaw.request('POST', '/ocr_segments', {
       body: fd,
-      headers: new HttpHeaders(),
+      headers: new HttpHeaders(), // при необходимости можно указать 'Accept': 'text/event-stream'
       observe: 'events',
       reportProgress: true,
       responseType: 'text',
@@ -82,22 +87,30 @@ export class DocumentService {
           return from(this.parseSseChunk(chunk));
         }
         if (event.type === HttpEventType.Response) {
+          // финальный response тела нам не нужен — все уже пришло в чанках
           return EMPTY;
         }
         return EMPTY;
       }),
+      // Завершаем поток после первого 'result', но пропускаем его наружу (inclusive)
       takeWhile(e => e.kind !== 'result', true)
     );
   }
 
+  /**
+   * Инкрементальный парсер SSE:
+   *  - поддерживает накопление в this._buffer, разбиение по двойному \n\n
+   *  - игнорирует "message"/keep-alive
+   *  - устойчив к частичным JSON (try/catch)
+   */
   private parseSseChunk(chunk: string): PredictEvent[] {
     this._buffer += chunk;
     const out: PredictEvent[] = [];
     let idx: number;
+
     while ((idx = this._buffer.indexOf('\n\n')) !== -1) {
       const raw = this._buffer.slice(0, idx).trim();
       this._buffer = this._buffer.slice(idx + 2);
-
       if (!raw) continue;
 
       let eventType = 'message';
@@ -108,7 +121,14 @@ export class DocumentService {
       }
       if (!dataStr) continue;
 
-      const payload = JSON.parse(dataStr);
+      let payload: any;
+      try {
+        payload = JSON.parse(dataStr);
+      } catch {
+        // Частичный JSON — копим дальше
+        this._buffer = dataStr + '\n\n' + this._buffer;
+        continue;
+      }
 
       if (eventType === 'progress') {
         out.push({ kind: 'progress', data: payload });
@@ -116,9 +136,11 @@ export class DocumentService {
         out.push({ kind: 'result', data: payload as SegmentsResponse });
       } else if (eventType === 'error') {
         throw new Error(payload?.detail || 'Server error');
+      } else {
+        // keep-alive / message — игнорируем
       }
     }
-    console.log(out);
+
     return out;
   }
 }

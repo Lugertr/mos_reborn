@@ -1,3 +1,6 @@
+/**
+ * Ротрисовывает выбранный документ (изображение) и даёт доступ к его полям/координатам.
+ */
 import {
   Component,
   ChangeDetectionStrategy,
@@ -18,11 +21,10 @@ import { CdkDrag, DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 
 /**
- * Displays the image and overlays form inputs at coordinate positions.
- * The coordinates are interpreted as CSS pixels relative to the natural image size.
+ * Выводит изображения и поля для редактирования
  */
 @Component({
   selector: 'app-document-image',
@@ -46,9 +48,14 @@ export class DocumentImageComponent {
   private cdr = inject(ChangeDetectorRef);
 
   readonly fieldFormState = FieldFormState;
+  // В компонент прилетает FormGroup документа; OnPush + Signals = предсказуемые апдейты
   readonly data = input<FormGroup<DocumentForm>>();
 
-  previewImg: Signal<SafeUrl> = computed(() => {
+  /**
+   * Предпросмотр через ObjectURL.
+   * Важно: computed пересчитывается при изменении input-сигнала; ниже добавлен effect для revoke().
+   */
+  previewImg: Signal<SafeUrl | null> = computed(() => {
     const imgFile = this.data()?.value?.file;
     if (imgFile) {
       const objUrl = URL.createObjectURL(imgFile);
@@ -57,24 +64,34 @@ export class DocumentImageComponent {
     return null;
   });
 
+  // Вспомогательный стрим для ручного рефреша (оставлен на будущее, см. шаблон)
   reload$ = new Subject<void>();
-  previewImage: SafeUrl = '';
+  // legacy: не используется напрямую, оставлено для совместимости с шаблоном
+  previewImage: SafeUrl = '' as any;
 
   constructor() {
+    // Авто-обновление ChangeDetector (OnPush) при изменении формы
     effect((onCleanup) => {
       const fg = this.data();
       if (!fg) return;
 
-      const sub: Subscription = fg?.valueChanges
+      const sub: Subscription = fg.valueChanges
         ?.pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe(() => {
-          this.cdr.markForCheck();
-        });
+        .subscribe(() => this.cdr.markForCheck());
 
       onCleanup(() => sub && sub.unsubscribe());
     });
+
+    // Обязательно освобождаем ObjectURL при смене файла/уничтожении компонента
+    effect((onCleanup) => {
+      const file = this.data()?.value?.file;
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      onCleanup(() => URL.revokeObjectURL(url));
+    });
   }
 
+  // Достаём form группы строк по индексу
   getStrByFormId(i: number): FormGroup<DocumentsFieldForm> {
     return this.data().controls.fields.at(i);
   }

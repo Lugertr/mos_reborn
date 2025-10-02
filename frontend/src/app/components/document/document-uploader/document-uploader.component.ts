@@ -1,3 +1,7 @@
+/**
+ * загрузка изображений, эмитит массив FileData наружу (в DocumentComponent).
+ * Контекст: проверка размера/формата и вычисление размеров (w,h) делается в FileConversionService.
+ */
 import {
   Component,
   ChangeDetectionStrategy,
@@ -18,6 +22,7 @@ import { FileConversionService, FileData } from '../services/file-conversion.ser
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DocumentUploaderComponent {
+  // Материаловский вид карточки для консистентности UI
   @HostBinding('class.mat-card') cssClass = true;
 
   readonly filesSelected = output<FileData[]>();
