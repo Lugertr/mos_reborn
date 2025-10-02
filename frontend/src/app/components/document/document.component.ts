@@ -224,6 +224,7 @@ export class DocumentComponent implements OnInit {
         },
         error: (err) => {
           this.informer.error(err, 'Не удалось проанализировать документ');
+              this.fileProgressMap.set(selectedInd, STATUS_MAP.get(OcrPhase.Error))
         }
       });
   }

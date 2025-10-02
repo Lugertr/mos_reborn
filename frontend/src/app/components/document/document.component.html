@@ -44,7 +44,9 @@
         @let loadInfo = getSelectedLoadingStatus(i); @if (loadInfo) {
         <mat-progress-bar mode="determinate" [value]="loadInfo.percent">
         </mat-progress-bar>
-        <span class="primary">{{ loadInfo.text }}</span>
+        <span class="primary" [class.warn]="loadInfo.percent === 101">{{
+          loadInfo.text
+        }}</span>
         }
       </div>
     </a>
@@ -115,7 +117,10 @@
           @if (seg.controls.state.value === fieldFormState.Hidden) {
           <button
             mat-icon-button
-            (click)="seg.controls.state.setValue(fieldFormState.Default);$event.stopPropagation()"
+            (click)="
+              seg.controls.state.setValue(fieldFormState.Default);
+              $event.stopPropagation()
+            "
             matTooltip="Показать поле на изображении"
           >
             <mat-icon>visibility</mat-icon>
@@ -123,7 +128,10 @@
           } @else {
           <button
             mat-icon-button
-            (click)="seg.controls.state.setValue(fieldFormState.Hidden);$event.stopPropagation()"
+            (click)="
+              seg.controls.state.setValue(fieldFormState.Hidden);
+              $event.stopPropagation()
+            "
             matTooltip="Скрыть поле с изображения"
           >
             <mat-icon>visibility_off</mat-icon>
@@ -131,7 +139,10 @@
           }
           <button
             mat-icon-button
-            (click)="deleteSegment(selectedVal.controls.fields, i);$event.stopPropagation()"
+            (click)="
+              deleteSegment(selectedVal.controls.fields, i);
+              $event.stopPropagation()
+            "
             aria-label="Удалить"
             class="warn left-margin"
             matTooltip="Удалить поле"
@@ -139,6 +150,14 @@
             <mat-icon>delete</mat-icon>
           </button>
         </div>
+        <button
+          mat-icon-button
+          aria-label="Удалить"
+          class="warn left-margin"
+          matTooltip="Удалить поле"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
     </a>
     } @empty { @let status = getSelectedLoadingStatus()?.percent; @if
@@ -146,9 +165,11 @@
     <div class="empty">
       <mat-spinner></mat-spinner>
     </div>
-    } @else {
+    } @else if (!status || (status && status !== 101)) {
     <span class="empty">Нажмите кнопку "сгенерировать"</span>
 
+    } @else {
+    <span class="empty warn">Не удалось обработать файл</span>
     } }
   </mat-nav-list>
   }

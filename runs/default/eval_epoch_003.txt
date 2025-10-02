@@ -1,0 +1,515 @@
+data/handwritten/test/test0.png | pred: "противнения" | ref: "ибо" | wer: 1.0000
+data/handwritten/test/test1.png | pred: "противнения" | ref: "осталось" | wer: 1.0000
+data/handwritten/test/test10.png | pred: "противнения" | ref: "поле" | wer: 1.0000
+data/handwritten/test/test100.png | pred: "противнения" | ref: "Оптическое" | wer: 1.0000
+data/handwritten/test/test1000.png | pred: "противнения" | ref: "1 класса" | wer: 1.0000
+data/handwritten/test/test1001.png | pred: "противнения" | ref: "г. Ульяновск" | wer: 1.0000
+data/handwritten/test/test1002.png | pred: "противнения" | ref: "На место" | wer: 1.0000
+data/handwritten/test/test1003.png | pred: "противнения" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1004.png | pred: "противнения" | ref: "назначение" | wer: 1.0000
+data/handwritten/test/test1005.png | pred: "противнения" | ref: "отправление" | wer: 1.0000
+data/handwritten/test/test1006.png | pred: "противнения" | ref: "было только" | wer: 1.0000
+data/handwritten/test/test1007.png | pred: "противнения" | ref: "6.10.2017г." | wer: 1.0000
+data/handwritten/test/test1008.png | pred: "противнения" | ref: "просрочив все сроки" | wer: 1.0000
+data/handwritten/test/test1009.png | pred: "противнения" | ref: "которые для" | wer: 1.0000
+data/handwritten/test/test101.png | pred: "противнения" | ref: "тогда" | wer: 1.0000
+data/handwritten/test/test1010.png | pred: "противнения" | ref: "отправления были" | wer: 1.0000
+data/handwritten/test/test1011.png | pred: "противнения" | ref: "критичны." | wer: 1.0000
+data/handwritten/test/test1012.png | pred: "противнения" | ref: "Просьба разобраться" | wer: 1.0000
+data/handwritten/test/test1013.png | pred: "противнения" | ref: "в ситуации," | wer: 1.0000
+data/handwritten/test/test1014.png | pred: "противнения" | ref: "30. 08. 2004" | wer: 1.0000
+data/handwritten/test/test1015.png | pred: "противнения" | ref: "дав обратную" | wer: 1.0000
+data/handwritten/test/test1016.png | pred: "противнения" | ref: "связь" | wer: 1.0000
+data/handwritten/test/test1017.png | pred: "противнения" | ref: "а также" | wer: 1.0000
+data/handwritten/test/test1018.png | pred: "противнения" | ref: "которые были" | wer: 1.0000
+data/handwritten/test/test1019.png | pred: "противнения" | ref: "оплачены за" | wer: 1.0000
+data/handwritten/test/test102.png | pred: "противнения" | ref: "способ" | wer: 1.0000
+data/handwritten/test/test1020.png | pred: "противнения" | ref: "1 класса" | wer: 1.0000
+data/handwritten/test/test1021.png | pred: "противнения" | ref: "Данные по" | wer: 1.0000
+data/handwritten/test/test1023.png | pred: "противнения" | ref: "Ксерокопия" | wer: 1.0000
+data/handwritten/test/test1024.png | pred: "противнения" | ref: "приложена" | wer: 1.0000
+data/handwritten/test/test1025.png | pred: "противнения" | ref: "выдан ОВД" | wer: 1.0000
+data/handwritten/test/test1026.png | pred: "противнения" | ref: "заявлению" | wer: 1.0000
+data/handwritten/test/test1027.png | pred: "противнения" | ref: "Контакты для" | wer: 1.0000
+data/handwritten/test/test1028.png | pred: "противнения" | ref: "Анна Сергеевна" | wer: 1.0000
+data/handwritten/test/test1029.png | pred: "противнения" | ref: "7.10.2017 г." | wer: 1.0000
+data/handwritten/test/test103.png | pred: "противнения" | ref: "угольник" | wer: 1.0000
+data/handwritten/test/test1030.png | pred: "противнения" | ref: "Расписка" | wer: 1.0000
+data/handwritten/test/test1031.png | pred: "противнения" | ref: "10 июня 2016г." | wer: 1.0000
+data/handwritten/test/test1032.png | pred: "противнения" | ref: "г. Санкт-петербург" | wer: 1.0000
+data/handwritten/test/test1033.png | pred: "противнения" | ref: "Иванов Иван" | wer: 1.0000
+data/handwritten/test/test1034.png | pred: "противнения" | ref: "15.02.1987г." | wer: 1.0000
+data/handwritten/test/test1035.png | pred: "противнения" | ref: "рождения" | wer: 1.0000
+data/handwritten/test/test1036.png | pred: "противнения" | ref: "17.10.2005" | wer: 1.0000
+data/handwritten/test/test1037.png | pred: "противнения" | ref: "паспорт серия" | wer: 1.0000
+data/handwritten/test/test1039.png | pred: "противнения" | ref: "18.03.2007 г" | wer: 1.0000
+data/handwritten/test/test104.png | pred: "противнения" | ref: "Множество" | wer: 1.0000
+data/handwritten/test/test1040.png | pred: "противнения" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1041.png | pred: "противнения" | ref: "деньги" | wer: 1.0000
+data/handwritten/test/test1042.png | pred: "противнения" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1043.png | pred: "противнения" | ref: "18.04.1980" | wer: 1.0000
+data/handwritten/test/test1044.png | pred: "противнения" | ref: "паспорт серия" | wer: 1.0000
+data/handwritten/test/test1045.png | pred: "противнения" | ref: "зарегистрирован" | wer: 1.0000
+data/handwritten/test/test1046.png | pred: "противнения" | ref: "г. Севаевск" | wer: 1.0000
+data/handwritten/test/test1047.png | pred: "противнения" | ref: "денежную сумму" | wer: 1.0000
+data/handwritten/test/test1048.png | pred: "противнения" | ref: "ул. Ленина" | wer: 1.0000
+data/handwritten/test/test1049.png | pred: "противнения" | ref: "вышеуказанную" | wer: 1.0000
+data/handwritten/test/test105.png | pred: "противнения" | ref: "Касательная" | wer: 1.0000
+data/handwritten/test/test1050.png | pred: "противнения" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1051.png | pred: "противнения" | ref: "Иванов И.И." | wer: 1.0000
+data/handwritten/test/test1052.png | pred: "противнения" | ref: "28.11.11" | wer: 1.0000
+data/handwritten/test/test1053.png | pred: "противнения" | ref: "14мг" | wer: 1.0000
+data/handwritten/test/test1054.png | pred: "противнения" | ref: "Плоскостопие" | wer: 1.0000
+data/handwritten/test/test1055.png | pred: "противнения" | ref: "обеих" | wer: 1.0000
+data/handwritten/test/test1056.png | pred: "противнения" | ref: "Киров" | wer: 1.0000
+data/handwritten/test/test1057.png | pred: "противнения" | ref: "ноября 2016" | wer: 1.0000
+data/handwritten/test/test1058.png | pred: "противнения" | ref: "в размере 334 000" | wer: 1.0000
+data/handwritten/test/test1059.png | pred: "противнения" | ref: "Вагин" | wer: 1.0000
+data/handwritten/test/test106.png | pred: "противнения" | ref: "Рассмотрим" | wer: 1.0000
+data/handwritten/test/test1060.png | pred: "противнения" | ref: "ОВД Юшного" | wer: 1.0000
+data/handwritten/test/test1061.png | pred: "противнения" | ref: "25.06.2005." | wer: 1.0000
+data/handwritten/test/test1063.png | pred: "противнения" | ref: "Ложкин Юрий" | wer: 1.0000
+data/handwritten/test/test1064.png | pred: "противнения" | ref: "94 04" | wer: 1.0000
+data/handwritten/test/test1065.png | pred: "противнения" | ref: "547815" | wer: 1.0000
+data/handwritten/test/test1066.png | pred: "противнения" | ref: "ОВД р-на" | wer: 1.0000
+data/handwritten/test/test1067.png | pred: "противнения" | ref: "16.08.2004 г." | wer: 1.0000
+data/handwritten/test/test1068.png | pred: "противнения" | ref: "г. Киров" | wer: 1.0000
+data/handwritten/test/test1069.png | pred: "противнения" | ref: "триста тридцать" | wer: 1.0000
+data/handwritten/test/test107.png | pred: "противнения" | ref: "Директориальное" | wer: 1.0000
+data/handwritten/test/test1070.png | pred: "противнения" | ref: "Шкода Фабия" | wer: 1.0000
+data/handwritten/test/test1071.png | pred: "противнения" | ref: "Паспорт" | wer: 1.0000
+data/handwritten/test/test1072.png | pred: "противнения" | ref: "445 тысяч" | wer: 1.0000
+data/handwritten/test/test1073.png | pred: "противнения" | ref: "Три тысячи девятьсот" | wer: 1.0000
+data/handwritten/test/test1074.png | pred: "противнения" | ref: "Доверенность" | wer: 1.0000
+data/handwritten/test/test1075.png | pred: "противнения" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1076.png | pred: "противнения" | ref: "номер" | wer: 1.0000
+data/handwritten/test/test1077.png | pred: "противнения" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1078.png | pred: "противнения" | ref: "отделением" | wer: 1.0000
+data/handwritten/test/test1079.png | pred: "противнения" | ref: "по району" | wer: 1.0000
+data/handwritten/test/test108.png | pred: "противнения" | ref: "Событие" | wer: 1.0000
+data/handwritten/test/test1080.png | pred: "противнения" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1081.png | pred: "противнения" | ref: "Москве" | wer: 1.0000
+data/handwritten/test/test1082.png | pred: "противнения" | ref: "код подразделения" | wer: 1.0000
+data/handwritten/test/test1083.png | pred: "противнения" | ref: "проживаю" | wer: 1.0000
+data/handwritten/test/test1084.png | pred: "противнения" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1085.png | pred: "противнения" | ref: "квартира" | wer: 1.0000
+data/handwritten/test/test1086.png | pred: "противнения" | ref: "доверяю получать" | wer: 1.0000
+data/handwritten/test/test1087.png | pred: "противнения" | ref: "отправления," | wer: 1.0000
+data/handwritten/test/test1088.png | pred: "противнения" | ref: "приходящие" | wer: 1.0000
+data/handwritten/test/test1089.png | pred: "противнения" | ref: "на моё имя" | wer: 1.0000
+data/handwritten/test/test109.png | pred: "противнения" | ref: "любое" | wer: 1.0000
+data/handwritten/test/test1090.png | pred: "противнения" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1091.png | pred: "противнения" | ref: "в качестве задатка" | wer: 1.0000
+data/handwritten/test/test1092.png | pred: "противнения" | ref: "г. Москва," | wer: 1.0000
+data/handwritten/test/test1093.png | pred: "противнения" | ref: "127 572," | wer: 1.0000
+data/handwritten/test/test1094.png | pred: "противнения" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1095.png | pred: "противнения" | ref: "ОВД района" | wer: 1.0000
+data/handwritten/test/test1096.png | pred: "противнения" | ref: "г. Москвы," | wer: 1.0000
+data/handwritten/test/test1097.png | pred: "противнения" | ref: "под подразделения" | wer: 1.0000
+data/handwritten/test/test1098.png | pred: "противнения" | ref: "проживающему" | wer: 1.0000
+data/handwritten/test/test1099.png | pred: "противнения" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test11.png | pred: "противнения" | ref: "новое" | wer: 1.0000
+data/handwritten/test/test110.png | pred: "противнения" | ref: "Вопрос" | wer: 1.0000
+data/handwritten/test/test1100.png | pred: "противнения" | ref: "25. 01. 2016." | wer: 1.0000
+data/handwritten/test/test1101.png | pred: "противнения" | ref: "30.09.2013" | wer: 1.0000
+data/handwritten/test/test1102.png | pred: "противнения" | ref: "сентябрь," | wer: 1.0000
+data/handwritten/test/test1103.png | pred: "противнения" | ref: "за автомобиль" | wer: 1.0000
+data/handwritten/test/test1104.png | pred: "противнения" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test1105.png | pred: "противнения" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test1106.png | pred: "противнения" | ref: "12.09.2013г" | wer: 1.0000
+data/handwritten/test/test1107.png | pred: "противнения" | ref: "12.09.2013 г." | wer: 1.0000
+data/handwritten/test/test1108.png | pred: "противнения" | ref: "30.09.2013г" | wer: 1.0000
+data/handwritten/test/test1109.png | pred: "противнения" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test111.png | pred: "противнения" | ref: "Использование" | wer: 1.0000
+data/handwritten/test/test1110.png | pred: "противнения" | ref: "За период практики" | wer: 1.0000
+data/handwritten/test/test1111.png | pred: "противнения" | ref: "Савченко И. А." | wer: 1.0000
+data/handwritten/test/test1115.png | pred: "противнения" | ref: "с составленным" | wer: 1.0000
+data/handwritten/test/test1116.png | pred: "противнения" | ref: "Планом" | wer: 1.0000
+data/handwritten/test/test1117.png | pred: "противнения" | ref: "На основе" | wer: 1.0000
+data/handwritten/test/test1118.png | pred: "противнения" | ref: "модели" | wer: 1.0000
+data/handwritten/test/test1119.png | pred: "противнения" | ref: "процесса" | wer: 1.0000
+data/handwritten/test/test112.png | pred: "противнения" | ref: "непустое" | wer: 1.0000
+data/handwritten/test/test1120.png | pred: "противнения" | ref: "определены" | wer: 1.0000
+data/handwritten/test/test1121.png | pred: "противнения" | ref: "существующие" | wer: 1.0000
+data/handwritten/test/test1122.png | pred: "противнения" | ref: "и предложены" | wer: 1.0000
+data/handwritten/test/test1123.png | pred: "противнения" | ref: "методы" | wer: 1.0000
+data/handwritten/test/test1124.png | pred: "противнения" | ref: "отлично" | wer: 1.0000
+data/handwritten/test/test1125.png | pred: "противнения" | ref: "автомобиля," | wer: 1.0000
+data/handwritten/test/test1126.png | pred: "противнения" | ref: "Фоменко В.А." | wer: 1.0000
+data/handwritten/test/test1127.png | pred: "противнения" | ref: "Савченко И.А." | wer: 1.0000
+data/handwritten/test/test1128.png | pred: "противнения" | ref: "хорошо" | wer: 1.0000
+data/handwritten/test/test113.png | pred: "противнения" | ref: "Метод:" | wer: 1.0000
+data/handwritten/test/test1130.png | pred: "противнения" | ref: "отлично" | wer: 1.0000
+data/handwritten/test/test1131.png | pred: "противнения" | ref: "информационная" | wer: 1.0000
+data/handwritten/test/test1132.png | pred: "противнения" | ref: "эндогеодинамического" | wer: 1.0000
+data/handwritten/test/test1133.png | pred: "противнения" | ref: "описание" | wer: 1.0000
+data/handwritten/test/test1137.png | pred: "противнения" | ref: "на предприятий" | wer: 1.0000
+data/handwritten/test/test1138.png | pred: "противнения" | ref: "параметра" | wer: 1.0000
+data/handwritten/test/test1139.png | pred: "противнения" | ref: "Формирование" | wer: 1.0000
+data/handwritten/test/test114.png | pred: "противнения" | ref: "значения" | wer: 1.0000
+data/handwritten/test/test1140.png | pred: "противнения" | ref: "выбор" | wer: 1.0000
+data/handwritten/test/test1141.png | pred: "противнения" | ref: "аргументам" | wer: 1.0000
+data/handwritten/test/test1142.png | pred: "противнения" | ref: "выбор технологий" | wer: 1.0000
+data/handwritten/test/test1143.png | pred: "противнения" | ref: "Расписка." | wer: 1.0000
+data/handwritten/test/test1144.png | pred: "противнения" | ref: "23 марта 2012г." | wer: 1.0000
+data/handwritten/test/test1145.png | pred: "противнения" | ref: "г. Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1146.png | pred: "противнения" | ref: "Бугрова" | wer: 1.0000
+data/handwritten/test/test1147.png | pred: "противнения" | ref: "сумму в срок" | wer: 1.0000
+data/handwritten/test/test115.png | pred: "противнения" | ref: "Кривые" | wer: 1.0000
+data/handwritten/test/test1150.png | pred: "противнения" | ref: "22. 07. 2010" | wer: 1.0000
+data/handwritten/test/test1152.png | pred: "противнения" | ref: "Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1153.png | pred: "противнения" | ref: "пр Просвещения" | wer: 1.0000
+data/handwritten/test/test1154.png | pred: "противнения" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1155.png | pred: "противнения" | ref: "40 06 799" | wer: 1.0000
+data/handwritten/test/test1156.png | pred: "противнения" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1158.png | pred: "противнения" | ref: "до 30 июня 2009 года" | wer: 1.0000
+data/handwritten/test/test1159.png | pred: "противнения" | ref: "Санкт - Петербурга" | wer: 1.0000
+data/handwritten/test/test116.png | pred: "противнения" | ref: "Случай" | wer: 1.0000
+data/handwritten/test/test1160.png | pred: "противнения" | ref: "14. 12. 2003г" | wer: 1.0000
+data/handwritten/test/test1161.png | pred: "противнения" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1162.png | pred: "противнения" | ref: "Санкт - Петербург" | wer: 1.0000
+data/handwritten/test/test1163.png | pred: "противнения" | ref: "деньги в сумме" | wer: 1.0000
+data/handwritten/test/test1164.png | pred: "противнения" | ref: "Два" | wer: 1.0000
+data/handwritten/test/test1165.png | pred: "противнения" | ref: "рублей в счет" | wer: 1.0000
+data/handwritten/test/test1166.png | pred: "противнения" | ref: "стоимости квартиры" | wer: 1.0000
+data/handwritten/test/test1167.png | pred: "противнения" | ref: "расположенной" | wer: 1.0000
+data/handwritten/test/test1168.png | pred: "противнения" | ref: "адресу" | wer: 1.0000
+data/handwritten/test/test1169.png | pred: "противнения" | ref: "24 июня 2009 г." | wer: 1.0000
+data/handwritten/test/test117.png | pred: "военность" | ref: "второго" | wer: 1.0000
+data/handwritten/test/test1170.png | pred: "противнения" | ref: "Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1171.png | pred: "противнения" | ref: "по договору" | wer: 1.0000
+data/handwritten/test/test1172.png | pred: "противнения" | ref: "Претензий не имею." | wer: 1.0000
+data/handwritten/test/test1173.png | pred: "противнения" | ref: "23.03.2012г." | wer: 1.0000
+data/handwritten/test/test1174.png | pred: "противнения" | ref: "Бугрова В.Г." | wer: 1.0000
+data/handwritten/test/test1175.png | pred: "противнения" | ref: "Михаилу" | wer: 1.0000
+data/handwritten/test/test1176.png | pred: "противнения" | ref: "04. 01. 1992 г." | wer: 1.0000
+data/handwritten/test/test1177.png | pred: "противнения" | ref: "16.12.1991г." | wer: 1.0000
+data/handwritten/test/test1178.png | pred: "противнения" | ref: "содействие" | wer: 1.0000
+data/handwritten/test/test1179.png | pred: "противнения" | ref: "промышленным" | wer: 1.0000
+data/handwritten/test/test118.png | pred: "противнения" | ref: "пространство" | wer: 1.0000
+data/handwritten/test/test1180.png | pred: "противнения" | ref: "Иванов" | wer: 1.0000
+data/handwritten/test/test1181.png | pred: "противнения" | ref: "в части увеличения" | wer: 1.0000
+data/handwritten/test/test1182.png | pred: "противнения" | ref: "выпуска продукции" | wer: 1.0000
+data/handwritten/test/test1183.png | pred: "противнения" | ref: "г. Иркутск" | wer: 1.0000
+data/handwritten/test/test1184.png | pred: "противнения" | ref: "одиннадцатого" | wer: 1.0000
+data/handwritten/test/test1185.png | pred: "противнения" | ref: "г. Иркутск" | wer: 1.0000
+data/handwritten/test/test1186.png | pred: "противнения" | ref: "Иванову" | wer: 1.0000
+data/handwritten/test/test1187.png | pred: "противнения" | ref: "Мамедов.Р.Г." | wer: 1.0000
+data/handwritten/test/test1188.png | pred: "противнения" | ref: "Мустафаева Ф. М" | wer: 1.0000
+data/handwritten/test/test1189.png | pred: "противнения" | ref: "Максимов Р. Н" | wer: 1.0000
+data/handwritten/test/test119.png | pred: "противнения" | ref: "любой" | wer: 1.0000
+data/handwritten/test/test1190.png | pred: "противнения" | ref: "Мамедов Д. Х" | wer: 1.0000
+data/handwritten/test/test1191.png | pred: "противнения" | ref: "07 042000" | wer: 1.0000
+data/handwritten/test/test1192.png | pred: "противнения" | ref: "Момедова А.Э." | wer: 1.0000
+data/handwritten/test/test1193.png | pred: "противнения" | ref: "Мамедов А Г" | wer: 1.0000
+data/handwritten/test/test1194.png | pred: "противнения" | ref: "Яхьяева Э.А." | wer: 1.0000
+data/handwritten/test/test1195.png | pred: "противнения" | ref: "Яхьев М Я" | wer: 1.0000
+data/handwritten/test/test1196.png | pred: "противнения" | ref: "Розбекова С. Б." | wer: 1.0000
+data/handwritten/test/test1197.png | pred: "противнения" | ref: "Абдуллаева С. С." | wer: 1.0000
+data/handwritten/test/test1198.png | pred: "противнения" | ref: "Наталью" | wer: 1.0000
+data/handwritten/test/test1199.png | pred: "противнения" | ref: "Заявление." | wer: 1.0000
+data/handwritten/test/test12.png | pred: "противнения" | ref: "разрешино" | wer: 1.0000
+data/handwritten/test/test120.png | pred: "противнения" | ref: "покажем" | wer: 1.0000
+data/handwritten/test/test1200.png | pred: "противнения" | ref: "08.09.16г." | wer: 1.0000
+data/handwritten/test/test1201.png | pred: "противнения" | ref: "от услуг" | wer: 1.0000
+data/handwritten/test/test1202.png | pred: "противнения" | ref: "гор Омск" | wer: 1.0000
+data/handwritten/test/test1203.png | pred: "противнения" | ref: "отказываюсь" | wer: 1.0000
+data/handwritten/test/test1204.png | pred: "противнения" | ref: "адвокатов" | wer: 1.0000
+data/handwritten/test/test1205.png | pred: "противнения" | ref: "свои" | wer: 1.0000
+data/handwritten/test/test1206.png | pred: "противнения" | ref: "прошу" | wer: 1.0000
+data/handwritten/test/test1207.png | pred: "противнения" | ref: "Вас изьять дело" | wer: 1.0000
+data/handwritten/test/test1208.png | pred: "противнения" | ref: "копию," | wer: 1.0000
+data/handwritten/test/test1209.png | pred: "противнения" | ref: "Ткачевой" | wer: 1.0000
+data/handwritten/test/test121.png | pred: "противнения" | ref: "измеримость" | wer: 1.0000
+data/handwritten/test/test1210.png | pred: "противнения" | ref: "г. Барнаула" | wer: 1.0000
+data/handwritten/test/test1211.png | pred: "противнения" | ref: "железнодорожного" | wer: 1.0000
+data/handwritten/test/test1212.png | pred: "противнения" | ref: "15 сентября" | wer: 1.0000
+data/handwritten/test/test1213.png | pred: "противнения" | ref: "Октябрь," | wer: 1.0000
+data/handwritten/test/test1214.png | pred: "противнения" | ref: "Омская обл." | wer: 1.0000
+data/handwritten/test/test1215.png | pred: "противнения" | ref: "25 октября" | wer: 1.0000
+data/handwritten/test/test1216.png | pred: "противнения" | ref: "Савилова" | wer: 1.0000
+data/handwritten/test/test1217.png | pred: "противнения" | ref: "Абузова" | wer: 1.0000
+data/handwritten/test/test1218.png | pred: "противнения" | ref: "Шаталова" | wer: 1.0000
+data/handwritten/test/test1219.png | pred: "противнения" | ref: "Обласова" | wer: 1.0000
+data/handwritten/test/test122.png | pred: "противнения" | ref: "Вопрос" | wer: 1.0000
+data/handwritten/test/test1220.png | pred: "противнения" | ref: "Наталья Константинова" | wer: 1.0000
+data/handwritten/test/test1221.png | pred: "противнения" | ref: "проходила практика" | wer: 1.0000
+data/handwritten/test/test1222.png | pred: "противнения" | ref: "в качестве" | wer: 1.0000
+data/handwritten/test/test1223.png | pred: "противнения" | ref: "классного руководителя" | wer: 1.0000
+data/handwritten/test/test1224.png | pred: "противнения" | ref: "в 6 классе" | wer: 1.0000
+data/handwritten/test/test1225.png | pred: "противнения" | ref: "в браке" | wer: 1.0000
+data/handwritten/test/test1226.png | pred: "противнения" | ref: "МБОУ" | wer: 1.0000
+data/handwritten/test/test1227.png | pred: "противнения" | ref: "лицей" | wer: 1.0000
+data/handwritten/test/test1228.png | pred: "противнения" | ref: "г. Барнаула" | wer: 1.0000
+data/handwritten/test/test1229.png | pred: "противнения" | ref: "С первого дня" | wer: 1.0000
+data/handwritten/test/test123.png | pred: "противнения" | ref: "дама" | wer: 1.0000
+data/handwritten/test/test1230.png | pred: "противнения" | ref: "студентке удалось" | wer: 1.0000
+data/handwritten/test/test1231.png | pred: "противнения" | ref: "наладить" | wer: 1.0000
+data/handwritten/test/test1232.png | pred: "противнения" | ref: "доброжелательно-" | wer: 1.0000
+data/handwritten/test/test1233.png | pred: "противнения" | ref: "требовательные" | wer: 1.0000
+data/handwritten/test/test1234.png | pred: "противнения" | ref: "Наталье" | wer: 1.0000
+data/handwritten/test/test1235.png | pred: "противнения" | ref: "срок" | wer: 1.0000
+data/handwritten/test/test1236.png | pred: "противнения" | ref: "Ивановы" | wer: 1.0000
+data/handwritten/test/test1237.png | pred: "противнения" | ref: "смогла" | wer: 1.0000
+data/handwritten/test/test1238.png | pred: "противнения" | ref: "с детьми," | wer: 1.0000
+data/handwritten/test/test1239.png | pred: "противнения" | ref: "психологическим" | wer: 1.0000
+data/handwritten/test/test124.png | pred: "противнения" | ref: "Сделаем" | wer: 1.0000
+data/handwritten/test/test1240.png | pred: "противнения" | ref: "индивидуально" | wer: 1.0000
+data/handwritten/test/test1241.png | pred: "противнения" | ref: "их" | wer: 1.0000
+data/handwritten/test/test1242.png | pred: "противнения" | ref: "особенности" | wer: 1.0000
+data/handwritten/test/test1243.png | pred: "противнения" | ref: "учитывая" | wer: 1.0000
+data/handwritten/test/test1244.png | pred: "противнения" | ref: "индивидуальные" | wer: 1.0000
+data/handwritten/test/test1245.png | pred: "противнения" | ref: "воздействия" | wer: 1.0000
+data/handwritten/test/test1246.png | pred: "противнения" | ref: "на каждого" | wer: 1.0000
+data/handwritten/test/test1248.png | pred: "противнения" | ref: "члена детского" | wer: 1.0000
+data/handwritten/test/test1249.png | pred: "противнения" | ref: "коллектива" | wer: 1.0000
+data/handwritten/test/test125.png | pred: "противнения" | ref: "применяем" | wer: 1.0000
+data/handwritten/test/test1250.png | pred: "противнения" | ref: "методикой" | wer: 1.0000
+data/handwritten/test/test1251.png | pred: "противнения" | ref: "воспитательных" | wer: 1.0000
+data/handwritten/test/test1252.png | pred: "противнения" | ref: "умением" | wer: 1.0000
+data/handwritten/test/test1253.png | pred: "противнения" | ref: "использовать" | wer: 1.0000
+data/handwritten/test/test1254.png | pred: "противнения" | ref: "разнообразные" | wer: 1.0000
+data/handwritten/test/test1255.png | pred: "противнения" | ref: "работы" | wer: 1.0000
+data/handwritten/test/test1256.png | pred: "противнения" | ref: "В качестве" | wer: 1.0000
+data/handwritten/test/test1257.png | pred: "противнения" | ref: "студентка" | wer: 1.0000
+data/handwritten/test/test1258.png | pred: "противнения" | ref: "Онинская обл" | wer: 1.0000
+data/handwritten/test/test1259.png | pred: "противнения" | ref: "с учащимся" | wer: 1.0000
+data/handwritten/test/test126.png | pred: "противнения" | ref: "теорема" | wer: 1.0000
+data/handwritten/test/test1260.png | pred: "противнения" | ref: "этические беседы" | wer: 1.0000
+data/handwritten/test/test1261.png | pred: "противнения" | ref: "подготовку" | wer: 1.0000
+data/handwritten/test/test1262.png | pred: "противнения" | ref: "мероприятиям" | wer: 1.0000
+data/handwritten/test/test1263.png | pred: "противнения" | ref: "проверяла" | wer: 1.0000
+data/handwritten/test/test1264.png | pred: "противнения" | ref: "в организации" | wer: 1.0000
+data/handwritten/test/test1265.png | pred: "противнения" | ref: "дежурств" | wer: 1.0000
+data/handwritten/test/test1266.png | pred: "противнения" | ref: "по лицею" | wer: 1.0000
+data/handwritten/test/test1267.png | pred: "противнения" | ref: "в организации" | wer: 1.0000
+data/handwritten/test/test1268.png | pred: "противнения" | ref: "с правилами" | wer: 1.0000
+data/handwritten/test/test1269.png | pred: "противнения" | ref: "ул Ленина 11" | wer: 1.0000
+data/handwritten/test/test127.png | pred: "противнения" | ref: "плотность" | wer: 1.0000
+data/handwritten/test/test1270.png | pred: "противнения" | ref: "документации" | wer: 1.0000
+data/handwritten/test/test1271.png | pred: "противнения" | ref: "классного" | wer: 1.0000
+data/handwritten/test/test1273.png | pred: "противнения" | ref: "планов." | wer: 1.0000
+data/handwritten/test/test1274.png | pred: "противнения" | ref: "Рекомендую" | wer: 1.0000
+data/handwritten/test/test1275.png | pred: "противнения" | ref: "Заречнева Е.Н" | wer: 1.0000
+data/handwritten/test/test1276.png | pred: "противнения" | ref: "Савилова Н.В." | wer: 1.0000
+data/handwritten/test/test1277.png | pred: "противнения" | ref: "оценкой" | wer: 1.0000
+data/handwritten/test/test1279.png | pred: "противнения" | ref: "для нужд" | wer: 1.0000
+data/handwritten/test/test128.png | pred: "противнения" | ref: "Основные" | wer: 1.0000
+data/handwritten/test/test1281.png | pred: "противнения" | ref: "избирательной" | wer: 1.0000
+data/handwritten/test/test1282.png | pred: "противнения" | ref: "получил" | wer: 1.0000
+data/handwritten/test/test1283.png | pred: "противнения" | ref: "Киселева В.А." | wer: 1.0000
+data/handwritten/test/test1284.png | pred: "противнения" | ref: "Триста Тысяч" | wer: 1.0000
+data/handwritten/test/test1285.png | pred: "противнения" | ref: "долларов США" | wer: 1.0000
+data/handwritten/test/test1286.png | pred: "противнения" | ref: "22.03.2006 г." | wer: 1.0000
+data/handwritten/test/test1287.png | pred: "противнения" | ref: "Свистунов А.Т." | wer: 1.0000
+data/handwritten/test/test1288.png | pred: "противнения" | ref: "г. Москва" | wer: 1.0000
+data/handwritten/test/test1289.png | pred: "противнения" | ref: "24.11.1986" | wer: 1.0000
+data/handwritten/test/test129.png | pred: "противнения" | ref: "свойства" | wer: 1.0000
+data/handwritten/test/test1290.png | pred: "противнения" | ref: "гор. Воронеж" | wer: 1.0000
+data/handwritten/test/test1291.png | pred: "противнения" | ref: "Иванова" | wer: 1.0000
+data/handwritten/test/test1292.png | pred: "противнения" | ref: "Сидорову" | wer: 1.0000
+data/handwritten/test/test1293.png | pred: "противнения" | ref: "гор. Челябинск" | wer: 1.0000
+data/handwritten/test/test1294.png | pred: "противнения" | ref: "Советская" | wer: 1.0000
+data/handwritten/test/test1295.png | pred: "противнения" | ref: "Прошу вернуть" | wer: 1.0000
+data/handwritten/test/test1296.png | pred: "противнения" | ref: "денежные средства" | wer: 1.0000
+data/handwritten/test/test1297.png | pred: "противнения" | ref: "перечисленные" | wer: 1.0000
+data/handwritten/test/test1298.png | pred: "противнения" | ref: "на номера" | wer: 1.0000
+data/handwritten/test/test1299.png | pred: "противнения" | ref: "яндекс-кошелька" | wer: 1.0000
+data/handwritten/test/test13.png | pred: "противнения" | ref: "15.09.2020" | wer: 1.0000
+data/handwritten/test/test130.png | pred: "противнения" | ref: "деформация" | wer: 1.0000
+data/handwritten/test/test1302.png | pred: "противнения" | ref: "523739" | wer: 1.0000
+data/handwritten/test/test1303.png | pred: "противнения" | ref: "12.08.2012" | wer: 1.0000
+data/handwritten/test/test1304.png | pred: "противнения" | ref: "88007008000" | wer: 1.0000
+data/handwritten/test/test1305.png | pred: "противнения" | ref: "Лебеденко Н.Н." | wer: 1.0000
+data/handwritten/test/test1306.png | pred: "противнения" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1307.png | pred: "противнения" | ref: "История операции" | wer: 1.0000
+data/handwritten/test/test1308.png | pred: "противнения" | ref: "и детализацию по" | wer: 1.0000
+data/handwritten/test/test1309.png | pred: "противнения" | ref: "ним предоставляю" | wer: 1.0000
+data/handwritten/test/test131.png | pred: "противнения" | ref: "шейка" | wer: 1.0000
+data/handwritten/test/test1310.png | pred: "противнения" | ref: "в распечатанном" | wer: 1.0000
+data/handwritten/test/test1311.png | pred: "противнения" | ref: "виде" | wer: 1.0000
+data/handwritten/test/test1312.png | pred: "противнения" | ref: "В конечестве" | wer: 1.0000
+data/handwritten/test/test1313.png | pred: "противнения" | ref: "10.04.2000" | wer: 1.0000
+data/handwritten/test/test1314.png | pred: "противнения" | ref: "Детализация" | wer: 1.0000
+data/handwritten/test/test1315.png | pred: "противнения" | ref: "по каждому" | wer: 1.0000
+data/handwritten/test/test1316.png | pred: "противнения" | ref: "незаконному" | wer: 1.0000
+data/handwritten/test/test1317.png | pred: "противнения" | ref: "Более" | wer: 1.0000
+data/handwritten/test/test1318.png | pred: "противнения" | ref: "информацию можно" | wer: 1.0000
+data/handwritten/test/test1319.png | pred: "противнения" | ref: "узнать у" | wer: 1.0000
+data/handwritten/test/test132.png | pred: "противнения" | ref: "Линейное" | wer: 1.0000
+data/handwritten/test/test1320.png | pred: "противнения" | ref: "Яндекс-деньги" | wer: 1.0000
+data/handwritten/test/test1322.png | pred: "противнения" | ref: "Контролер" | wer: 1.0000
+data/handwritten/test/test1323.png | pred: "противнения" | ref: "Смоленское" | wer: 1.0000
+data/handwritten/test/test1324.png | pred: "противнения" | ref: "заместитель" | wer: 1.0000
+data/handwritten/test/test1327.png | pred: "противнения" | ref: "г.Пенза" | wer: 1.0000
+data/handwritten/test/test1328.png | pred: "противнения" | ref: "14 ноября 2007г." | wer: 1.0000
+data/handwritten/test/test133.png | pred: "противнения" | ref: "сходится" | wer: 1.0000
+data/handwritten/test/test1330.png | pred: "противнения" | ref: "в размере" | wer: 1.0000
+data/handwritten/test/test1333.png | pred: "противнения" | ref: "обязательств" | wer: 1.0000
+data/handwritten/test/test1334.png | pred: "противнения" | ref: "в договоре" | wer: 1.0000
+data/handwritten/test/test1335.png | pred: "противнения" | ref: "а именно" | wer: 1.0000
+data/handwritten/test/test1336.png | pred: "противнения" | ref: "02 декабря 1980 г." | wer: 1.0000
+data/handwritten/test/test1337.png | pred: "противнения" | ref: "условия поставки" | wer: 1.0000
+data/handwritten/test/test1339.png | pred: "противнения" | ref: "для зачисления" | wer: 1.0000
+data/handwritten/test/test134.png | pred: "противнения" | ref: "ожиданию" | wer: 1.0000
+data/handwritten/test/test1340.png | pred: "противнения" | ref: "4272 2903 8396 6819" | wer: 1.0000
+data/handwritten/test/test1341.png | pred: "противнения" | ref: "30101810100000000716" | wer: 1.0000
+data/handwritten/test/test1342.png | pred: "противнения" | ref: "30232810481100000009" | wer: 1.0000
+data/handwritten/test/test1343.png | pred: "противнения" | ref: "44525716" | wer: 1.0000
+data/handwritten/test/test1344.png | pred: "противнения" | ref: "Разрыв" | wer: 1.0000
+data/handwritten/test/test1345.png | pred: "противнения" | ref: "Проводить" | wer: 1.0000
+data/handwritten/test/test1346.png | pred: "противнения" | ref: "27.11.2016 г" | wer: 1.0000
+data/handwritten/test/test1347.png | pred: "противнения" | ref: "Г. Воронеж" | wer: 1.0000
+data/handwritten/test/test1348.png | pred: "противнения" | ref: "мне было" | wer: 1.0000
+data/handwritten/test/test1349.png | pred: "противнения" | ref: "в помещении" | wer: 1.0000
+data/handwritten/test/test135.png | pred: "противнения" | ref: "стандартизование" | wer: 1.0000
+data/handwritten/test/test1350.png | pred: "противнения" | ref: "Избирательного" | wer: 1.0000
+data/handwritten/test/test1351.png | pred: "противнения" | ref: "в качестве лида" | wer: 1.0000
+data/handwritten/test/test1352.png | pred: "противнения" | ref: "регистрации в качестве" | wer: 1.0000
+data/handwritten/test/test1353.png | pred: "противнения" | ref: "Аналогичные" | wer: 1.0000
+data/handwritten/test/test1354.png | pred: "противнения" | ref: "В соответствие" | wer: 1.0000
+data/handwritten/test/test1355.png | pred: "противнения" | ref: "Бандура Д. В." | wer: 1.0000
+data/handwritten/test/test1357.png | pred: "противнения" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1358.png | pred: "противнения" | ref: "разведена" | wer: 1.0000
+data/handwritten/test/test136.png | pred: "противнения" | ref: "сходимость" | wer: 1.0000
+data/handwritten/test/test1360.png | pred: "противнения" | ref: "в городе" | wer: 1.0000
+data/handwritten/test/test1361.png | pred: "противнения" | ref: "не управлял" | wer: 1.0000
+data/handwritten/test/test1364.png | pred: "противнения" | ref: "В данный момент" | wer: 1.0000
+data/handwritten/test/test1365.png | pred: "противнения" | ref: "Морозова" | wer: 1.0000
+data/handwritten/test/test1366.png | pred: "противнения" | ref: "Генеральному" | wer: 1.0000
+data/handwritten/test/test1367.png | pred: "противнения" | ref: "Российской" | wer: 1.0000
+data/handwritten/test/test1368.png | pred: "противнения" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1369.png | pred: "противнения" | ref: "Березкин" | wer: 1.0000
+data/handwritten/test/test137.png | pred: "противнения" | ref: "совпадает" | wer: 1.0000
+data/handwritten/test/test1370.png | pred: "противнения" | ref: "08.02.2012г" | wer: 1.0000
+data/handwritten/test/test1371.png | pred: "противнения" | ref: "мне стало" | wer: 1.0000
+data/handwritten/test/test1373.png | pred: "противнения" | ref: "представлением" | wer: 1.0000
+data/handwritten/test/test1374.png | pred: "противнения" | ref: "на должность" | wer: 1.0000
+data/handwritten/test/test1375.png | pred: "противнения" | ref: "Главы" | wer: 1.0000
+data/handwritten/test/test1376.png | pred: "противнения" | ref: "документы" | wer: 1.0000
+data/handwritten/test/test1377.png | pred: "противнения" | ref: "Галяева А. М." | wer: 1.0000
+data/handwritten/test/test138.png | pred: "противнения" | ref: "означает" | wer: 1.0000
+data/handwritten/test/test1380.png | pred: "противнения" | ref: "Березкина" | wer: 1.0000
+data/handwritten/test/test1381.png | pred: "противнения" | ref: "наизусть" | wer: 1.0000
+data/handwritten/test/test1382.png | pred: "противнения" | ref: "На этих документах" | wer: 1.0000
+data/handwritten/test/test1383.png | pred: "противнения" | ref: "имеется" | wer: 1.0000
+data/handwritten/test/test1384.png | pred: "противнения" | ref: "Дата и" | wer: 1.0000
+data/handwritten/test/test1386.png | pred: "противнения" | ref: "Кроме того," | wer: 1.0000
+data/handwritten/test/test1387.png | pred: "противнения" | ref: "13 января 2012г" | wer: 1.0000
+data/handwritten/test/test1388.png | pred: "противнения" | ref: "в избирательной" | wer: 1.0000
+data/handwritten/test/test139.png | pred: "противнения" | ref: "суммы," | wer: 1.0000
+data/handwritten/test/test1390.png | pred: "противнения" | ref: "произведена" | wer: 1.0000
+data/handwritten/test/test1392.png | pred: "противнения" | ref: "Прошу Вас" | wer: 1.0000
+data/handwritten/test/test1393.png | pred: "противнения" | ref: "08 февраля 2012г." | wer: 1.0000
+data/handwritten/test/test1394.png | pred: "противнения" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1395.png | pred: "противнения" | ref: "Прошу" | wer: 1.0000
+data/handwritten/test/test1396.png | pred: "противнения" | ref: "должности" | wer: 1.0000
+data/handwritten/test/test1397.png | pred: "противнения" | ref: "государственной" | wer: 1.0000
+data/handwritten/test/test1398.png | pred: "противнения" | ref: "гражданкой" | wer: 1.0000
+data/handwritten/test/test1399.png | pred: "противнения" | ref: "службы" | wer: 1.0000
+data/handwritten/test/test14.png | pred: "противнения" | ref: "оператор" | wer: 1.0000
+data/handwritten/test/test140.png | pred: "противнения" | ref: "совокупность" | wer: 1.0000
+data/handwritten/test/test1400.png | pred: "противнения" | ref: "заместителя" | wer: 1.0000
+data/handwritten/test/test1401.png | pred: "противнения" | ref: "министра" | wer: 1.0000
+data/handwritten/test/test1402.png | pred: "противнения" | ref: "просрочкой" | wer: 1.0000
+data/handwritten/test/test1403.png | pred: "противнения" | ref: "финансов" | wer: 1.0000
+data/handwritten/test/test1404.png | pred: "противнения" | ref: "Медведеву Д.А." | wer: 1.0000
+data/handwritten/test/test1405.png | pred: "противнения" | ref: "Саватюгина А.Л." | wer: 1.0000
+data/handwritten/test/test1409.png | pred: "противнения" | ref: "Заявление." | wer: 1.0000
+data/handwritten/test/test141.png | pred: "противнения" | ref: "используем" | wer: 1.0000
+data/handwritten/test/test1411.png | pred: "противнения" | ref: "Уманцу О.А." | wer: 1.0000
+data/handwritten/test/test1413.png | pred: "противнения" | ref: "июля" | wer: 1.0000
+data/handwritten/test/test1414.png | pred: "противнения" | ref: "желательно" | wer: 1.0000
+data/handwritten/test/testt1414.png | pred: "противнения" | ref: "во время" | wer: 1.0000
+data/handwritten/test/test1415.png | pred: "противнения" | ref: "предположительно" | wer: 1.0000
+data/handwritten/test/test1416.png | pred: "противнения" | ref: "Дополнительно сообщу" | wer: 1.0000
+data/handwritten/test/test1417.png | pred: "противнения" | ref: "Даценко С.Н." | wer: 1.0000
+data/handwritten/test/test1418.png | pred: "противнения" | ref: "В ввиду" | wer: 1.0000
+data/handwritten/test/test1419.png | pred: "противнения" | ref: "по февраль 2005 г." | wer: 1.0000
+data/handwritten/test/test142.png | pred: "противнения" | ref: "дисперсия" | wer: 1.0000
+data/handwritten/test/test1423.png | pred: "противнения" | ref: "которому" | wer: 1.0000
+data/handwritten/test/test1424.png | pred: "противнения" | ref: "Макарова" | wer: 1.0000
+data/handwritten/test/test1425.png | pred: "противнения" | ref: "не выплачиваю" | wer: 1.0000
+data/handwritten/test/testt1425.png | pred: "противнения" | ref: "алименты" | wer: 1.0000
+data/handwritten/test/test1426.png | pred: "противнения" | ref: "Приглашается" | wer: 1.0000
+data/handwritten/test/test1428.png | pred: "противнения" | ref: "Фомина В. Л" | wer: 1.0000
+data/handwritten/test/test1429.png | pred: "противнения" | ref: "Генеральному директору" | wer: 1.0000
+data/handwritten/test/test143.png | pred: "противнения" | ref: "принцип" | wer: 1.0000
+data/handwritten/test/test1430.png | pred: "противнения" | ref: "От ткача 5 разряда" | wer: 1.0000
+data/handwritten/test/test1431.png | pred: "противнения" | ref: "об образовательных" | wer: 1.0000
+data/handwritten/test/test1432.png | pred: "противнения" | ref: "программах" | wer: 1.0000
+data/handwritten/test/test1433.png | pred: "противнения" | ref: "Л. М. Петровой" | wer: 1.0000
+data/handwritten/test/test1434.png | pred: "противнения" | ref: "Платоновой В.А." | wer: 1.0000
+data/handwritten/test/test1435.png | pred: "противнения" | ref: "директора" | wer: 1.0000
+data/handwritten/test/test1438.png | pred: "противнения" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1439.png | pred: "противнения" | ref: "должность инженера" | wer: 1.0000
+data/handwritten/test/test144.png | pred: "противнения" | ref: "собака" | wer: 1.0000
+data/handwritten/test/test1440.png | pred: "противнения" | ref: "1 февраля 1965г." | wer: 1.0000
+data/handwritten/test/test1441.png | pred: "противнения" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1442.png | pred: "противнения" | ref: "Сидоренко" | wer: 1.0000
+data/handwritten/test/test1443.png | pred: "противнения" | ref: "прошу" | wer: 1.0000
+data/handwritten/test/test1444.png | pred: "противнения" | ref: "Вас расторгнуть" | wer: 1.0000
+data/handwritten/test/test1445.png | pred: "противнения" | ref: "договор" | wer: 1.0000
+data/handwritten/test/test1446.png | pred: "противнения" | ref: "и вернуть деньги" | wer: 1.0000
+data/handwritten/test/test1447.png | pred: "противнения" | ref: "в мае 1942 г." | wer: 1.0000
+data/handwritten/test/test1448.png | pred: "противнения" | ref: "по Полюсу" | wer: 1.0000
+data/handwritten/test/test1449.png | pred: "противнения" | ref: "транспортного" | wer: 1.0000
+data/handwritten/test/test145.png | pred: "противнения" | ref: "порядок" | wer: 1.0000
+data/handwritten/test/test1450.png | pred: "противнения" | ref: "средства" | wer: 1.0000
+data/handwritten/test/test1451.png | pred: "противнения" | ref: "Причина" | wer: 1.0000
+data/handwritten/test/test1452.png | pred: "противнения" | ref: "отказ" | wer: 1.0000
+data/handwritten/test/test1454.png | pred: "противнения" | ref: "26. 03. 2014" | wer: 1.0000
+data/handwritten/test/test1455.png | pred: "противнения" | ref: "Сидоренко С. В." | wer: 1.0000
+data/handwritten/test/test1456.png | pred: "противнения" | ref: "Прошу разрешения" | wer: 1.0000
+data/handwritten/test/test1457.png | pred: "противнения" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1458.png | pred: "противнения" | ref: "в семье" | wer: 1.0000
+data/handwritten/test/test1459.png | pred: "противнения" | ref: "Коржова С.Н." | wer: 1.0000
+data/handwritten/test/test146.png | pred: "противнения" | ref: "равномерно" | wer: 1.0000
+data/handwritten/test/test1460.png | pred: "противнения" | ref: "Долженко Л. У." | wer: 1.0000
+data/handwritten/test/test1461.png | pred: "противнения" | ref: "с материалами" | wer: 1.0000
+data/handwritten/test/test1462.png | pred: "противнения" | ref: "гражданского дела" | wer: 1.0000
+data/handwritten/test/test1464.png | pred: "противнения" | ref: "прошу разрешения" | wer: 1.0000
+data/handwritten/test/test1465.png | pred: "противнения" | ref: "сделать" | wer: 1.0000
+data/handwritten/test/test1467.png | pred: "противнения" | ref: "28 декабря 2006 г." | wer: 1.0000
+data/handwritten/test/test1468.png | pred: "противнения" | ref: "Председателю суда" | wer: 1.0000
+data/handwritten/test/test1469.png | pred: "противнения" | ref: "В 1942г" | wer: 1.0000
+data/handwritten/test/test147.png | pred: "противнения" | ref: "осуществляется" | wer: 1.0000
+data/handwritten/test/test1471.png | pred: "противнения" | ref: "переводом" | wer: 1.0000
+data/handwritten/test/test1472.png | pred: "противнения" | ref: "медицинского" | wer: 1.0000
+data/handwritten/test/test1473.png | pred: "противнения" | ref: "Прошу оказать" | wer: 1.0000
+data/handwritten/test/test1474.png | pred: "противнения" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1477.png | pred: "противнения" | ref: "Стипендию получаю" | wer: 1.0000
+data/handwritten/test/test1478.png | pred: "противнения" | ref: "не получаю" | wer: 1.0000
+data/handwritten/test/test148.png | pred: "противнения" | ref: "через" | wer: 1.0000
+data/handwritten/test/test1481.png | pred: "противнения" | ref: "факультета МГУ" | wer: 1.0000
+data/handwritten/test/test1482.png | pred: "противнения" | ref: "академику" | wer: 1.0000
+data/handwritten/test/test1483.png | pred: "противнения" | ref: "Кафедра зоологии" | wer: 1.0000
+data/handwritten/test/test1484.png | pred: "противнения" | ref: "беспозвоночных" | wer: 1.0000
+data/handwritten/test/test1485.png | pred: "противнения" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1487.png | pred: "противнения" | ref: "13.09.19" | wer: 1.0000
+data/handwritten/test/test1488.png | pred: "противнения" | ref: "преобретен" | wer: 1.0000
+data/handwritten/test/test1489.png | pred: "противнения" | ref: "Смартфон" | wer: 1.0000
+data/handwritten/test/test149.png | pred: "противнения" | ref: "Имеем" | wer: 1.0000
+data/handwritten/test/test1490.png | pred: "противнения" | ref: "по стоимости" | wer: 1.0000
+data/handwritten/test/test1491.png | pred: "противнения" | ref: "школы 17" | wer: 1.0000
+data/handwritten/test/test1494.png | pred: "противнения" | ref: "на сим карте" | wer: 1.0000
+data/handwritten/test/test1496.png | pred: "противнения" | ref: "данных" | wer: 1.0000
+data/handwritten/test/test1497.png | pred: "противнения" | ref: "телефон чист" | wer: 1.0000
+data/handwritten/test/test1498.png | pred: "противнения" | ref: "как с нуля" | wer: 1.0000
+data/handwritten/test/test1499.png | pred: "противнения" | ref: "27.09.19" | wer: 1.0000
+data/handwritten/test/test15.png | pred: "противнения" | ref: "Обозначим" | wer: 1.0000
+data/handwritten/test/test150.png | pred: "противнения" | ref: "линейных" | wer: 1.0000
+data/handwritten/test/test1500.png | pred: "противнения" | ref: "телефон был сдан" | wer: 1.0000
+data/handwritten/test/test1501.png | pred: "противнения" | ref: "проверку качества," | wer: 1.0000
+data/handwritten/test/test1503.png | pred: "противнения" | ref: "пришлю заключение" | wer: 1.0000
+data/handwritten/test/test1504.png | pred: "противнения" | ref: "о том что дефект" | wer: 1.0000
+data/handwritten/test/test1505.png | pred: "противнения" | ref: "обнаружен" | wer: 1.0000
+data/handwritten/test/test1506.png | pred: "противнения" | ref: "В этот же день" | wer: 1.0000
+data/handwritten/test/test1507.png | pred: "противнения" | ref: "при осмотре" | wer: 1.0000
+data/handwritten/test/test1508.png | pred: "противнения" | ref: "консультантом" | wer: 1.0000
+data/handwritten/test/testt1508.png | pred: "противнения" | ref: "магазина" | wer: 1.0000
+data/handwritten/test/test1509.png | pred: "противнения" | ref: "дефект остался" | wer: 1.0000
+data/handwritten/test/test151.png | pred: "противнения" | ref: "метод" | wer: 1.0000
+
+AVG CER: 1.0901
+AVG WER: 1.0000

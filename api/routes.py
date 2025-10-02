@@ -10,13 +10,19 @@ from fastapi.responses import StreamingResponse
 from PIL import Image
 
 from schemas import SegmentsResponse, SegmentOut
-from config import MAX_UPLOAD_BYTES, TROCR_ENABLED
+from config import (
+    MAX_UPLOAD_BYTES,
+    TROCR_ENABLED,
+    TESS_LANGS, TESS_PSM, TESS_OEM, TESS_LEVEL,
+    TESS_CONF_THRESHOLD, TESS_MIN_WORDS, TESS_MIN_TEXT_LEN,
+    PREPROC_MODE_DEFAULT,
+)
 from logging_utils import setup_logger
 from preprocessing.osd_utils import apply_osd_rotation
 from preprocessing.preproc import preprocess_for_print_soft, preprocess_for_print_hard
 from postprocessing.text_norm import clean_spaces
 from postprocessing.wer import wer_exact, wer_proxy_from_conf, wer_proxy_between
-from tesseract.segment_lines import segment_lines
+from tesseract.segment_lines import segment
 from api.progress import sse
 
 logger = setup_logger("ocr")
@@ -63,6 +69,7 @@ async def run_pipeline(
     img_w: int,
     img_h: int,
     langs: str,
+    tess_level: int,
     psm: int,
     preproc_mode: str,
     conf_threshold: float,
@@ -124,7 +131,7 @@ async def run_pipeline(
 
     # сегментация строк (level==4)
     t0 = time.perf_counter()
-    lines = segment_lines(prep, langs=langs, psm=psm)
+    lines = segment(prep, langs=langs, psm=psm, level=tess_level, oem=TESS_OEM)
     seg_ms = int((time.perf_counter() - t0) * 1000)
     trace.mark("segment_lines_done", {"duration_ms": seg_ms, "lines": len(lines)})
     progress("segment_lines_done", 55, lines=len(lines))
@@ -132,7 +139,7 @@ async def run_pipeline(
     # отберём сомнительные для fallback
     low = [
         ln for ln in lines
-        if (ln["avg_conf"] < conf_threshold) or (ln["words"] < 2 and len(ln["text"]) < 10)
+        if (ln["avg_conf"] < conf_threshold) or (ln["words"] < TESS_MIN_WORDS and len(ln["text"]) < TESS_MIN_TEXT_LEN)
     ]
     trace.mark("low_conf_selected", {"count": len(low), "threshold": conf_threshold})
 
@@ -220,13 +227,14 @@ async def ocr_segments(
     file: UploadFile = File(...),
     img_width: int = Form(...),
     img_height: int = Form(...),
-    langs: str = Form("rus+eng"),
-    psm: int = Form(6),
-    preproc: str = Form("soft"),                   # soft|hard
-    conf_threshold: float = Form(70.0),
-    wer_mode: str = Form("proxy"),                 # "proxy"|"exact"
+    langs: str = Form(TESS_LANGS),
+    psm: int = Form(TESS_PSM),
+    tess_level: int = Form(TESS_LEVEL),          # <— НОВОЕ: 4|5
+    preproc: str = Form(PREPROC_MODE_DEFAULT),   # "soft"|"hard"
+    conf_threshold: float = Form(TESS_CONF_THRESHOLD),
+    wer_mode: str = Form("proxy"),               # "proxy"|"exact"
     ref_text: Optional[str] = Form(None),
-    stream: bool = Form(False),                    # true -> SSE поток прогресса
+    stream: bool = Form(False),
 ):
     """
     По умолчанию возвращает JSON с результатом и stats.trace (тайминги шагов).
@@ -236,7 +244,7 @@ async def ocr_segments(
     if not stream:
         # Обычный JSON-ответ (без потоковой передачи).
         payload = await run_pipeline(
-            request, file, img_width, img_height, langs, psm, preproc,
+            request, file, img_width, img_height, langs,tess_level, psm, preproc,
             conf_threshold, wer_mode, ref_text, emit=None
         )
         return payload
@@ -257,7 +265,7 @@ async def ocr_segments(
         async def _run():
             try:
                 result = await run_pipeline(
-                    request, file, img_width, img_height, langs, psm, preproc,
+                    request, file, img_width, img_height, langs,tess_level, psm, preproc,
                     conf_threshold, wer_mode, ref_text, emit=emit_cb
                 )
                 q.put_nowait(sse("result", result))

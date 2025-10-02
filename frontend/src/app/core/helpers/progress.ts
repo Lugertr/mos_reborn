@@ -29,7 +29,7 @@ export const STATUS_MAP: Map<OcrPhase, ProgressStatus> = new Map([
   [OcrPhase.TrocrFallback,    { text: 'TrOCR для сложных…',    percent: 65  }],
   [OcrPhase.Assembling,       { text: 'Сборка результата…',    percent: 88  }],
   [OcrPhase.Done,             { text: 'Готово',                percent: 100 }],
-  [OcrPhase.Error,            { text: 'Ошибка',                percent: 100 }],
+  [OcrPhase.Error,            { text: 'Ошибка',                percent: 101 }],
 ]);
 
 // входящий прогресс теперь понимает обе схемы: phase/progress/note и step/percent/message
