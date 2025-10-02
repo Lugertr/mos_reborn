@@ -34,6 +34,14 @@ body {
   cursor: pointer;
 }
 
+.grab {
+  cursor: grab;
+}
+
+.resize {
+  resize: both;
+}
+
 .empty {
   color: var(--mat-sys-secondary);
   display: flex;

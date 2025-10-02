@@ -14,7 +14,7 @@ import { DocumentForm, DocumentsFieldForm, FieldFormState } from '../document.co
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Subject, Subscription } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CdkDrag, DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -34,6 +34,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    CdkDrag
   ],
   templateUrl: './document-image.component.html',
   styleUrls: ['./document-image.component.scss'],
@@ -45,7 +46,7 @@ export class DocumentImageComponent {
   private cdr = inject(ChangeDetectorRef);
 
   readonly fieldFormState = FieldFormState;
-  readonly data = input.required<FormGroup<DocumentForm>>();
+  readonly data = input<FormGroup<DocumentForm>>();
 
   previewImg: Signal<SafeUrl> = computed(() => {
     const imgFile = this.data()?.value?.file;

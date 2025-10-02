@@ -14,7 +14,7 @@ MAX_UPLOAD_BYTES: int = 15 * 1024 * 1024  # 15 MB
 TROCR_ENABLED: bool = True
 
 # Где лежит обученный ран TrOCR (внутри — charset.json, config.json)
-TROCR_RUN_DIR: str = "runs/base72k"
+TROCR_RUN_DIR: str = "runs/default"
 
 # Какой файл весов загрузить из рана
 TROCR_WEIGHTS_FILE: str = "best.weights.h5"

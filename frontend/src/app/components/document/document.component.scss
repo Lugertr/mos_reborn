@@ -34,6 +34,21 @@ mat-nav-list {
   flex: 1 1 auto;
 }
 
+mat-nav-list .list-item {
+  height: fit-content;
+  padding: 16px;
+  border-radius: 0;
+  gap: 8px;
+}
+
+mat-nav-list .list-item .list-item-content {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .viewer {
   padding-top: 6px;
   overflow: hidden;
@@ -53,4 +68,13 @@ mat-nav-list {
 .doc-title {
   min-width: 320px;
   flex: 0 0 420px;
+}
+
+.viewer-list-action {
+  display: flex;
+  width: 100%;
+}
+
+.left-margin {
+  margin-left: auto;
 }
