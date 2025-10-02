@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rtr-backend:latest
+    container_name: rtr-backend
+    environment:
+      # По умолчанию включаем TrOCR;
+      # при необходимости можно выключить: TROCR_ENABLED=false
+      - TROCR_ENABLED=true
+      # При необходимости: - TZ=Europe/Stockholm
+    ports:
+      - "8000:8000"
+    volumes:
+      # Монтируем локальные данные и модели в контейнер
+      - ./data:/app/data
+      - ./runs:/app/runs
+      # (опционально) логи
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: rtr-frontend:latest
+    container_name: rtr-frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    restart: unless-stopped

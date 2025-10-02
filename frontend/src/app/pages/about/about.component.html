@@ -5,14 +5,9 @@
       Сервис извлечения и индексирования информации<br />
       из образов архивных документов (Ретроконверсия)
     </h2>
-    <a
-      class="banner-link"
-      mat-raised-button
-      href="https://i.moscow/lct/hackatons/76227cbf450b46b1a4f9a5256b66adc2/ru/"
-      target="_blank"
-    >
-      Описание задачи
-      <mat-icon>dashboard</mat-icon>
+    <a class="banner-link" mat-flat-button [routerLink]="converterUrl">
+      Перейти к ретроконвертеру
+      <mat-icon>article_shortcut</mat-icon>
     </a>
     <div class="banner-content-decor">09</div>
   </div>
@@ -23,9 +18,13 @@
     <p>— Доступен без регистрации</p>
     <p>— С помощью ИИ извлекайте текст и ключевые слова документа</p>
     <p>— Экспортируйте данные в формате PNG</p>
-    <a mat-flat-button [routerLink]="converterUrl">
-      Перейти к ретроконвертеру
-      <mat-icon>article_shortcut</mat-icon>
+    <a
+      mat-raised-button
+      href="https://i.moscow/lct/hackatons/76227cbf450b46b1a4f9a5256b66adc2/ru/"
+      target="_blank"
+    >
+      Описание задачи
+      <mat-icon>dashboard</mat-icon>
     </a>
   </div>
   <div class="mat-card">

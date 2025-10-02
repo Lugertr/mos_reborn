@@ -1,0 +1,515 @@
+data/handwritten/test/test0.png | pred: "полка" | ref: "ибо" | wer: 1.0000
+data/handwritten/test/test1.png | pred: "полка" | ref: "осталось" | wer: 1.0000
+data/handwritten/test/test10.png | pred: "полка" | ref: "поле" | wer: 1.0000
+data/handwritten/test/test100.png | pred: "полка" | ref: "Оптическое" | wer: 1.0000
+data/handwritten/test/test1000.png | pred: "полка" | ref: "1 класса" | wer: 1.0000
+data/handwritten/test/test1001.png | pred: "полка" | ref: "г. Ульяновск" | wer: 1.0000
+data/handwritten/test/test1002.png | pred: "полка" | ref: "На место" | wer: 1.0000
+data/handwritten/test/test1003.png | pred: "полка" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1004.png | pred: "полка" | ref: "назначение" | wer: 1.0000
+data/handwritten/test/test1005.png | pred: "полка" | ref: "отправление" | wer: 1.0000
+data/handwritten/test/test1006.png | pred: "полка" | ref: "было только" | wer: 1.0000
+data/handwritten/test/test1007.png | pred: "полка" | ref: "6.10.2017г." | wer: 1.0000
+data/handwritten/test/test1008.png | pred: "полка" | ref: "просрочив все сроки" | wer: 1.0000
+data/handwritten/test/test1009.png | pred: "полка" | ref: "которые для" | wer: 1.0000
+data/handwritten/test/test101.png | pred: "полка" | ref: "тогда" | wer: 1.0000
+data/handwritten/test/test1010.png | pred: "полка" | ref: "отправления были" | wer: 1.0000
+data/handwritten/test/test1011.png | pred: "полка" | ref: "критичны." | wer: 1.0000
+data/handwritten/test/test1012.png | pred: "полка" | ref: "Просьба разобраться" | wer: 1.0000
+data/handwritten/test/test1013.png | pred: "полка" | ref: "в ситуации," | wer: 1.0000
+data/handwritten/test/test1014.png | pred: "полка" | ref: "30. 08. 2004" | wer: 1.0000
+data/handwritten/test/test1015.png | pred: "полка" | ref: "дав обратную" | wer: 1.0000
+data/handwritten/test/test1016.png | pred: "полка" | ref: "связь" | wer: 1.0000
+data/handwritten/test/test1017.png | pred: "полка" | ref: "а также" | wer: 1.0000
+data/handwritten/test/test1018.png | pred: "полка" | ref: "которые были" | wer: 1.0000
+data/handwritten/test/test1019.png | pred: "полка" | ref: "оплачены за" | wer: 1.0000
+data/handwritten/test/test102.png | pred: "полка" | ref: "способ" | wer: 1.0000
+data/handwritten/test/test1020.png | pred: "полка" | ref: "1 класса" | wer: 1.0000
+data/handwritten/test/test1021.png | pred: "полка" | ref: "Данные по" | wer: 1.0000
+data/handwritten/test/test1023.png | pred: "полка" | ref: "Ксерокопия" | wer: 1.0000
+data/handwritten/test/test1024.png | pred: "полка" | ref: "приложена" | wer: 1.0000
+data/handwritten/test/test1025.png | pred: "полка" | ref: "выдан ОВД" | wer: 1.0000
+data/handwritten/test/test1026.png | pred: "полка" | ref: "заявлению" | wer: 1.0000
+data/handwritten/test/test1027.png | pred: "полка" | ref: "Контакты для" | wer: 1.0000
+data/handwritten/test/test1028.png | pred: "полка" | ref: "Анна Сергеевна" | wer: 1.0000
+data/handwritten/test/test1029.png | pred: "полка" | ref: "7.10.2017 г." | wer: 1.0000
+data/handwritten/test/test103.png | pred: "полка" | ref: "угольник" | wer: 1.0000
+data/handwritten/test/test1030.png | pred: "противопоставление" | ref: "Расписка" | wer: 1.0000
+data/handwritten/test/test1031.png | pred: "полка" | ref: "10 июня 2016г." | wer: 1.0000
+data/handwritten/test/test1032.png | pred: "полка" | ref: "г. Санкт-петербург" | wer: 1.0000
+data/handwritten/test/test1033.png | pred: "противопоставление" | ref: "Иванов Иван" | wer: 1.0000
+data/handwritten/test/test1034.png | pred: "полка" | ref: "15.02.1987г." | wer: 1.0000
+data/handwritten/test/test1035.png | pred: "полка" | ref: "рождения" | wer: 1.0000
+data/handwritten/test/test1036.png | pred: "полка" | ref: "17.10.2005" | wer: 1.0000
+data/handwritten/test/test1037.png | pred: "противопоставление" | ref: "паспорт серия" | wer: 1.0000
+data/handwritten/test/test1039.png | pred: "полка" | ref: "18.03.2007 г" | wer: 1.0000
+data/handwritten/test/test104.png | pred: "противопоставление" | ref: "Множество" | wer: 1.0000
+data/handwritten/test/test1040.png | pred: "полка" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1041.png | pred: "противопоставление" | ref: "деньги" | wer: 1.0000
+data/handwritten/test/test1042.png | pred: "полка" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1043.png | pred: "полка" | ref: "18.04.1980" | wer: 1.0000
+data/handwritten/test/test1044.png | pred: "полка" | ref: "паспорт серия" | wer: 1.0000
+data/handwritten/test/test1045.png | pred: "полка" | ref: "зарегистрирован" | wer: 1.0000
+data/handwritten/test/test1046.png | pred: "полка" | ref: "г. Севаевск" | wer: 1.0000
+data/handwritten/test/test1047.png | pred: "полка" | ref: "денежную сумму" | wer: 1.0000
+data/handwritten/test/test1048.png | pred: "полка" | ref: "ул. Ленина" | wer: 1.0000
+data/handwritten/test/test1049.png | pred: "полка" | ref: "вышеуказанную" | wer: 1.0000
+data/handwritten/test/test105.png | pred: "полка" | ref: "Касательная" | wer: 1.0000
+data/handwritten/test/test1050.png | pred: "полка" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1051.png | pred: "полка" | ref: "Иванов И.И." | wer: 1.0000
+data/handwritten/test/test1052.png | pred: "полка" | ref: "28.11.11" | wer: 1.0000
+data/handwritten/test/test1053.png | pred: "полка" | ref: "14мг" | wer: 1.0000
+data/handwritten/test/test1054.png | pred: "полка" | ref: "Плоскостопие" | wer: 1.0000
+data/handwritten/test/test1055.png | pred: "полка" | ref: "обеих" | wer: 1.0000
+data/handwritten/test/test1056.png | pred: "полка" | ref: "Киров" | wer: 1.0000
+data/handwritten/test/test1057.png | pred: "полка" | ref: "ноября 2016" | wer: 1.0000
+data/handwritten/test/test1058.png | pred: "полка" | ref: "в размере 334 000" | wer: 1.0000
+data/handwritten/test/test1059.png | pred: "полка" | ref: "Вагин" | wer: 1.0000
+data/handwritten/test/test106.png | pred: "противопоставление" | ref: "Рассмотрим" | wer: 1.0000
+data/handwritten/test/test1060.png | pred: "полка" | ref: "ОВД Юшного" | wer: 1.0000
+data/handwritten/test/test1061.png | pred: "полка" | ref: "25.06.2005." | wer: 1.0000
+data/handwritten/test/test1063.png | pred: "полка" | ref: "Ложкин Юрий" | wer: 1.0000
+data/handwritten/test/test1064.png | pred: "полка" | ref: "94 04" | wer: 1.0000
+data/handwritten/test/test1065.png | pred: "полка" | ref: "547815" | wer: 1.0000
+data/handwritten/test/test1066.png | pred: "полка" | ref: "ОВД р-на" | wer: 1.0000
+data/handwritten/test/test1067.png | pred: "полка" | ref: "16.08.2004 г." | wer: 1.0000
+data/handwritten/test/test1068.png | pred: "полка" | ref: "г. Киров" | wer: 1.0000
+data/handwritten/test/test1069.png | pred: "полка" | ref: "триста тридцать" | wer: 1.0000
+data/handwritten/test/test107.png | pred: "противопоставление" | ref: "Директориальное" | wer: 1.0000
+data/handwritten/test/test1070.png | pred: "полка" | ref: "Шкода Фабия" | wer: 1.0000
+data/handwritten/test/test1071.png | pred: "полка" | ref: "Паспорт" | wer: 1.0000
+data/handwritten/test/test1072.png | pred: "полка" | ref: "445 тысяч" | wer: 1.0000
+data/handwritten/test/test1073.png | pred: "полка" | ref: "Три тысячи девятьсот" | wer: 1.0000
+data/handwritten/test/test1074.png | pred: "противопоставление" | ref: "Доверенность" | wer: 1.0000
+data/handwritten/test/test1075.png | pred: "полка" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1076.png | pred: "полка" | ref: "номер" | wer: 1.0000
+data/handwritten/test/test1077.png | pred: "полка" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1078.png | pred: "противопоставление" | ref: "отделением" | wer: 1.0000
+data/handwritten/test/test1079.png | pred: "полка" | ref: "по району" | wer: 1.0000
+data/handwritten/test/test108.png | pred: "полка" | ref: "Событие" | wer: 1.0000
+data/handwritten/test/test1080.png | pred: "полка" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1081.png | pred: "полка" | ref: "Москве" | wer: 1.0000
+data/handwritten/test/test1082.png | pred: "полка" | ref: "код подразделения" | wer: 1.0000
+data/handwritten/test/test1083.png | pred: "полка" | ref: "проживаю" | wer: 1.0000
+data/handwritten/test/test1084.png | pred: "полка" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1085.png | pred: "полка" | ref: "квартира" | wer: 1.0000
+data/handwritten/test/test1086.png | pred: "полка" | ref: "доверяю получать" | wer: 1.0000
+data/handwritten/test/test1087.png | pred: "полка" | ref: "отправления," | wer: 1.0000
+data/handwritten/test/test1088.png | pred: "полка" | ref: "приходящие" | wer: 1.0000
+data/handwritten/test/test1089.png | pred: "полка" | ref: "на моё имя" | wer: 1.0000
+data/handwritten/test/test109.png | pred: "полка" | ref: "любое" | wer: 1.0000
+data/handwritten/test/test1090.png | pred: "полка" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1091.png | pred: "полка" | ref: "в качестве задатка" | wer: 1.0000
+data/handwritten/test/test1092.png | pred: "полка" | ref: "г. Москва," | wer: 1.0000
+data/handwritten/test/test1093.png | pred: "полка" | ref: "127 572," | wer: 1.0000
+data/handwritten/test/test1094.png | pred: "полка" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1095.png | pred: "полка" | ref: "ОВД района" | wer: 1.0000
+data/handwritten/test/test1096.png | pred: "полка" | ref: "г. Москвы," | wer: 1.0000
+data/handwritten/test/test1097.png | pred: "полка" | ref: "под подразделения" | wer: 1.0000
+data/handwritten/test/test1098.png | pred: "полка" | ref: "проживающему" | wer: 1.0000
+data/handwritten/test/test1099.png | pred: "полка" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test11.png | pred: "полка" | ref: "новое" | wer: 1.0000
+data/handwritten/test/test110.png | pred: "полка" | ref: "Вопрос" | wer: 1.0000
+data/handwritten/test/test1100.png | pred: "полка" | ref: "25. 01. 2016." | wer: 1.0000
+data/handwritten/test/test1101.png | pred: "противопоставление" | ref: "30.09.2013" | wer: 1.0000
+data/handwritten/test/test1102.png | pred: "полка" | ref: "сентябрь," | wer: 1.0000
+data/handwritten/test/test1103.png | pred: "полка" | ref: "за автомобиль" | wer: 1.0000
+data/handwritten/test/test1104.png | pred: "полка" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test1105.png | pred: "полка" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test1106.png | pred: "полка" | ref: "12.09.2013г" | wer: 1.0000
+data/handwritten/test/test1107.png | pred: "полка" | ref: "12.09.2013 г." | wer: 1.0000
+data/handwritten/test/test1108.png | pred: "полка" | ref: "30.09.2013г" | wer: 1.0000
+data/handwritten/test/test1109.png | pred: "полка" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test111.png | pred: "противопоставление" | ref: "Использование" | wer: 1.0000
+data/handwritten/test/test1110.png | pred: "полка" | ref: "За период практики" | wer: 1.0000
+data/handwritten/test/test1111.png | pred: "состав" | ref: "Савченко И. А." | wer: 1.0000
+data/handwritten/test/test1115.png | pred: "полка" | ref: "с составленным" | wer: 1.0000
+data/handwritten/test/test1116.png | pred: "полка" | ref: "Планом" | wer: 1.0000
+data/handwritten/test/test1117.png | pred: "полка" | ref: "На основе" | wer: 1.0000
+data/handwritten/test/test1118.png | pred: "полка" | ref: "модели" | wer: 1.0000
+data/handwritten/test/test1119.png | pred: "полка" | ref: "процесса" | wer: 1.0000
+data/handwritten/test/test112.png | pred: "полка" | ref: "непустое" | wer: 1.0000
+data/handwritten/test/test1120.png | pred: "полка" | ref: "определены" | wer: 1.0000
+data/handwritten/test/test1121.png | pred: "полка" | ref: "существующие" | wer: 1.0000
+data/handwritten/test/test1122.png | pred: "полка" | ref: "и предложены" | wer: 1.0000
+data/handwritten/test/test1123.png | pred: "полка" | ref: "методы" | wer: 1.0000
+data/handwritten/test/test1124.png | pred: "полка" | ref: "отлично" | wer: 1.0000
+data/handwritten/test/test1125.png | pred: "полка" | ref: "автомобиля," | wer: 1.0000
+data/handwritten/test/test1126.png | pred: "полка" | ref: "Фоменко В.А." | wer: 1.0000
+data/handwritten/test/test1127.png | pred: "проводить" | ref: "Савченко И.А." | wer: 1.0000
+data/handwritten/test/test1128.png | pred: "полка" | ref: "хорошо" | wer: 1.0000
+data/handwritten/test/test113.png | pred: "противопоставление" | ref: "Метод:" | wer: 1.0000
+data/handwritten/test/test1130.png | pred: "полка" | ref: "отлично" | wer: 1.0000
+data/handwritten/test/test1131.png | pred: "полка" | ref: "информационная" | wer: 1.0000
+data/handwritten/test/test1132.png | pred: "полка" | ref: "эндогеодинамического" | wer: 1.0000
+data/handwritten/test/test1133.png | pred: "полка" | ref: "описание" | wer: 1.0000
+data/handwritten/test/test1137.png | pred: "полка" | ref: "на предприятий" | wer: 1.0000
+data/handwritten/test/test1138.png | pred: "полка" | ref: "параметра" | wer: 1.0000
+data/handwritten/test/test1139.png | pred: "полка" | ref: "Формирование" | wer: 1.0000
+data/handwritten/test/test114.png | pred: "полка" | ref: "значения" | wer: 1.0000
+data/handwritten/test/test1140.png | pred: "полка" | ref: "выбор" | wer: 1.0000
+data/handwritten/test/test1141.png | pred: "полка" | ref: "аргументам" | wer: 1.0000
+data/handwritten/test/test1142.png | pred: "полка" | ref: "выбор технологий" | wer: 1.0000
+data/handwritten/test/test1143.png | pred: "противопоставление" | ref: "Расписка." | wer: 1.0000
+data/handwritten/test/test1144.png | pred: "полка" | ref: "23 марта 2012г." | wer: 1.0000
+data/handwritten/test/test1145.png | pred: "проводить" | ref: "г. Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1146.png | pred: "противопоставление" | ref: "Бугрова" | wer: 1.0000
+data/handwritten/test/test1147.png | pred: "подготовки" | ref: "сумму в срок" | wer: 1.0000
+data/handwritten/test/test115.png | pred: "противопоставление" | ref: "Кривые" | wer: 1.0000
+data/handwritten/test/test1150.png | pred: "полка" | ref: "22. 07. 2010" | wer: 1.0000
+data/handwritten/test/test1152.png | pred: "полка" | ref: "Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1153.png | pred: "полка" | ref: "пр Просвещения" | wer: 1.0000
+data/handwritten/test/test1154.png | pred: "противопоставление" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1155.png | pred: "полка" | ref: "40 06 799" | wer: 1.0000
+data/handwritten/test/test1156.png | pred: "полка" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1158.png | pred: "полка" | ref: "до 30 июня 2009 года" | wer: 1.0000
+data/handwritten/test/test1159.png | pred: "противопоставление" | ref: "Санкт - Петербурга" | wer: 1.0000
+data/handwritten/test/test116.png | pred: "полка" | ref: "Случай" | wer: 1.0000
+data/handwritten/test/test1160.png | pred: "полка" | ref: "14. 12. 2003г" | wer: 1.0000
+data/handwritten/test/test1161.png | pred: "полка" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1162.png | pred: "противопоставление" | ref: "Санкт - Петербург" | wer: 1.0000
+data/handwritten/test/test1163.png | pred: "полка" | ref: "деньги в сумме" | wer: 1.0000
+data/handwritten/test/test1164.png | pred: "полка" | ref: "Два" | wer: 1.0000
+data/handwritten/test/test1165.png | pred: "полка" | ref: "рублей в счет" | wer: 1.0000
+data/handwritten/test/test1166.png | pred: "противопоставление" | ref: "стоимости квартиры" | wer: 1.0000
+data/handwritten/test/test1167.png | pred: "противопоставление" | ref: "расположенной" | wer: 1.0000
+data/handwritten/test/test1168.png | pred: "противопоставление" | ref: "адресу" | wer: 1.0000
+data/handwritten/test/test1169.png | pred: "полка" | ref: "24 июня 2009 г." | wer: 1.0000
+data/handwritten/test/test117.png | pred: "военно" | ref: "второго" | wer: 1.0000
+data/handwritten/test/test1170.png | pred: "полка" | ref: "Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1171.png | pred: "полка" | ref: "по договору" | wer: 1.0000
+data/handwritten/test/test1172.png | pred: "противопоставление" | ref: "Претензий не имею." | wer: 1.0000
+data/handwritten/test/test1173.png | pred: "полка" | ref: "23.03.2012г." | wer: 1.0000
+data/handwritten/test/test1174.png | pred: "противопоставление" | ref: "Бугрова В.Г." | wer: 1.0000
+data/handwritten/test/test1175.png | pred: "противопоставление" | ref: "Михаилу" | wer: 1.0000
+data/handwritten/test/test1176.png | pred: "противопоставление" | ref: "04. 01. 1992 г." | wer: 1.0000
+data/handwritten/test/test1177.png | pred: "противопоставление" | ref: "16.12.1991г." | wer: 1.0000
+data/handwritten/test/test1178.png | pred: "полка" | ref: "содействие" | wer: 1.0000
+data/handwritten/test/test1179.png | pred: "противопоставление" | ref: "промышленным" | wer: 1.0000
+data/handwritten/test/test118.png | pred: "полка" | ref: "пространство" | wer: 1.0000
+data/handwritten/test/test1180.png | pred: "полка" | ref: "Иванов" | wer: 1.0000
+data/handwritten/test/test1181.png | pred: "проводить" | ref: "в части увеличения" | wer: 1.0000
+data/handwritten/test/test1182.png | pred: "противопоставление" | ref: "выпуска продукции" | wer: 1.0000
+data/handwritten/test/test1183.png | pred: "полка" | ref: "г. Иркутск" | wer: 1.0000
+data/handwritten/test/test1184.png | pred: "полка" | ref: "одиннадцатого" | wer: 1.0000
+data/handwritten/test/test1185.png | pred: "полка" | ref: "г. Иркутск" | wer: 1.0000
+data/handwritten/test/test1186.png | pred: "полка" | ref: "Иванову" | wer: 1.0000
+data/handwritten/test/test1187.png | pred: "противопоставление" | ref: "Мамедов.Р.Г." | wer: 1.0000
+data/handwritten/test/test1188.png | pred: "подразделения" | ref: "Мустафаева Ф. М" | wer: 1.0000
+data/handwritten/test/test1189.png | pred: "противопоставление" | ref: "Максимов Р. Н" | wer: 1.0000
+data/handwritten/test/test119.png | pred: "противопоставление" | ref: "любой" | wer: 1.0000
+data/handwritten/test/test1190.png | pred: "полка" | ref: "Мамедов Д. Х" | wer: 1.0000
+data/handwritten/test/test1191.png | pred: "полка" | ref: "07 042000" | wer: 1.0000
+data/handwritten/test/test1192.png | pred: "противопоставление" | ref: "Момедова А.Э." | wer: 1.0000
+data/handwritten/test/test1193.png | pred: "полка" | ref: "Мамедов А Г" | wer: 1.0000
+data/handwritten/test/test1194.png | pred: "полка" | ref: "Яхьяева Э.А." | wer: 1.0000
+data/handwritten/test/test1195.png | pred: "полка" | ref: "Яхьев М Я" | wer: 1.0000
+data/handwritten/test/test1196.png | pred: "полка" | ref: "Розбекова С. Б." | wer: 1.0000
+data/handwritten/test/test1197.png | pred: "подразделения" | ref: "Абдуллаева С. С." | wer: 1.0000
+data/handwritten/test/test1198.png | pred: "полка" | ref: "Наталью" | wer: 1.0000
+data/handwritten/test/test1199.png | pred: "полка" | ref: "Заявление." | wer: 1.0000
+data/handwritten/test/test12.png | pred: "противопоставление" | ref: "разрешино" | wer: 1.0000
+data/handwritten/test/test120.png | pred: "полка" | ref: "покажем" | wer: 1.0000
+data/handwritten/test/test1200.png | pred: "полка" | ref: "08.09.16г." | wer: 1.0000
+data/handwritten/test/test1201.png | pred: "проводить" | ref: "от услуг" | wer: 1.0000
+data/handwritten/test/test1202.png | pred: "полка" | ref: "гор Омск" | wer: 1.0000
+data/handwritten/test/test1203.png | pred: "полка" | ref: "отказываюсь" | wer: 1.0000
+data/handwritten/test/test1204.png | pred: "противопоставление" | ref: "адвокатов" | wer: 1.0000
+data/handwritten/test/test1205.png | pred: "полка" | ref: "свои" | wer: 1.0000
+data/handwritten/test/test1206.png | pred: "полка" | ref: "прошу" | wer: 1.0000
+data/handwritten/test/test1207.png | pred: "полка" | ref: "Вас изьять дело" | wer: 1.0000
+data/handwritten/test/test1208.png | pred: "полка" | ref: "копию," | wer: 1.0000
+data/handwritten/test/test1209.png | pred: "противопоставление" | ref: "Ткачевой" | wer: 1.0000
+data/handwritten/test/test121.png | pred: "полка" | ref: "измеримость" | wer: 1.0000
+data/handwritten/test/test1210.png | pred: "полка" | ref: "г. Барнаула" | wer: 1.0000
+data/handwritten/test/test1211.png | pred: "полка" | ref: "железнодорожного" | wer: 1.0000
+data/handwritten/test/test1212.png | pred: "полка" | ref: "15 сентября" | wer: 1.0000
+data/handwritten/test/test1213.png | pred: "противопоставление" | ref: "Октябрь," | wer: 1.0000
+data/handwritten/test/test1214.png | pred: "полка" | ref: "Омская обл." | wer: 1.0000
+data/handwritten/test/test1215.png | pred: "полка" | ref: "25 октября" | wer: 1.0000
+data/handwritten/test/test1216.png | pred: "полка" | ref: "Савилова" | wer: 1.0000
+data/handwritten/test/test1217.png | pred: "противопоставление" | ref: "Абузова" | wer: 1.0000
+data/handwritten/test/test1218.png | pred: "полка" | ref: "Шаталова" | wer: 1.0000
+data/handwritten/test/test1219.png | pred: "противопоставление" | ref: "Обласова" | wer: 1.0000
+data/handwritten/test/test122.png | pred: "полка" | ref: "Вопрос" | wer: 1.0000
+data/handwritten/test/test1220.png | pred: "противопоставление" | ref: "Наталья Константинова" | wer: 1.0000
+data/handwritten/test/test1221.png | pred: "полка" | ref: "проходила практика" | wer: 1.0000
+data/handwritten/test/test1222.png | pred: "проводить" | ref: "в качестве" | wer: 1.0000
+data/handwritten/test/test1223.png | pred: "полка" | ref: "классного руководителя" | wer: 1.0000
+data/handwritten/test/test1224.png | pred: "полка" | ref: "в 6 классе" | wer: 1.0000
+data/handwritten/test/test1225.png | pred: "полка" | ref: "в браке" | wer: 1.0000
+data/handwritten/test/test1226.png | pred: "полка" | ref: "МБОУ" | wer: 1.0000
+data/handwritten/test/test1227.png | pred: "полка" | ref: "лицей" | wer: 1.0000
+data/handwritten/test/test1228.png | pred: "полка" | ref: "г. Барнаула" | wer: 1.0000
+data/handwritten/test/test1229.png | pred: "полка" | ref: "С первого дня" | wer: 1.0000
+data/handwritten/test/test123.png | pred: "полка" | ref: "дама" | wer: 1.0000
+data/handwritten/test/test1230.png | pred: "полка" | ref: "студентке удалось" | wer: 1.0000
+data/handwritten/test/test1231.png | pred: "полка" | ref: "наладить" | wer: 1.0000
+data/handwritten/test/test1232.png | pred: "проводить" | ref: "доброжелательно-" | wer: 1.0000
+data/handwritten/test/test1233.png | pred: "полка" | ref: "требовательные" | wer: 1.0000
+data/handwritten/test/test1234.png | pred: "полка" | ref: "Наталье" | wer: 1.0000
+data/handwritten/test/test1235.png | pred: "полка" | ref: "срок" | wer: 1.0000
+data/handwritten/test/test1236.png | pred: "подготовки" | ref: "Ивановы" | wer: 1.0000
+data/handwritten/test/test1237.png | pred: "полка" | ref: "смогла" | wer: 1.0000
+data/handwritten/test/test1238.png | pred: "полка" | ref: "с детьми," | wer: 1.0000
+data/handwritten/test/test1239.png | pred: "состав" | ref: "психологическим" | wer: 1.0000
+data/handwritten/test/test124.png | pred: "полка" | ref: "Сделаем" | wer: 1.0000
+data/handwritten/test/test1240.png | pred: "полка" | ref: "индивидуально" | wer: 1.0000
+data/handwritten/test/test1241.png | pred: "полка" | ref: "их" | wer: 1.0000
+data/handwritten/test/test1242.png | pred: "полка" | ref: "особенности" | wer: 1.0000
+data/handwritten/test/test1243.png | pred: "полка" | ref: "учитывая" | wer: 1.0000
+data/handwritten/test/test1244.png | pred: "полка" | ref: "индивидуальные" | wer: 1.0000
+data/handwritten/test/test1245.png | pred: "полка" | ref: "воздействия" | wer: 1.0000
+data/handwritten/test/test1246.png | pred: "полка" | ref: "на каждого" | wer: 1.0000
+data/handwritten/test/test1248.png | pred: "полка" | ref: "члена детского" | wer: 1.0000
+data/handwritten/test/test1249.png | pred: "полка" | ref: "коллектива" | wer: 1.0000
+data/handwritten/test/test125.png | pred: "полка" | ref: "применяем" | wer: 1.0000
+data/handwritten/test/test1250.png | pred: "полка" | ref: "методикой" | wer: 1.0000
+data/handwritten/test/test1251.png | pred: "противопоставление" | ref: "воспитательных" | wer: 1.0000
+data/handwritten/test/test1252.png | pred: "полка" | ref: "умением" | wer: 1.0000
+data/handwritten/test/test1253.png | pred: "полка" | ref: "использовать" | wer: 1.0000
+data/handwritten/test/test1254.png | pred: "полка" | ref: "разнообразные" | wer: 1.0000
+data/handwritten/test/test1255.png | pred: "полка" | ref: "работы" | wer: 1.0000
+data/handwritten/test/test1256.png | pred: "полка" | ref: "В качестве" | wer: 1.0000
+data/handwritten/test/test1257.png | pred: "подготовки" | ref: "студентка" | wer: 1.0000
+data/handwritten/test/test1258.png | pred: "полка" | ref: "Онинская обл" | wer: 1.0000
+data/handwritten/test/test1259.png | pred: "полка" | ref: "с учащимся" | wer: 1.0000
+data/handwritten/test/test126.png | pred: "полка" | ref: "теорема" | wer: 1.0000
+data/handwritten/test/test1260.png | pred: "полка" | ref: "этические беседы" | wer: 1.0000
+data/handwritten/test/test1261.png | pred: "полка" | ref: "подготовку" | wer: 1.0000
+data/handwritten/test/test1262.png | pred: "полка" | ref: "мероприятиям" | wer: 1.0000
+data/handwritten/test/test1263.png | pred: "полку" | ref: "проверяла" | wer: 1.0000
+data/handwritten/test/test1264.png | pred: "полка" | ref: "в организации" | wer: 1.0000
+data/handwritten/test/test1265.png | pred: "полка" | ref: "дежурств" | wer: 1.0000
+data/handwritten/test/test1266.png | pred: "полка" | ref: "по лицею" | wer: 1.0000
+data/handwritten/test/test1267.png | pred: "подготовки" | ref: "в организации" | wer: 1.0000
+data/handwritten/test/test1268.png | pred: "полка" | ref: "с правилами" | wer: 1.0000
+data/handwritten/test/test1269.png | pred: "проводить" | ref: "ул Ленина 11" | wer: 1.0000
+data/handwritten/test/test127.png | pred: "полка" | ref: "плотность" | wer: 1.0000
+data/handwritten/test/test1270.png | pred: "полка" | ref: "документации" | wer: 1.0000
+data/handwritten/test/test1271.png | pred: "полка" | ref: "классного" | wer: 1.0000
+data/handwritten/test/test1273.png | pred: "полка" | ref: "планов." | wer: 1.0000
+data/handwritten/test/test1274.png | pred: "полка" | ref: "Рекомендую" | wer: 1.0000
+data/handwritten/test/test1275.png | pred: "полка" | ref: "Заречнева Е.Н" | wer: 1.0000
+data/handwritten/test/test1276.png | pred: "полка" | ref: "Савилова Н.В." | wer: 1.0000
+data/handwritten/test/test1277.png | pred: "полка" | ref: "оценкой" | wer: 1.0000
+data/handwritten/test/test1279.png | pred: "полка" | ref: "для нужд" | wer: 1.0000
+data/handwritten/test/test128.png | pred: "проводить" | ref: "Основные" | wer: 1.0000
+data/handwritten/test/test1281.png | pred: "противопоставление" | ref: "избирательной" | wer: 1.0000
+data/handwritten/test/test1282.png | pred: "полка" | ref: "получил" | wer: 1.0000
+data/handwritten/test/test1283.png | pred: "полка" | ref: "Киселева В.А." | wer: 1.0000
+data/handwritten/test/test1284.png | pred: "полка" | ref: "Триста Тысяч" | wer: 1.0000
+data/handwritten/test/test1285.png | pred: "противопоставление" | ref: "долларов США" | wer: 1.0000
+data/handwritten/test/test1286.png | pred: "полка" | ref: "22.03.2006 г." | wer: 1.0000
+data/handwritten/test/test1287.png | pred: "проводить" | ref: "Свистунов А.Т." | wer: 1.0000
+data/handwritten/test/test1288.png | pred: "полка" | ref: "г. Москва" | wer: 1.0000
+data/handwritten/test/test1289.png | pred: "полка" | ref: "24.11.1986" | wer: 1.0000
+data/handwritten/test/test129.png | pred: "противопоставление" | ref: "свойства" | wer: 1.0000
+data/handwritten/test/test1290.png | pred: "полка" | ref: "гор. Воронеж" | wer: 1.0000
+data/handwritten/test/test1291.png | pred: "противопоставление" | ref: "Иванова" | wer: 1.0000
+data/handwritten/test/test1292.png | pred: "полка" | ref: "Сидорову" | wer: 1.0000
+data/handwritten/test/test1293.png | pred: "полка" | ref: "гор. Челябинск" | wer: 1.0000
+data/handwritten/test/test1294.png | pred: "полка" | ref: "Советская" | wer: 1.0000
+data/handwritten/test/test1295.png | pred: "полка" | ref: "Прошу вернуть" | wer: 1.0000
+data/handwritten/test/test1296.png | pred: "противопоставление" | ref: "денежные средства" | wer: 1.0000
+data/handwritten/test/test1297.png | pred: "полка" | ref: "перечисленные" | wer: 1.0000
+data/handwritten/test/test1298.png | pred: "полка" | ref: "на номера" | wer: 1.0000
+data/handwritten/test/test1299.png | pred: "полка" | ref: "яндекс-кошелька" | wer: 1.0000
+data/handwritten/test/test13.png | pred: "полка" | ref: "15.09.2020" | wer: 1.0000
+data/handwritten/test/test130.png | pred: "противопоставление" | ref: "деформация" | wer: 1.0000
+data/handwritten/test/test1302.png | pred: "проводить" | ref: "523739" | wer: 1.0000
+data/handwritten/test/test1303.png | pred: "полка" | ref: "12.08.2012" | wer: 1.0000
+data/handwritten/test/test1304.png | pred: "полка" | ref: "88007008000" | wer: 1.0000
+data/handwritten/test/test1305.png | pred: "полка" | ref: "Лебеденко Н.Н." | wer: 1.0000
+data/handwritten/test/test1306.png | pred: "полка" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1307.png | pred: "полка" | ref: "История операции" | wer: 1.0000
+data/handwritten/test/test1308.png | pred: "полка" | ref: "и детализацию по" | wer: 1.0000
+data/handwritten/test/test1309.png | pred: "полка" | ref: "ним предоставляю" | wer: 1.0000
+data/handwritten/test/test131.png | pred: "полка" | ref: "шейка" | wer: 1.0000
+data/handwritten/test/test1310.png | pred: "полка" | ref: "в распечатанном" | wer: 1.0000
+data/handwritten/test/test1311.png | pred: "полка" | ref: "виде" | wer: 1.0000
+data/handwritten/test/test1312.png | pred: "полка" | ref: "В конечестве" | wer: 1.0000
+data/handwritten/test/test1313.png | pred: "полка" | ref: "10.04.2000" | wer: 1.0000
+data/handwritten/test/test1314.png | pred: "полка" | ref: "Детализация" | wer: 1.0000
+data/handwritten/test/test1315.png | pred: "полка" | ref: "по каждому" | wer: 1.0000
+data/handwritten/test/test1316.png | pred: "полка" | ref: "незаконному" | wer: 1.0000
+data/handwritten/test/test1317.png | pred: "полка" | ref: "Более" | wer: 1.0000
+data/handwritten/test/test1318.png | pred: "полка" | ref: "информацию можно" | wer: 1.0000
+data/handwritten/test/test1319.png | pred: "полка" | ref: "узнать у" | wer: 1.0000
+data/handwritten/test/test132.png | pred: "полка" | ref: "Линейное" | wer: 1.0000
+data/handwritten/test/test1320.png | pred: "полка" | ref: "Яндекс-деньги" | wer: 1.0000
+data/handwritten/test/test1322.png | pred: "противопоставление" | ref: "Контролер" | wer: 1.0000
+data/handwritten/test/test1323.png | pred: "противопоставление" | ref: "Смоленское" | wer: 1.0000
+data/handwritten/test/test1324.png | pred: "полка" | ref: "заместитель" | wer: 1.0000
+data/handwritten/test/test1327.png | pred: "полка" | ref: "г.Пенза" | wer: 1.0000
+data/handwritten/test/test1328.png | pred: "полка" | ref: "14 ноября 2007г." | wer: 1.0000
+data/handwritten/test/test133.png | pred: "полка" | ref: "сходится" | wer: 1.0000
+data/handwritten/test/test1330.png | pred: "противопоставление" | ref: "в размере" | wer: 1.0000
+data/handwritten/test/test1333.png | pred: "полка" | ref: "обязательств" | wer: 1.0000
+data/handwritten/test/test1334.png | pred: "полка" | ref: "в договоре" | wer: 1.0000
+data/handwritten/test/test1335.png | pred: "полка" | ref: "а именно" | wer: 1.0000
+data/handwritten/test/test1336.png | pred: "полка" | ref: "02 декабря 1980 г." | wer: 1.0000
+data/handwritten/test/test1337.png | pred: "полка" | ref: "условия поставки" | wer: 1.0000
+data/handwritten/test/test1339.png | pred: "полка" | ref: "для зачисления" | wer: 1.0000
+data/handwritten/test/test134.png | pred: "полка" | ref: "ожиданию" | wer: 1.0000
+data/handwritten/test/test1340.png | pred: "полка" | ref: "4272 2903 8396 6819" | wer: 1.0000
+data/handwritten/test/test1341.png | pred: "полка" | ref: "30101810100000000716" | wer: 1.0000
+data/handwritten/test/test1342.png | pred: "полка" | ref: "30232810481100000009" | wer: 1.0000
+data/handwritten/test/test1343.png | pred: "полка" | ref: "44525716" | wer: 1.0000
+data/handwritten/test/test1344.png | pred: "полка" | ref: "Разрыв" | wer: 1.0000
+data/handwritten/test/test1345.png | pred: "проводить" | ref: "Проводить" | wer: 1.0000
+data/handwritten/test/test1346.png | pred: "полка" | ref: "27.11.2016 г" | wer: 1.0000
+data/handwritten/test/test1347.png | pred: "полка" | ref: "Г. Воронеж" | wer: 1.0000
+data/handwritten/test/test1348.png | pred: "полка" | ref: "мне было" | wer: 1.0000
+data/handwritten/test/test1349.png | pred: "полка" | ref: "в помещении" | wer: 1.0000
+data/handwritten/test/test135.png | pred: "полка" | ref: "стандартизование" | wer: 1.0000
+data/handwritten/test/test1350.png | pred: "полка" | ref: "Избирательного" | wer: 1.0000
+data/handwritten/test/test1351.png | pred: "состава" | ref: "в качестве лида" | wer: 1.0000
+data/handwritten/test/test1352.png | pred: "полка" | ref: "регистрации в качестве" | wer: 1.0000
+data/handwritten/test/test1353.png | pred: "полка" | ref: "Аналогичные" | wer: 1.0000
+data/handwritten/test/test1354.png | pred: "полка" | ref: "В соответствие" | wer: 1.0000
+data/handwritten/test/test1355.png | pred: "проводить" | ref: "Бандура Д. В." | wer: 1.0000
+data/handwritten/test/test1357.png | pred: "полка" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1358.png | pred: "полка" | ref: "разведена" | wer: 1.0000
+data/handwritten/test/test136.png | pred: "полка" | ref: "сходимость" | wer: 1.0000
+data/handwritten/test/test1360.png | pred: "полка" | ref: "в городе" | wer: 1.0000
+data/handwritten/test/test1361.png | pred: "полка" | ref: "не управлял" | wer: 1.0000
+data/handwritten/test/test1364.png | pred: "полка" | ref: "В данный момент" | wer: 1.0000
+data/handwritten/test/test1365.png | pred: "противопоставление" | ref: "Морозова" | wer: 1.0000
+data/handwritten/test/test1366.png | pred: "противопоставление" | ref: "Генеральному" | wer: 1.0000
+data/handwritten/test/test1367.png | pred: "противопоставление" | ref: "Российской" | wer: 1.0000
+data/handwritten/test/test1368.png | pred: "противопоставление" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1369.png | pred: "полка" | ref: "Березкин" | wer: 1.0000
+data/handwritten/test/test137.png | pred: "полка" | ref: "совпадает" | wer: 1.0000
+data/handwritten/test/test1370.png | pred: "полка" | ref: "08.02.2012г" | wer: 1.0000
+data/handwritten/test/test1371.png | pred: "противопоставление" | ref: "мне стало" | wer: 1.0000
+data/handwritten/test/test1373.png | pred: "противопоставление" | ref: "представлением" | wer: 1.0000
+data/handwritten/test/test1374.png | pred: "полка" | ref: "на должность" | wer: 1.0000
+data/handwritten/test/test1375.png | pred: "противопоставление" | ref: "Главы" | wer: 1.0000
+data/handwritten/test/test1376.png | pred: "противопоставление" | ref: "документы" | wer: 1.0000
+data/handwritten/test/test1377.png | pred: "полка" | ref: "Галяева А. М." | wer: 1.0000
+data/handwritten/test/test138.png | pred: "полка" | ref: "означает" | wer: 1.0000
+data/handwritten/test/test1380.png | pred: "полка" | ref: "Березкина" | wer: 1.0000
+data/handwritten/test/test1381.png | pred: "противопоставление" | ref: "наизусть" | wer: 1.0000
+data/handwritten/test/test1382.png | pred: "противопоставление" | ref: "На этих документах" | wer: 1.0000
+data/handwritten/test/test1383.png | pred: "полка" | ref: "имеется" | wer: 1.0000
+data/handwritten/test/test1384.png | pred: "противопоставление" | ref: "Дата и" | wer: 1.0000
+data/handwritten/test/test1386.png | pred: "полка" | ref: "Кроме того," | wer: 1.0000
+data/handwritten/test/test1387.png | pred: "противопоставление" | ref: "13 января 2012г" | wer: 1.0000
+data/handwritten/test/test1388.png | pred: "полка" | ref: "в избирательной" | wer: 1.0000
+data/handwritten/test/test139.png | pred: "полка" | ref: "суммы," | wer: 1.0000
+data/handwritten/test/test1390.png | pred: "полка" | ref: "произведена" | wer: 1.0000
+data/handwritten/test/test1392.png | pred: "подготовки" | ref: "Прошу Вас" | wer: 1.0000
+data/handwritten/test/test1393.png | pred: "противопоставление" | ref: "08 февраля 2012г." | wer: 1.0000
+data/handwritten/test/test1394.png | pred: "противопоставление" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1395.png | pred: "противопоставление" | ref: "Прошу" | wer: 1.0000
+data/handwritten/test/test1396.png | pred: "полка" | ref: "должности" | wer: 1.0000
+data/handwritten/test/test1397.png | pred: "подготовки" | ref: "государственной" | wer: 1.0000
+data/handwritten/test/test1398.png | pred: "полка" | ref: "гражданкой" | wer: 1.0000
+data/handwritten/test/test1399.png | pred: "полка" | ref: "службы" | wer: 1.0000
+data/handwritten/test/test14.png | pred: "полка" | ref: "оператор" | wer: 1.0000
+data/handwritten/test/test140.png | pred: "полка" | ref: "совокупность" | wer: 1.0000
+data/handwritten/test/test1400.png | pred: "полка" | ref: "заместителя" | wer: 1.0000
+data/handwritten/test/test1401.png | pred: "полка" | ref: "министра" | wer: 1.0000
+data/handwritten/test/test1402.png | pred: "полка" | ref: "просрочкой" | wer: 1.0000
+data/handwritten/test/test1403.png | pred: "полка" | ref: "финансов" | wer: 1.0000
+data/handwritten/test/test1404.png | pred: "полка" | ref: "Медведеву Д.А." | wer: 1.0000
+data/handwritten/test/test1405.png | pred: "противопоставление" | ref: "Саватюгина А.Л." | wer: 1.0000
+data/handwritten/test/test1409.png | pred: "полка" | ref: "Заявление." | wer: 1.0000
+data/handwritten/test/test141.png | pred: "полка" | ref: "используем" | wer: 1.0000
+data/handwritten/test/test1411.png | pred: "полка" | ref: "Уманцу О.А." | wer: 1.0000
+data/handwritten/test/test1413.png | pred: "полка" | ref: "июля" | wer: 1.0000
+data/handwritten/test/test1414.png | pred: "полка" | ref: "желательно" | wer: 1.0000
+data/handwritten/test/testt1414.png | pred: "полка" | ref: "во время" | wer: 1.0000
+data/handwritten/test/test1415.png | pred: "полка" | ref: "предположительно" | wer: 1.0000
+data/handwritten/test/test1416.png | pred: "полка" | ref: "Дополнительно сообщу" | wer: 1.0000
+data/handwritten/test/test1417.png | pred: "противопоставление" | ref: "Даценко С.Н." | wer: 1.0000
+data/handwritten/test/test1418.png | pred: "проводить" | ref: "В ввиду" | wer: 1.0000
+data/handwritten/test/test1419.png | pred: "полка" | ref: "по февраль 2005 г." | wer: 1.0000
+data/handwritten/test/test142.png | pred: "противопоставление" | ref: "дисперсия" | wer: 1.0000
+data/handwritten/test/test1423.png | pred: "полка" | ref: "которому" | wer: 1.0000
+data/handwritten/test/test1424.png | pred: "полка" | ref: "Макарова" | wer: 1.0000
+data/handwritten/test/test1425.png | pred: "полка" | ref: "не выплачиваю" | wer: 1.0000
+data/handwritten/test/testt1425.png | pred: "полка" | ref: "алименты" | wer: 1.0000
+data/handwritten/test/test1426.png | pred: "противопоставление" | ref: "Приглашается" | wer: 1.0000
+data/handwritten/test/test1428.png | pred: "противопоставление" | ref: "Фомина В. Л" | wer: 1.0000
+data/handwritten/test/test1429.png | pred: "проводить" | ref: "Генеральному директору" | wer: 1.0000
+data/handwritten/test/test143.png | pred: "полка" | ref: "принцип" | wer: 1.0000
+data/handwritten/test/test1430.png | pred: "полка" | ref: "От ткача 5 разряда" | wer: 1.0000
+data/handwritten/test/test1431.png | pred: "полка" | ref: "об образовательных" | wer: 1.0000
+data/handwritten/test/test1432.png | pred: "полка" | ref: "программах" | wer: 1.0000
+data/handwritten/test/test1433.png | pred: "полка" | ref: "Л. М. Петровой" | wer: 1.0000
+data/handwritten/test/test1434.png | pred: "проводить" | ref: "Платоновой В.А." | wer: 1.0000
+data/handwritten/test/test1435.png | pred: "полка" | ref: "директора" | wer: 1.0000
+data/handwritten/test/test1438.png | pred: "проводить" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1439.png | pred: "полка" | ref: "должность инженера" | wer: 1.0000
+data/handwritten/test/test144.png | pred: "полка" | ref: "собака" | wer: 1.0000
+data/handwritten/test/test1440.png | pred: "полка" | ref: "1 февраля 1965г." | wer: 1.0000
+data/handwritten/test/test1441.png | pred: "противопоставление" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1442.png | pred: "противопоставление" | ref: "Сидоренко" | wer: 1.0000
+data/handwritten/test/test1443.png | pred: "полка" | ref: "прошу" | wer: 1.0000
+data/handwritten/test/test1444.png | pred: "полка" | ref: "Вас расторгнуть" | wer: 1.0000
+data/handwritten/test/test1445.png | pred: "проводить" | ref: "договор" | wer: 1.0000
+data/handwritten/test/test1446.png | pred: "противопоставление" | ref: "и вернуть деньги" | wer: 1.0000
+data/handwritten/test/test1447.png | pred: "полка" | ref: "в мае 1942 г." | wer: 1.0000
+data/handwritten/test/test1448.png | pred: "полка" | ref: "по Полюсу" | wer: 1.0000
+data/handwritten/test/test1449.png | pred: "противопоставление" | ref: "транспортного" | wer: 1.0000
+data/handwritten/test/test145.png | pred: "полка" | ref: "порядок" | wer: 1.0000
+data/handwritten/test/test1450.png | pred: "противопоставление" | ref: "средства" | wer: 1.0000
+data/handwritten/test/test1451.png | pred: "полка" | ref: "Причина" | wer: 1.0000
+data/handwritten/test/test1452.png | pred: "полка" | ref: "отказ" | wer: 1.0000
+data/handwritten/test/test1454.png | pred: "полка" | ref: "26. 03. 2014" | wer: 1.0000
+data/handwritten/test/test1455.png | pred: "противопоставление" | ref: "Сидоренко С. В." | wer: 1.0000
+data/handwritten/test/test1456.png | pred: "противопоставление" | ref: "Прошу разрешения" | wer: 1.0000
+data/handwritten/test/test1457.png | pred: "проводить" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1458.png | pred: "полка" | ref: "в семье" | wer: 1.0000
+data/handwritten/test/test1459.png | pred: "противопоставление" | ref: "Коржова С.Н." | wer: 1.0000
+data/handwritten/test/test146.png | pred: "полка" | ref: "равномерно" | wer: 1.0000
+data/handwritten/test/test1460.png | pred: "противопоставление" | ref: "Долженко Л. У." | wer: 1.0000
+data/handwritten/test/test1461.png | pred: "полка" | ref: "с материалами" | wer: 1.0000
+data/handwritten/test/test1462.png | pred: "противопоставление" | ref: "гражданского дела" | wer: 1.0000
+data/handwritten/test/test1464.png | pred: "противопоставление" | ref: "прошу разрешения" | wer: 1.0000
+data/handwritten/test/test1465.png | pred: "полка" | ref: "сделать" | wer: 1.0000
+data/handwritten/test/test1467.png | pred: "полка" | ref: "28 декабря 2006 г." | wer: 1.0000
+data/handwritten/test/test1468.png | pred: "противопоставление" | ref: "Председателю суда" | wer: 1.0000
+data/handwritten/test/test1469.png | pred: "полка" | ref: "В 1942г" | wer: 1.0000
+data/handwritten/test/test147.png | pred: "полка" | ref: "осуществляется" | wer: 1.0000
+data/handwritten/test/test1471.png | pred: "полка" | ref: "переводом" | wer: 1.0000
+data/handwritten/test/test1472.png | pred: "полка" | ref: "медицинского" | wer: 1.0000
+data/handwritten/test/test1473.png | pred: "полка" | ref: "Прошу оказать" | wer: 1.0000
+data/handwritten/test/test1474.png | pred: "противопоставление" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1477.png | pred: "полка" | ref: "Стипендию получаю" | wer: 1.0000
+data/handwritten/test/test1478.png | pred: "полка" | ref: "не получаю" | wer: 1.0000
+data/handwritten/test/test148.png | pred: "полка" | ref: "через" | wer: 1.0000
+data/handwritten/test/test1481.png | pred: "полка" | ref: "факультета МГУ" | wer: 1.0000
+data/handwritten/test/test1482.png | pred: "полка" | ref: "академику" | wer: 1.0000
+data/handwritten/test/test1483.png | pred: "полка" | ref: "Кафедра зоологии" | wer: 1.0000
+data/handwritten/test/test1484.png | pred: "полка" | ref: "беспозвоночных" | wer: 1.0000
+data/handwritten/test/test1485.png | pred: "противопоставление" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1487.png | pred: "полка" | ref: "13.09.19" | wer: 1.0000
+data/handwritten/test/test1488.png | pred: "противопоставление" | ref: "преобретен" | wer: 1.0000
+data/handwritten/test/test1489.png | pred: "полка" | ref: "Смартфон" | wer: 1.0000
+data/handwritten/test/test149.png | pred: "полка" | ref: "Имеем" | wer: 1.0000
+data/handwritten/test/test1490.png | pred: "полка" | ref: "по стоимости" | wer: 1.0000
+data/handwritten/test/test1491.png | pred: "полка" | ref: "школы 17" | wer: 1.0000
+data/handwritten/test/test1494.png | pred: "полка" | ref: "на сим карте" | wer: 1.0000
+data/handwritten/test/test1496.png | pred: "полка" | ref: "данных" | wer: 1.0000
+data/handwritten/test/test1497.png | pred: "проводить" | ref: "телефон чист" | wer: 1.0000
+data/handwritten/test/test1498.png | pred: "полка" | ref: "как с нуля" | wer: 1.0000
+data/handwritten/test/test1499.png | pred: "противопоставление" | ref: "27.09.19" | wer: 1.0000
+data/handwritten/test/test15.png | pred: "противопоставление" | ref: "Обозначим" | wer: 1.0000
+data/handwritten/test/test150.png | pred: "полка" | ref: "линейных" | wer: 1.0000
+data/handwritten/test/test1500.png | pred: "полку" | ref: "телефон был сдан" | wer: 1.0000
+data/handwritten/test/test1501.png | pred: "противопоставление" | ref: "проверку качества," | wer: 1.0000
+data/handwritten/test/test1503.png | pred: "полка" | ref: "пришлю заключение" | wer: 1.0000
+data/handwritten/test/test1504.png | pred: "проводить" | ref: "о том что дефект" | wer: 1.0000
+data/handwritten/test/test1505.png | pred: "противопоставление" | ref: "обнаружен" | wer: 1.0000
+data/handwritten/test/test1506.png | pred: "полка" | ref: "В этот же день" | wer: 1.0000
+data/handwritten/test/test1507.png | pred: "полка" | ref: "при осмотре" | wer: 1.0000
+data/handwritten/test/test1508.png | pred: "противопоставление" | ref: "консультантом" | wer: 1.0000
+data/handwritten/test/testt1508.png | pred: "противопоставление" | ref: "магазина" | wer: 1.0000
+data/handwritten/test/test1509.png | pred: "противопоставление" | ref: "дефект остался" | wer: 1.0000
+data/handwritten/test/test151.png | pred: "полка" | ref: "метод" | wer: 1.0000
+
+AVG CER: 0.9992
+AVG WER: 1.0000

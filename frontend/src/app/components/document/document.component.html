@@ -1,58 +1,177 @@
 @if (!hasDocuments()) {
 <app-document-uploader
+  class="uploader"
   (filesSelected)="onFilesSelected($event)"
 ></app-document-uploader>
 } @else {
 <div class="sidebar">
   <div class="sidebar-header">
-    <button mat-raised-button color="primary" (click)="onAddDocument()">
+    <input
+      #input
+      type="file"
+      accept="image/*"
+      multiple
+      (change)="onAddDocument($event)"
+      hidden
+    />
+    <h3>Обработано документов: {{ generatedCount() }}</h3>
+    <button mat-raised-button color="primary" (click)="input.click()">
       <mat-icon>add</mat-icon>
       Добавить
     </button>
   </div>
 
-  <mat-nav-list>
+  <mat-nav-list class="mat-card">
     @for (doc of documents; let i = $index; track i) {
     <a
       mat-list-item
+      class="list-item"
       (click)="onSelectDocument(i)"
       [class.active]="i === selectedIndex()"
     >
-      <mat-icon matListItemIcon>description</mat-icon>
-      <div matListItemTitle>
-        {{ doc.get("document_name")?.value || "Документ " + (i + 1) }}
+      <div class="list-item-content">
+        <span>
+          <small>Файл:<br /></small>
+          {{ doc.value.documentTitle || "Документ " + (i + 1) }}
+        </span>
+        <button
+          mat-icon-button
+          (click)="$event.stopPropagation(); removeDocument(i)"
+          aria-label="Удалить"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        @let loadInfo = getSelectedLoadingStatus(i); @if (loadInfo) {
+        <mat-progress-bar mode="determinate" [value]="loadInfo.percent">
+        </mat-progress-bar>
+        <span class="primary" [class.warn]="loadInfo.percent === 101">{{
+          loadInfo.text
+        }}</span>
+        }
       </div>
-      <button
-        mat-icon-button
-        (click)="$event.stopPropagation(); removeDocument(i)"
-        aria-label="Удалить"
-      >
-        <mat-icon>delete</mat-icon>
-      </button>
     </a>
     }
   </mat-nav-list>
 </div>
 
 <div class="viewer">
-  @if (selectedDocument(); as sel) {
+  @if (selectedDocument; as selectedVal) {
   <div class="viewer-toolbar">
     <mat-form-field appearance="outline" class="doc-title">
       <mat-label>Название документа</mat-label>
-      <input matInput [formControl]="sel.controls.documentTitle" />
+      <input matInput [formControl]="selectedVal.controls.documentTitle" />
     </mat-form-field>
 
-    <button mat-raised-button color="accent" (click)="onGenerate()">
+    <button mat-raised-button class="primary" (click)="onGenerate()">
       <mat-icon>auto_fix_high</mat-icon>
       Сгенерировать
     </button>
+
+    <button mat-raised-button (click)="test()">
+      <mat-icon>auto_fix_high</mat-icon>
+      тест
+    </button>
+
+    <button
+      class="left-margin"
+      mastToolTip="Экспорт всех документов в формате csv"
+      mat-raised-button
+      (click)="downloadCsv()"
+    >
+      <mat-icon>download</mat-icon>
+      Скачать
+    </button>
   </div>
 
-  <app-document-image
-    [imageSrc]="sel.get('file')?.value"
-    [fieldsFormArray]="sel.controls.fields"
-  >
+  <app-document-image class="mat-card" [data]="selectedVal">
   </app-document-image>
+
+  <mat-nav-list class="mat-card">
+    @for (seg of selectedVal.controls.fields.controls; let i = $index; track i)
+    {
+    <a
+      mat-list-item
+      (click)="onSelectSegment(seg, selectedVal.controls.fields.controls)"
+      class="list-item"
+    >
+      <div class="list-item-content">
+        <span
+          ><small>Сегмент:<br /></small
+          ><span matTooltip="Результат основной обработки текста">{{
+            seg.controls.strValue?.value || ""
+          }}</span>
+          <br />
+          <small matTooltip="Результат предварительной обработки текста">
+            {{ seg.controls.strOcr?.value || "" }}</small
+          >
+        </span>
+        <div class="viewer-list-action">
+          <button
+            mat-icon-button
+            (click)="swapSegmentValue(seg)"
+            matTooltip="Показать поле на изображении"
+          >
+            <mat-icon>swap_vert</mat-icon>
+          </button>
+
+          @if (seg.controls.state.value === fieldFormState.Hidden) {
+          <button
+            mat-icon-button
+            (click)="
+              seg.controls.state.setValue(fieldFormState.Default);
+              $event.stopPropagation()
+            "
+            matTooltip="Показать поле на изображении"
+          >
+            <mat-icon>visibility</mat-icon>
+          </button>
+          } @else {
+          <button
+            mat-icon-button
+            (click)="
+              seg.controls.state.setValue(fieldFormState.Hidden);
+              $event.stopPropagation()
+            "
+            matTooltip="Скрыть поле с изображения"
+          >
+            <mat-icon>visibility_off</mat-icon>
+          </button>
+          }
+          <button
+            mat-icon-button
+            (click)="
+              deleteSegment(selectedVal.controls.fields, i);
+              $event.stopPropagation()
+            "
+            aria-label="Удалить"
+            class="warn left-margin"
+            matTooltip="Удалить поле"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <button
+          mat-icon-button
+          aria-label="Удалить"
+          class="warn left-margin"
+          matTooltip="Удалить поле"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </a>
+    } @empty { @let status = getSelectedLoadingStatus()?.percent; @if
+    (isLoading() && status && (status < 100)) {
+    <div class="empty">
+      <mat-spinner></mat-spinner>
+    </div>
+    } @else if (!status || (status && status !== 101)) {
+    <span class="empty">Нажмите кнопку "сгенерировать"</span>
+
+    } @else {
+    <span class="empty warn">Не удалось обработать файл</span>
+    } }
+  </mat-nav-list>
   }
 </div>
 }

@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener, inject, input, output } from '@angular/core';
 import { DocumentPreviewModalComponent } from './document-preview-modal/document-preview-modal.component';
-import { dataURLToBlob, DocumentValue, UserDocumentType } from '../services/document-conversion.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 

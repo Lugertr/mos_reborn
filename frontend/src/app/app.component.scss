@@ -13,6 +13,7 @@
   display: grid;
   grid-template-columns: 0 1fr;
   grid-template-rows: 100%;
+  overflow: hidden;
 }
 
 .content-without-padding {

@@ -1,0 +1,515 @@
+data/handwritten/test/test0.png | pred: "подчинение" | ref: "ибо" | wer: 1.0000
+data/handwritten/test/test1.png | pred: "подчинение" | ref: "осталось" | wer: 1.0000
+data/handwritten/test/test10.png | pred: "подчинение" | ref: "поле" | wer: 1.0000
+data/handwritten/test/test100.png | pred: "подчинение" | ref: "Оптическое" | wer: 1.0000
+data/handwritten/test/test1000.png | pred: "подчинение" | ref: "1 класса" | wer: 1.0000
+data/handwritten/test/test1001.png | pred: "подчинение" | ref: "г. Ульяновск" | wer: 1.0000
+data/handwritten/test/test1002.png | pred: "подчинение" | ref: "На место" | wer: 1.0000
+data/handwritten/test/test1003.png | pred: "подчинение" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1004.png | pred: "подчинение" | ref: "назначение" | wer: 1.0000
+data/handwritten/test/test1005.png | pred: "подчинение" | ref: "отправление" | wer: 1.0000
+data/handwritten/test/test1006.png | pred: "подчинение" | ref: "было только" | wer: 1.0000
+data/handwritten/test/test1007.png | pred: "подчинение" | ref: "6.10.2017г." | wer: 1.0000
+data/handwritten/test/test1008.png | pred: "подчинение" | ref: "просрочив все сроки" | wer: 1.0000
+data/handwritten/test/test1009.png | pred: "подчинение" | ref: "которые для" | wer: 1.0000
+data/handwritten/test/test101.png | pred: "подчинение" | ref: "тогда" | wer: 1.0000
+data/handwritten/test/test1010.png | pred: "подчинение" | ref: "отправления были" | wer: 1.0000
+data/handwritten/test/test1011.png | pred: "подчинение" | ref: "критичны." | wer: 1.0000
+data/handwritten/test/test1012.png | pred: "подчинение" | ref: "Просьба разобраться" | wer: 1.0000
+data/handwritten/test/test1013.png | pred: "подчинение" | ref: "в ситуации," | wer: 1.0000
+data/handwritten/test/test1014.png | pred: "подчинение" | ref: "30. 08. 2004" | wer: 1.0000
+data/handwritten/test/test1015.png | pred: "подчинение" | ref: "дав обратную" | wer: 1.0000
+data/handwritten/test/test1016.png | pred: "подчинение" | ref: "связь" | wer: 1.0000
+data/handwritten/test/test1017.png | pred: "подчинение" | ref: "а также" | wer: 1.0000
+data/handwritten/test/test1018.png | pred: "подчинение" | ref: "которые были" | wer: 1.0000
+data/handwritten/test/test1019.png | pred: "подчинение" | ref: "оплачены за" | wer: 1.0000
+data/handwritten/test/test102.png | pred: "подчинение" | ref: "способ" | wer: 1.0000
+data/handwritten/test/test1020.png | pred: "подчинение" | ref: "1 класса" | wer: 1.0000
+data/handwritten/test/test1021.png | pred: "подчинение" | ref: "Данные по" | wer: 1.0000
+data/handwritten/test/test1023.png | pred: "подчинение" | ref: "Ксерокопия" | wer: 1.0000
+data/handwritten/test/test1024.png | pred: "подчинение" | ref: "приложена" | wer: 1.0000
+data/handwritten/test/test1025.png | pred: "подчинение" | ref: "выдан ОВД" | wer: 1.0000
+data/handwritten/test/test1026.png | pred: "подчинение" | ref: "заявлению" | wer: 1.0000
+data/handwritten/test/test1027.png | pred: "подчинение" | ref: "Контакты для" | wer: 1.0000
+data/handwritten/test/test1028.png | pred: "подчинение" | ref: "Анна Сергеевна" | wer: 1.0000
+data/handwritten/test/test1029.png | pred: "подчинение" | ref: "7.10.2017 г." | wer: 1.0000
+data/handwritten/test/test103.png | pred: "подчинение" | ref: "угольник" | wer: 1.0000
+data/handwritten/test/test1030.png | pred: "подчинение" | ref: "Расписка" | wer: 1.0000
+data/handwritten/test/test1031.png | pred: "подчинение" | ref: "10 июня 2016г." | wer: 1.0000
+data/handwritten/test/test1032.png | pred: "подчинение" | ref: "г. Санкт-петербург" | wer: 1.0000
+data/handwritten/test/test1033.png | pred: "подчинение" | ref: "Иванов Иван" | wer: 1.0000
+data/handwritten/test/test1034.png | pred: "подчинение" | ref: "15.02.1987г." | wer: 1.0000
+data/handwritten/test/test1035.png | pred: "подчинение" | ref: "рождения" | wer: 1.0000
+data/handwritten/test/test1036.png | pred: "подчинение" | ref: "17.10.2005" | wer: 1.0000
+data/handwritten/test/test1037.png | pred: "подчинение" | ref: "паспорт серия" | wer: 1.0000
+data/handwritten/test/test1039.png | pred: "подчинение" | ref: "18.03.2007 г" | wer: 1.0000
+data/handwritten/test/test104.png | pred: "подчинение" | ref: "Множество" | wer: 1.0000
+data/handwritten/test/test1040.png | pred: "подчинение" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1041.png | pred: "подчинение" | ref: "деньги" | wer: 1.0000
+data/handwritten/test/test1042.png | pred: "подчинение" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1043.png | pred: "подчинение" | ref: "18.04.1980" | wer: 1.0000
+data/handwritten/test/test1044.png | pred: "подчинение" | ref: "паспорт серия" | wer: 1.0000
+data/handwritten/test/test1045.png | pred: "подчинение" | ref: "зарегистрирован" | wer: 1.0000
+data/handwritten/test/test1046.png | pred: "подчинение" | ref: "г. Севаевск" | wer: 1.0000
+data/handwritten/test/test1047.png | pred: "подчинение" | ref: "денежную сумму" | wer: 1.0000
+data/handwritten/test/test1048.png | pred: "подчинение" | ref: "ул. Ленина" | wer: 1.0000
+data/handwritten/test/test1049.png | pred: "подчинение" | ref: "вышеуказанную" | wer: 1.0000
+data/handwritten/test/test105.png | pred: "подчинение" | ref: "Касательная" | wer: 1.0000
+data/handwritten/test/test1050.png | pred: "подчинение" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1051.png | pred: "подчинение" | ref: "Иванов И.И." | wer: 1.0000
+data/handwritten/test/test1052.png | pred: "подчинение" | ref: "28.11.11" | wer: 1.0000
+data/handwritten/test/test1053.png | pred: "подчинение" | ref: "14мг" | wer: 1.0000
+data/handwritten/test/test1054.png | pred: "подчинение" | ref: "Плоскостопие" | wer: 1.0000
+data/handwritten/test/test1055.png | pred: "подчинение" | ref: "обеих" | wer: 1.0000
+data/handwritten/test/test1056.png | pred: "подчинение" | ref: "Киров" | wer: 1.0000
+data/handwritten/test/test1057.png | pred: "подчинение" | ref: "ноября 2016" | wer: 1.0000
+data/handwritten/test/test1058.png | pred: "подчинение" | ref: "в размере 334 000" | wer: 1.0000
+data/handwritten/test/test1059.png | pred: "подчинение" | ref: "Вагин" | wer: 1.0000
+data/handwritten/test/test106.png | pred: "подчинение" | ref: "Рассмотрим" | wer: 1.0000
+data/handwritten/test/test1060.png | pred: "подчинение" | ref: "ОВД Юшного" | wer: 1.0000
+data/handwritten/test/test1061.png | pred: "подчинение" | ref: "25.06.2005." | wer: 1.0000
+data/handwritten/test/test1063.png | pred: "подчинение" | ref: "Ложкин Юрий" | wer: 1.0000
+data/handwritten/test/test1064.png | pred: "подчинение" | ref: "94 04" | wer: 1.0000
+data/handwritten/test/test1065.png | pred: "подчинение" | ref: "547815" | wer: 1.0000
+data/handwritten/test/test1066.png | pred: "подчинение" | ref: "ОВД р-на" | wer: 1.0000
+data/handwritten/test/test1067.png | pred: "подчинение" | ref: "16.08.2004 г." | wer: 1.0000
+data/handwritten/test/test1068.png | pred: "подчинение" | ref: "г. Киров" | wer: 1.0000
+data/handwritten/test/test1069.png | pred: "подчинение" | ref: "триста тридцать" | wer: 1.0000
+data/handwritten/test/test107.png | pred: "подчинение" | ref: "Директориальное" | wer: 1.0000
+data/handwritten/test/test1070.png | pred: "подчинение" | ref: "Шкода Фабия" | wer: 1.0000
+data/handwritten/test/test1071.png | pred: "подчинение" | ref: "Паспорт" | wer: 1.0000
+data/handwritten/test/test1072.png | pred: "подчинение" | ref: "445 тысяч" | wer: 1.0000
+data/handwritten/test/test1073.png | pred: "подчинение" | ref: "Три тысячи девятьсот" | wer: 1.0000
+data/handwritten/test/test1074.png | pred: "подчинение" | ref: "Доверенность" | wer: 1.0000
+data/handwritten/test/test1075.png | pred: "подчинение" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1076.png | pred: "подчинение" | ref: "номер" | wer: 1.0000
+data/handwritten/test/test1077.png | pred: "подчинение" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1078.png | pred: "подчинение" | ref: "отделением" | wer: 1.0000
+data/handwritten/test/test1079.png | pred: "подчинение" | ref: "по району" | wer: 1.0000
+data/handwritten/test/test108.png | pred: "подчинение" | ref: "Событие" | wer: 1.0000
+data/handwritten/test/test1080.png | pred: "подчинение" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1081.png | pred: "подчинение" | ref: "Москве" | wer: 1.0000
+data/handwritten/test/test1082.png | pred: "подчинение" | ref: "код подразделения" | wer: 1.0000
+data/handwritten/test/test1083.png | pred: "подчинение" | ref: "проживаю" | wer: 1.0000
+data/handwritten/test/test1084.png | pred: "подчинение" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1085.png | pred: "подчинение" | ref: "квартира" | wer: 1.0000
+data/handwritten/test/test1086.png | pred: "подчинение" | ref: "доверяю получать" | wer: 1.0000
+data/handwritten/test/test1087.png | pred: "подчинение" | ref: "отправления," | wer: 1.0000
+data/handwritten/test/test1088.png | pred: "подчинение" | ref: "приходящие" | wer: 1.0000
+data/handwritten/test/test1089.png | pred: "подчинение" | ref: "на моё имя" | wer: 1.0000
+data/handwritten/test/test109.png | pred: "подчинение" | ref: "любое" | wer: 1.0000
+data/handwritten/test/test1090.png | pred: "подчинение" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1091.png | pred: "подчинение" | ref: "в качестве задатка" | wer: 1.0000
+data/handwritten/test/test1092.png | pred: "подчинение" | ref: "г. Москва," | wer: 1.0000
+data/handwritten/test/test1093.png | pred: "подчинение" | ref: "127 572," | wer: 1.0000
+data/handwritten/test/test1094.png | pred: "подчинение" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1095.png | pred: "подчинение" | ref: "ОВД района" | wer: 1.0000
+data/handwritten/test/test1096.png | pred: "подчинение" | ref: "г. Москвы," | wer: 1.0000
+data/handwritten/test/test1097.png | pred: "подчинение" | ref: "под подразделения" | wer: 1.0000
+data/handwritten/test/test1098.png | pred: "подчинение" | ref: "проживающему" | wer: 1.0000
+data/handwritten/test/test1099.png | pred: "подчинение" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test11.png | pred: "подчинение" | ref: "новое" | wer: 1.0000
+data/handwritten/test/test110.png | pred: "подчинение" | ref: "Вопрос" | wer: 1.0000
+data/handwritten/test/test1100.png | pred: "подчинение" | ref: "25. 01. 2016." | wer: 1.0000
+data/handwritten/test/test1101.png | pred: "подчинение" | ref: "30.09.2013" | wer: 1.0000
+data/handwritten/test/test1102.png | pred: "подчинение" | ref: "сентябрь," | wer: 1.0000
+data/handwritten/test/test1103.png | pred: "подчинение" | ref: "за автомобиль" | wer: 1.0000
+data/handwritten/test/test1104.png | pred: "подчинение" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test1105.png | pred: "подчинение" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test1106.png | pred: "подчинение" | ref: "12.09.2013г" | wer: 1.0000
+data/handwritten/test/test1107.png | pred: "подчинение" | ref: "12.09.2013 г." | wer: 1.0000
+data/handwritten/test/test1108.png | pred: "подчинение" | ref: "30.09.2013г" | wer: 1.0000
+data/handwritten/test/test1109.png | pred: "подчинение" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test111.png | pred: "подчинение" | ref: "Использование" | wer: 1.0000
+data/handwritten/test/test1110.png | pred: "подчинение" | ref: "За период практики" | wer: 1.0000
+data/handwritten/test/test1111.png | pred: "подчинение" | ref: "Савченко И. А." | wer: 1.0000
+data/handwritten/test/test1115.png | pred: "подчинение" | ref: "с составленным" | wer: 1.0000
+data/handwritten/test/test1116.png | pred: "подчинение" | ref: "Планом" | wer: 1.0000
+data/handwritten/test/test1117.png | pred: "подчинение" | ref: "На основе" | wer: 1.0000
+data/handwritten/test/test1118.png | pred: "подчинение" | ref: "модели" | wer: 1.0000
+data/handwritten/test/test1119.png | pred: "подчинение" | ref: "процесса" | wer: 1.0000
+data/handwritten/test/test112.png | pred: "подчинение" | ref: "непустое" | wer: 1.0000
+data/handwritten/test/test1120.png | pred: "подчинение" | ref: "определены" | wer: 1.0000
+data/handwritten/test/test1121.png | pred: "подчинение" | ref: "существующие" | wer: 1.0000
+data/handwritten/test/test1122.png | pred: "подчинение" | ref: "и предложены" | wer: 1.0000
+data/handwritten/test/test1123.png | pred: "подчинение" | ref: "методы" | wer: 1.0000
+data/handwritten/test/test1124.png | pred: "подчинение" | ref: "отлично" | wer: 1.0000
+data/handwritten/test/test1125.png | pred: "подчинение" | ref: "автомобиля," | wer: 1.0000
+data/handwritten/test/test1126.png | pred: "подчинение" | ref: "Фоменко В.А." | wer: 1.0000
+data/handwritten/test/test1127.png | pred: "подчинение" | ref: "Савченко И.А." | wer: 1.0000
+data/handwritten/test/test1128.png | pred: "подчинение" | ref: "хорошо" | wer: 1.0000
+data/handwritten/test/test113.png | pred: "подчинение" | ref: "Метод:" | wer: 1.0000
+data/handwritten/test/test1130.png | pred: "подчинение" | ref: "отлично" | wer: 1.0000
+data/handwritten/test/test1131.png | pred: "подчинение" | ref: "информационная" | wer: 1.0000
+data/handwritten/test/test1132.png | pred: "подчинение" | ref: "эндогеодинамического" | wer: 1.0000
+data/handwritten/test/test1133.png | pred: "подчинение" | ref: "описание" | wer: 1.0000
+data/handwritten/test/test1137.png | pred: "подчинение" | ref: "на предприятий" | wer: 1.0000
+data/handwritten/test/test1138.png | pred: "подчинение" | ref: "параметра" | wer: 1.0000
+data/handwritten/test/test1139.png | pred: "подчинение" | ref: "Формирование" | wer: 1.0000
+data/handwritten/test/test114.png | pred: "подчинение" | ref: "значения" | wer: 1.0000
+data/handwritten/test/test1140.png | pred: "подчинение" | ref: "выбор" | wer: 1.0000
+data/handwritten/test/test1141.png | pred: "подчинение" | ref: "аргументам" | wer: 1.0000
+data/handwritten/test/test1142.png | pred: "подчинение" | ref: "выбор технологий" | wer: 1.0000
+data/handwritten/test/test1143.png | pred: "подчинение" | ref: "Расписка." | wer: 1.0000
+data/handwritten/test/test1144.png | pred: "подчинение" | ref: "23 марта 2012г." | wer: 1.0000
+data/handwritten/test/test1145.png | pred: "подчинение" | ref: "г. Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1146.png | pred: "подчинение" | ref: "Бугрова" | wer: 1.0000
+data/handwritten/test/test1147.png | pred: "подчинение" | ref: "сумму в срок" | wer: 1.0000
+data/handwritten/test/test115.png | pred: "подчинение" | ref: "Кривые" | wer: 1.0000
+data/handwritten/test/test1150.png | pred: "подчинение" | ref: "22. 07. 2010" | wer: 1.0000
+data/handwritten/test/test1152.png | pred: "подчинение" | ref: "Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1153.png | pred: "подчинение" | ref: "пр Просвещения" | wer: 1.0000
+data/handwritten/test/test1154.png | pred: "подчинение" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1155.png | pred: "подчинение" | ref: "40 06 799" | wer: 1.0000
+data/handwritten/test/test1156.png | pred: "подчинение" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1158.png | pred: "подчинение" | ref: "до 30 июня 2009 года" | wer: 1.0000
+data/handwritten/test/test1159.png | pred: "подчинение" | ref: "Санкт - Петербурга" | wer: 1.0000
+data/handwritten/test/test116.png | pred: "подчинение" | ref: "Случай" | wer: 1.0000
+data/handwritten/test/test1160.png | pred: "подчинение" | ref: "14. 12. 2003г" | wer: 1.0000
+data/handwritten/test/test1161.png | pred: "подчинение" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1162.png | pred: "подчинение" | ref: "Санкт - Петербург" | wer: 1.0000
+data/handwritten/test/test1163.png | pred: "подчинение" | ref: "деньги в сумме" | wer: 1.0000
+data/handwritten/test/test1164.png | pred: "подчинение" | ref: "Два" | wer: 1.0000
+data/handwritten/test/test1165.png | pred: "подчинение" | ref: "рублей в счет" | wer: 1.0000
+data/handwritten/test/test1166.png | pred: "подчинение" | ref: "стоимости квартиры" | wer: 1.0000
+data/handwritten/test/test1167.png | pred: "подчинение" | ref: "расположенной" | wer: 1.0000
+data/handwritten/test/test1168.png | pred: "подчинение" | ref: "адресу" | wer: 1.0000
+data/handwritten/test/test1169.png | pred: "подчинение" | ref: "24 июня 2009 г." | wer: 1.0000
+data/handwritten/test/test117.png | pred: "военно" | ref: "второго" | wer: 1.0000
+data/handwritten/test/test1170.png | pred: "подчинение" | ref: "Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1171.png | pred: "подчинение" | ref: "по договору" | wer: 1.0000
+data/handwritten/test/test1172.png | pred: "подчинение" | ref: "Претензий не имею." | wer: 1.0000
+data/handwritten/test/test1173.png | pred: "подчинение" | ref: "23.03.2012г." | wer: 1.0000
+data/handwritten/test/test1174.png | pred: "подчинение" | ref: "Бугрова В.Г." | wer: 1.0000
+data/handwritten/test/test1175.png | pred: "подчинение" | ref: "Михаилу" | wer: 1.0000
+data/handwritten/test/test1176.png | pred: "подчинение" | ref: "04. 01. 1992 г." | wer: 1.0000
+data/handwritten/test/test1177.png | pred: "подчинение" | ref: "16.12.1991г." | wer: 1.0000
+data/handwritten/test/test1178.png | pred: "подчинение" | ref: "содействие" | wer: 1.0000
+data/handwritten/test/test1179.png | pred: "подчинение" | ref: "промышленным" | wer: 1.0000
+data/handwritten/test/test118.png | pred: "подчинение" | ref: "пространство" | wer: 1.0000
+data/handwritten/test/test1180.png | pred: "подчинение" | ref: "Иванов" | wer: 1.0000
+data/handwritten/test/test1181.png | pred: "подчинение" | ref: "в части увеличения" | wer: 1.0000
+data/handwritten/test/test1182.png | pred: "подчинение" | ref: "выпуска продукции" | wer: 1.0000
+data/handwritten/test/test1183.png | pred: "подчинение" | ref: "г. Иркутск" | wer: 1.0000
+data/handwritten/test/test1184.png | pred: "подчинение" | ref: "одиннадцатого" | wer: 1.0000
+data/handwritten/test/test1185.png | pred: "подчинение" | ref: "г. Иркутск" | wer: 1.0000
+data/handwritten/test/test1186.png | pred: "подчинение" | ref: "Иванову" | wer: 1.0000
+data/handwritten/test/test1187.png | pred: "подчинение" | ref: "Мамедов.Р.Г." | wer: 1.0000
+data/handwritten/test/test1188.png | pred: "подчинение" | ref: "Мустафаева Ф. М" | wer: 1.0000
+data/handwritten/test/test1189.png | pred: "подчинение" | ref: "Максимов Р. Н" | wer: 1.0000
+data/handwritten/test/test119.png | pred: "подчинение" | ref: "любой" | wer: 1.0000
+data/handwritten/test/test1190.png | pred: "подчинение" | ref: "Мамедов Д. Х" | wer: 1.0000
+data/handwritten/test/test1191.png | pred: "подчинение" | ref: "07 042000" | wer: 1.0000
+data/handwritten/test/test1192.png | pred: "подчинение" | ref: "Момедова А.Э." | wer: 1.0000
+data/handwritten/test/test1193.png | pred: "подчинение" | ref: "Мамедов А Г" | wer: 1.0000
+data/handwritten/test/test1194.png | pred: "подчинение" | ref: "Яхьяева Э.А." | wer: 1.0000
+data/handwritten/test/test1195.png | pred: "подчинение" | ref: "Яхьев М Я" | wer: 1.0000
+data/handwritten/test/test1196.png | pred: "подчинение" | ref: "Розбекова С. Б." | wer: 1.0000
+data/handwritten/test/test1197.png | pred: "подчинение" | ref: "Абдуллаева С. С." | wer: 1.0000
+data/handwritten/test/test1198.png | pred: "подчинение" | ref: "Наталью" | wer: 1.0000
+data/handwritten/test/test1199.png | pred: "подчинение" | ref: "Заявление." | wer: 1.0000
+data/handwritten/test/test12.png | pred: "подчинение" | ref: "разрешино" | wer: 1.0000
+data/handwritten/test/test120.png | pred: "подчинение" | ref: "покажем" | wer: 1.0000
+data/handwritten/test/test1200.png | pred: "подчинение" | ref: "08.09.16г." | wer: 1.0000
+data/handwritten/test/test1201.png | pred: "подчинение" | ref: "от услуг" | wer: 1.0000
+data/handwritten/test/test1202.png | pred: "подчинение" | ref: "гор Омск" | wer: 1.0000
+data/handwritten/test/test1203.png | pred: "подчинение" | ref: "отказываюсь" | wer: 1.0000
+data/handwritten/test/test1204.png | pred: "подчинение" | ref: "адвокатов" | wer: 1.0000
+data/handwritten/test/test1205.png | pred: "подчинение" | ref: "свои" | wer: 1.0000
+data/handwritten/test/test1206.png | pred: "подчинение" | ref: "прошу" | wer: 1.0000
+data/handwritten/test/test1207.png | pred: "подчинение" | ref: "Вас изьять дело" | wer: 1.0000
+data/handwritten/test/test1208.png | pred: "подчинение" | ref: "копию," | wer: 1.0000
+data/handwritten/test/test1209.png | pred: "подчинение" | ref: "Ткачевой" | wer: 1.0000
+data/handwritten/test/test121.png | pred: "подчинение" | ref: "измеримость" | wer: 1.0000
+data/handwritten/test/test1210.png | pred: "подчинение" | ref: "г. Барнаула" | wer: 1.0000
+data/handwritten/test/test1211.png | pred: "подчинение" | ref: "железнодорожного" | wer: 1.0000
+data/handwritten/test/test1212.png | pred: "подчинение" | ref: "15 сентября" | wer: 1.0000
+data/handwritten/test/test1213.png | pred: "подчинение" | ref: "Октябрь," | wer: 1.0000
+data/handwritten/test/test1214.png | pred: "подчинение" | ref: "Омская обл." | wer: 1.0000
+data/handwritten/test/test1215.png | pred: "подчинение" | ref: "25 октября" | wer: 1.0000
+data/handwritten/test/test1216.png | pred: "подчинение" | ref: "Савилова" | wer: 1.0000
+data/handwritten/test/test1217.png | pred: "подчинение" | ref: "Абузова" | wer: 1.0000
+data/handwritten/test/test1218.png | pred: "подчинение" | ref: "Шаталова" | wer: 1.0000
+data/handwritten/test/test1219.png | pred: "подчинение" | ref: "Обласова" | wer: 1.0000
+data/handwritten/test/test122.png | pred: "подчинение" | ref: "Вопрос" | wer: 1.0000
+data/handwritten/test/test1220.png | pred: "подчинение" | ref: "Наталья Константинова" | wer: 1.0000
+data/handwritten/test/test1221.png | pred: "подчинение" | ref: "проходила практика" | wer: 1.0000
+data/handwritten/test/test1222.png | pred: "подчинение" | ref: "в качестве" | wer: 1.0000
+data/handwritten/test/test1223.png | pred: "подчинение" | ref: "классного руководителя" | wer: 1.0000
+data/handwritten/test/test1224.png | pred: "подчинение" | ref: "в 6 классе" | wer: 1.0000
+data/handwritten/test/test1225.png | pred: "подчинение" | ref: "в браке" | wer: 1.0000
+data/handwritten/test/test1226.png | pred: "подчинение" | ref: "МБОУ" | wer: 1.0000
+data/handwritten/test/test1227.png | pred: "подчинение" | ref: "лицей" | wer: 1.0000
+data/handwritten/test/test1228.png | pred: "подчинение" | ref: "г. Барнаула" | wer: 1.0000
+data/handwritten/test/test1229.png | pred: "подчинение" | ref: "С первого дня" | wer: 1.0000
+data/handwritten/test/test123.png | pred: "подчинение" | ref: "дама" | wer: 1.0000
+data/handwritten/test/test1230.png | pred: "подчинение" | ref: "студентке удалось" | wer: 1.0000
+data/handwritten/test/test1231.png | pred: "подчинение" | ref: "наладить" | wer: 1.0000
+data/handwritten/test/test1232.png | pred: "подчинение" | ref: "доброжелательно-" | wer: 1.0000
+data/handwritten/test/test1233.png | pred: "подчинение" | ref: "требовательные" | wer: 1.0000
+data/handwritten/test/test1234.png | pred: "подчинение" | ref: "Наталье" | wer: 1.0000
+data/handwritten/test/test1235.png | pred: "подчинение" | ref: "срок" | wer: 1.0000
+data/handwritten/test/test1236.png | pred: "подчинение" | ref: "Ивановы" | wer: 1.0000
+data/handwritten/test/test1237.png | pred: "подчинение" | ref: "смогла" | wer: 1.0000
+data/handwritten/test/test1238.png | pred: "подчинение" | ref: "с детьми," | wer: 1.0000
+data/handwritten/test/test1239.png | pred: "подчинение" | ref: "психологическим" | wer: 1.0000
+data/handwritten/test/test124.png | pred: "подчинение" | ref: "Сделаем" | wer: 1.0000
+data/handwritten/test/test1240.png | pred: "подчинение" | ref: "индивидуально" | wer: 1.0000
+data/handwritten/test/test1241.png | pred: "подчинение" | ref: "их" | wer: 1.0000
+data/handwritten/test/test1242.png | pred: "подчинение" | ref: "особенности" | wer: 1.0000
+data/handwritten/test/test1243.png | pred: "подчинение" | ref: "учитывая" | wer: 1.0000
+data/handwritten/test/test1244.png | pred: "подчинение" | ref: "индивидуальные" | wer: 1.0000
+data/handwritten/test/test1245.png | pred: "подчинение" | ref: "воздействия" | wer: 1.0000
+data/handwritten/test/test1246.png | pred: "подчинение" | ref: "на каждого" | wer: 1.0000
+data/handwritten/test/test1248.png | pred: "подчинение" | ref: "члена детского" | wer: 1.0000
+data/handwritten/test/test1249.png | pred: "подчинение" | ref: "коллектива" | wer: 1.0000
+data/handwritten/test/test125.png | pred: "подчинение" | ref: "применяем" | wer: 1.0000
+data/handwritten/test/test1250.png | pred: "подчинение" | ref: "методикой" | wer: 1.0000
+data/handwritten/test/test1251.png | pred: "подчинение" | ref: "воспитательных" | wer: 1.0000
+data/handwritten/test/test1252.png | pred: "подчинение" | ref: "умением" | wer: 1.0000
+data/handwritten/test/test1253.png | pred: "подчинение" | ref: "использовать" | wer: 1.0000
+data/handwritten/test/test1254.png | pred: "подчинение" | ref: "разнообразные" | wer: 1.0000
+data/handwritten/test/test1255.png | pred: "подчинение" | ref: "работы" | wer: 1.0000
+data/handwritten/test/test1256.png | pred: "подчинение" | ref: "В качестве" | wer: 1.0000
+data/handwritten/test/test1257.png | pred: "подчинение" | ref: "студентка" | wer: 1.0000
+data/handwritten/test/test1258.png | pred: "подчинение" | ref: "Онинская обл" | wer: 1.0000
+data/handwritten/test/test1259.png | pred: "подчинение" | ref: "с учащимся" | wer: 1.0000
+data/handwritten/test/test126.png | pred: "подчинение" | ref: "теорема" | wer: 1.0000
+data/handwritten/test/test1260.png | pred: "подчинение" | ref: "этические беседы" | wer: 1.0000
+data/handwritten/test/test1261.png | pred: "подчинение" | ref: "подготовку" | wer: 1.0000
+data/handwritten/test/test1262.png | pred: "подчинение" | ref: "мероприятиям" | wer: 1.0000
+data/handwritten/test/test1263.png | pred: "подчинение" | ref: "проверяла" | wer: 1.0000
+data/handwritten/test/test1264.png | pred: "подчинение" | ref: "в организации" | wer: 1.0000
+data/handwritten/test/test1265.png | pred: "подчинение" | ref: "дежурств" | wer: 1.0000
+data/handwritten/test/test1266.png | pred: "подчинение" | ref: "по лицею" | wer: 1.0000
+data/handwritten/test/test1267.png | pred: "подчинение" | ref: "в организации" | wer: 1.0000
+data/handwritten/test/test1268.png | pred: "подчинение" | ref: "с правилами" | wer: 1.0000
+data/handwritten/test/test1269.png | pred: "подчинение" | ref: "ул Ленина 11" | wer: 1.0000
+data/handwritten/test/test127.png | pred: "подчинение" | ref: "плотность" | wer: 1.0000
+data/handwritten/test/test1270.png | pred: "подчинение" | ref: "документации" | wer: 1.0000
+data/handwritten/test/test1271.png | pred: "подчинение" | ref: "классного" | wer: 1.0000
+data/handwritten/test/test1273.png | pred: "подчинение" | ref: "планов." | wer: 1.0000
+data/handwritten/test/test1274.png | pred: "подчинение" | ref: "Рекомендую" | wer: 1.0000
+data/handwritten/test/test1275.png | pred: "подчинение" | ref: "Заречнева Е.Н" | wer: 1.0000
+data/handwritten/test/test1276.png | pred: "подчинение" | ref: "Савилова Н.В." | wer: 1.0000
+data/handwritten/test/test1277.png | pred: "подчинение" | ref: "оценкой" | wer: 1.0000
+data/handwritten/test/test1279.png | pred: "подчинение" | ref: "для нужд" | wer: 1.0000
+data/handwritten/test/test128.png | pred: "подчинение" | ref: "Основные" | wer: 1.0000
+data/handwritten/test/test1281.png | pred: "подчинение" | ref: "избирательной" | wer: 1.0000
+data/handwritten/test/test1282.png | pred: "подчинение" | ref: "получил" | wer: 1.0000
+data/handwritten/test/test1283.png | pred: "подчинение" | ref: "Киселева В.А." | wer: 1.0000
+data/handwritten/test/test1284.png | pred: "подчинение" | ref: "Триста Тысяч" | wer: 1.0000
+data/handwritten/test/test1285.png | pred: "подчинение" | ref: "долларов США" | wer: 1.0000
+data/handwritten/test/test1286.png | pred: "подчинение" | ref: "22.03.2006 г." | wer: 1.0000
+data/handwritten/test/test1287.png | pred: "подчинение" | ref: "Свистунов А.Т." | wer: 1.0000
+data/handwritten/test/test1288.png | pred: "подчинение" | ref: "г. Москва" | wer: 1.0000
+data/handwritten/test/test1289.png | pred: "подчинение" | ref: "24.11.1986" | wer: 1.0000
+data/handwritten/test/test129.png | pred: "подчинение" | ref: "свойства" | wer: 1.0000
+data/handwritten/test/test1290.png | pred: "подчинение" | ref: "гор. Воронеж" | wer: 1.0000
+data/handwritten/test/test1291.png | pred: "подчинение" | ref: "Иванова" | wer: 1.0000
+data/handwritten/test/test1292.png | pred: "подчинение" | ref: "Сидорову" | wer: 1.0000
+data/handwritten/test/test1293.png | pred: "подчинение" | ref: "гор. Челябинск" | wer: 1.0000
+data/handwritten/test/test1294.png | pred: "подчинение" | ref: "Советская" | wer: 1.0000
+data/handwritten/test/test1295.png | pred: "подчинение" | ref: "Прошу вернуть" | wer: 1.0000
+data/handwritten/test/test1296.png | pred: "подчинение" | ref: "денежные средства" | wer: 1.0000
+data/handwritten/test/test1297.png | pred: "подчинение" | ref: "перечисленные" | wer: 1.0000
+data/handwritten/test/test1298.png | pred: "подчинение" | ref: "на номера" | wer: 1.0000
+data/handwritten/test/test1299.png | pred: "подчинение" | ref: "яндекс-кошелька" | wer: 1.0000
+data/handwritten/test/test13.png | pred: "подчинение" | ref: "15.09.2020" | wer: 1.0000
+data/handwritten/test/test130.png | pred: "подчинение" | ref: "деформация" | wer: 1.0000
+data/handwritten/test/test1302.png | pred: "подчинение" | ref: "523739" | wer: 1.0000
+data/handwritten/test/test1303.png | pred: "подчинение" | ref: "12.08.2012" | wer: 1.0000
+data/handwritten/test/test1304.png | pred: "подчинение" | ref: "88007008000" | wer: 1.0000
+data/handwritten/test/test1305.png | pred: "подчинение" | ref: "Лебеденко Н.Н." | wer: 1.0000
+data/handwritten/test/test1306.png | pred: "подчинение" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1307.png | pred: "подчинение" | ref: "История операции" | wer: 1.0000
+data/handwritten/test/test1308.png | pred: "подчинение" | ref: "и детализацию по" | wer: 1.0000
+data/handwritten/test/test1309.png | pred: "подчинение" | ref: "ним предоставляю" | wer: 1.0000
+data/handwritten/test/test131.png | pred: "подчинение" | ref: "шейка" | wer: 1.0000
+data/handwritten/test/test1310.png | pred: "подчинение" | ref: "в распечатанном" | wer: 1.0000
+data/handwritten/test/test1311.png | pred: "подчинение" | ref: "виде" | wer: 1.0000
+data/handwritten/test/test1312.png | pred: "подчинение" | ref: "В конечестве" | wer: 1.0000
+data/handwritten/test/test1313.png | pred: "подчинение" | ref: "10.04.2000" | wer: 1.0000
+data/handwritten/test/test1314.png | pred: "подчинение" | ref: "Детализация" | wer: 1.0000
+data/handwritten/test/test1315.png | pred: "подчинение" | ref: "по каждому" | wer: 1.0000
+data/handwritten/test/test1316.png | pred: "подчинение" | ref: "незаконному" | wer: 1.0000
+data/handwritten/test/test1317.png | pred: "подчинение" | ref: "Более" | wer: 1.0000
+data/handwritten/test/test1318.png | pred: "подчинение" | ref: "информацию можно" | wer: 1.0000
+data/handwritten/test/test1319.png | pred: "подчинение" | ref: "узнать у" | wer: 1.0000
+data/handwritten/test/test132.png | pred: "подчинение" | ref: "Линейное" | wer: 1.0000
+data/handwritten/test/test1320.png | pred: "подчинение" | ref: "Яндекс-деньги" | wer: 1.0000
+data/handwritten/test/test1322.png | pred: "подчинение" | ref: "Контролер" | wer: 1.0000
+data/handwritten/test/test1323.png | pred: "подчинение" | ref: "Смоленское" | wer: 1.0000
+data/handwritten/test/test1324.png | pred: "подчинение" | ref: "заместитель" | wer: 1.0000
+data/handwritten/test/test1327.png | pred: "подчинение" | ref: "г.Пенза" | wer: 1.0000
+data/handwritten/test/test1328.png | pred: "подчинение" | ref: "14 ноября 2007г." | wer: 1.0000
+data/handwritten/test/test133.png | pred: "подчинение" | ref: "сходится" | wer: 1.0000
+data/handwritten/test/test1330.png | pred: "подчинение" | ref: "в размере" | wer: 1.0000
+data/handwritten/test/test1333.png | pred: "подчинение" | ref: "обязательств" | wer: 1.0000
+data/handwritten/test/test1334.png | pred: "подчинение" | ref: "в договоре" | wer: 1.0000
+data/handwritten/test/test1335.png | pred: "подчинение" | ref: "а именно" | wer: 1.0000
+data/handwritten/test/test1336.png | pred: "подчинение" | ref: "02 декабря 1980 г." | wer: 1.0000
+data/handwritten/test/test1337.png | pred: "подчинение" | ref: "условия поставки" | wer: 1.0000
+data/handwritten/test/test1339.png | pred: "подчинение" | ref: "для зачисления" | wer: 1.0000
+data/handwritten/test/test134.png | pred: "подчинение" | ref: "ожиданию" | wer: 1.0000
+data/handwritten/test/test1340.png | pred: "подчинение" | ref: "4272 2903 8396 6819" | wer: 1.0000
+data/handwritten/test/test1341.png | pred: "подчинение" | ref: "30101810100000000716" | wer: 1.0000
+data/handwritten/test/test1342.png | pred: "подчинение" | ref: "30232810481100000009" | wer: 1.0000
+data/handwritten/test/test1343.png | pred: "подчинение" | ref: "44525716" | wer: 1.0000
+data/handwritten/test/test1344.png | pred: "подчинение" | ref: "Разрыв" | wer: 1.0000
+data/handwritten/test/test1345.png | pred: "подчинение" | ref: "Проводить" | wer: 1.0000
+data/handwritten/test/test1346.png | pred: "подчинение" | ref: "27.11.2016 г" | wer: 1.0000
+data/handwritten/test/test1347.png | pred: "подчинение" | ref: "Г. Воронеж" | wer: 1.0000
+data/handwritten/test/test1348.png | pred: "подчинение" | ref: "мне было" | wer: 1.0000
+data/handwritten/test/test1349.png | pred: "подчинение" | ref: "в помещении" | wer: 1.0000
+data/handwritten/test/test135.png | pred: "подчинение" | ref: "стандартизование" | wer: 1.0000
+data/handwritten/test/test1350.png | pred: "подчинение" | ref: "Избирательного" | wer: 1.0000
+data/handwritten/test/test1351.png | pred: "подчинение" | ref: "в качестве лида" | wer: 1.0000
+data/handwritten/test/test1352.png | pred: "подчинение" | ref: "регистрации в качестве" | wer: 1.0000
+data/handwritten/test/test1353.png | pred: "подчинение" | ref: "Аналогичные" | wer: 1.0000
+data/handwritten/test/test1354.png | pred: "подчинение" | ref: "В соответствие" | wer: 1.0000
+data/handwritten/test/test1355.png | pred: "подчинение" | ref: "Бандура Д. В." | wer: 1.0000
+data/handwritten/test/test1357.png | pred: "подчинение" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1358.png | pred: "подчинение" | ref: "разведена" | wer: 1.0000
+data/handwritten/test/test136.png | pred: "подчинение" | ref: "сходимость" | wer: 1.0000
+data/handwritten/test/test1360.png | pred: "подчинение" | ref: "в городе" | wer: 1.0000
+data/handwritten/test/test1361.png | pred: "подчинение" | ref: "не управлял" | wer: 1.0000
+data/handwritten/test/test1364.png | pred: "подчинение" | ref: "В данный момент" | wer: 1.0000
+data/handwritten/test/test1365.png | pred: "подчинение" | ref: "Морозова" | wer: 1.0000
+data/handwritten/test/test1366.png | pred: "подчинение" | ref: "Генеральному" | wer: 1.0000
+data/handwritten/test/test1367.png | pred: "подчинение" | ref: "Российской" | wer: 1.0000
+data/handwritten/test/test1368.png | pred: "подчинение" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1369.png | pred: "подчинение" | ref: "Березкин" | wer: 1.0000
+data/handwritten/test/test137.png | pred: "подчинение" | ref: "совпадает" | wer: 1.0000
+data/handwritten/test/test1370.png | pred: "подчинение" | ref: "08.02.2012г" | wer: 1.0000
+data/handwritten/test/test1371.png | pred: "подчинение" | ref: "мне стало" | wer: 1.0000
+data/handwritten/test/test1373.png | pred: "подчинение" | ref: "представлением" | wer: 1.0000
+data/handwritten/test/test1374.png | pred: "подчинение" | ref: "на должность" | wer: 1.0000
+data/handwritten/test/test1375.png | pred: "подчинение" | ref: "Главы" | wer: 1.0000
+data/handwritten/test/test1376.png | pred: "подчинение" | ref: "документы" | wer: 1.0000
+data/handwritten/test/test1377.png | pred: "подчинение" | ref: "Галяева А. М." | wer: 1.0000
+data/handwritten/test/test138.png | pred: "подчинение" | ref: "означает" | wer: 1.0000
+data/handwritten/test/test1380.png | pred: "подчинение" | ref: "Березкина" | wer: 1.0000
+data/handwritten/test/test1381.png | pred: "подчинение" | ref: "наизусть" | wer: 1.0000
+data/handwritten/test/test1382.png | pred: "подчинение" | ref: "На этих документах" | wer: 1.0000
+data/handwritten/test/test1383.png | pred: "подчинение" | ref: "имеется" | wer: 1.0000
+data/handwritten/test/test1384.png | pred: "подчинение" | ref: "Дата и" | wer: 1.0000
+data/handwritten/test/test1386.png | pred: "подчинение" | ref: "Кроме того," | wer: 1.0000
+data/handwritten/test/test1387.png | pred: "подчинение" | ref: "13 января 2012г" | wer: 1.0000
+data/handwritten/test/test1388.png | pred: "подчинение" | ref: "в избирательной" | wer: 1.0000
+data/handwritten/test/test139.png | pred: "подчинение" | ref: "суммы," | wer: 1.0000
+data/handwritten/test/test1390.png | pred: "подчинение" | ref: "произведена" | wer: 1.0000
+data/handwritten/test/test1392.png | pred: "подчинение" | ref: "Прошу Вас" | wer: 1.0000
+data/handwritten/test/test1393.png | pred: "подчинение" | ref: "08 февраля 2012г." | wer: 1.0000
+data/handwritten/test/test1394.png | pred: "подчинение" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1395.png | pred: "подчинение" | ref: "Прошу" | wer: 1.0000
+data/handwritten/test/test1396.png | pred: "подчинение" | ref: "должности" | wer: 1.0000
+data/handwritten/test/test1397.png | pred: "подчинение" | ref: "государственной" | wer: 1.0000
+data/handwritten/test/test1398.png | pred: "подчинение" | ref: "гражданкой" | wer: 1.0000
+data/handwritten/test/test1399.png | pred: "подчинение" | ref: "службы" | wer: 1.0000
+data/handwritten/test/test14.png | pred: "подчинение" | ref: "оператор" | wer: 1.0000
+data/handwritten/test/test140.png | pred: "подчинение" | ref: "совокупность" | wer: 1.0000
+data/handwritten/test/test1400.png | pred: "подчинение" | ref: "заместителя" | wer: 1.0000
+data/handwritten/test/test1401.png | pred: "подчинение" | ref: "министра" | wer: 1.0000
+data/handwritten/test/test1402.png | pred: "подчинение" | ref: "просрочкой" | wer: 1.0000
+data/handwritten/test/test1403.png | pred: "подчинение" | ref: "финансов" | wer: 1.0000
+data/handwritten/test/test1404.png | pred: "подчинение" | ref: "Медведеву Д.А." | wer: 1.0000
+data/handwritten/test/test1405.png | pred: "подчинение" | ref: "Саватюгина А.Л." | wer: 1.0000
+data/handwritten/test/test1409.png | pred: "подчинение" | ref: "Заявление." | wer: 1.0000
+data/handwritten/test/test141.png | pred: "подчинение" | ref: "используем" | wer: 1.0000
+data/handwritten/test/test1411.png | pred: "подчинение" | ref: "Уманцу О.А." | wer: 1.0000
+data/handwritten/test/test1413.png | pred: "подчинение" | ref: "июля" | wer: 1.0000
+data/handwritten/test/test1414.png | pred: "подчинение" | ref: "желательно" | wer: 1.0000
+data/handwritten/test/testt1414.png | pred: "подчинение" | ref: "во время" | wer: 1.0000
+data/handwritten/test/test1415.png | pred: "подчинение" | ref: "предположительно" | wer: 1.0000
+data/handwritten/test/test1416.png | pred: "подчинение" | ref: "Дополнительно сообщу" | wer: 1.0000
+data/handwritten/test/test1417.png | pred: "подчинение" | ref: "Даценко С.Н." | wer: 1.0000
+data/handwritten/test/test1418.png | pred: "подчинение" | ref: "В ввиду" | wer: 1.0000
+data/handwritten/test/test1419.png | pred: "подчинение" | ref: "по февраль 2005 г." | wer: 1.0000
+data/handwritten/test/test142.png | pred: "подчинение" | ref: "дисперсия" | wer: 1.0000
+data/handwritten/test/test1423.png | pred: "подчинение" | ref: "которому" | wer: 1.0000
+data/handwritten/test/test1424.png | pred: "подчинение" | ref: "Макарова" | wer: 1.0000
+data/handwritten/test/test1425.png | pred: "подчинение" | ref: "не выплачиваю" | wer: 1.0000
+data/handwritten/test/testt1425.png | pred: "подчинение" | ref: "алименты" | wer: 1.0000
+data/handwritten/test/test1426.png | pred: "подчинение" | ref: "Приглашается" | wer: 1.0000
+data/handwritten/test/test1428.png | pred: "подчинение" | ref: "Фомина В. Л" | wer: 1.0000
+data/handwritten/test/test1429.png | pred: "подчинение" | ref: "Генеральному директору" | wer: 1.0000
+data/handwritten/test/test143.png | pred: "подчинение" | ref: "принцип" | wer: 1.0000
+data/handwritten/test/test1430.png | pred: "подчинение" | ref: "От ткача 5 разряда" | wer: 1.0000
+data/handwritten/test/test1431.png | pred: "подчинение" | ref: "об образовательных" | wer: 1.0000
+data/handwritten/test/test1432.png | pred: "подчинение" | ref: "программах" | wer: 1.0000
+data/handwritten/test/test1433.png | pred: "подчинение" | ref: "Л. М. Петровой" | wer: 1.0000
+data/handwritten/test/test1434.png | pred: "подчинение" | ref: "Платоновой В.А." | wer: 1.0000
+data/handwritten/test/test1435.png | pred: "подчинение" | ref: "директора" | wer: 1.0000
+data/handwritten/test/test1438.png | pred: "подчинение" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1439.png | pred: "подчинение" | ref: "должность инженера" | wer: 1.0000
+data/handwritten/test/test144.png | pred: "подчинение" | ref: "собака" | wer: 1.0000
+data/handwritten/test/test1440.png | pred: "подчинение" | ref: "1 февраля 1965г." | wer: 1.0000
+data/handwritten/test/test1441.png | pred: "подчинение" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1442.png | pred: "подчинение" | ref: "Сидоренко" | wer: 1.0000
+data/handwritten/test/test1443.png | pred: "подчинение" | ref: "прошу" | wer: 1.0000
+data/handwritten/test/test1444.png | pred: "подчинение" | ref: "Вас расторгнуть" | wer: 1.0000
+data/handwritten/test/test1445.png | pred: "подчинение" | ref: "договор" | wer: 1.0000
+data/handwritten/test/test1446.png | pred: "подчинение" | ref: "и вернуть деньги" | wer: 1.0000
+data/handwritten/test/test1447.png | pred: "подчинение" | ref: "в мае 1942 г." | wer: 1.0000
+data/handwritten/test/test1448.png | pred: "подчинение" | ref: "по Полюсу" | wer: 1.0000
+data/handwritten/test/test1449.png | pred: "подчинение" | ref: "транспортного" | wer: 1.0000
+data/handwritten/test/test145.png | pred: "подчинение" | ref: "порядок" | wer: 1.0000
+data/handwritten/test/test1450.png | pred: "подчинение" | ref: "средства" | wer: 1.0000
+data/handwritten/test/test1451.png | pred: "подчинение" | ref: "Причина" | wer: 1.0000
+data/handwritten/test/test1452.png | pred: "подчинение" | ref: "отказ" | wer: 1.0000
+data/handwritten/test/test1454.png | pred: "подчинение" | ref: "26. 03. 2014" | wer: 1.0000
+data/handwritten/test/test1455.png | pred: "подчинение" | ref: "Сидоренко С. В." | wer: 1.0000
+data/handwritten/test/test1456.png | pred: "подчинение" | ref: "Прошу разрешения" | wer: 1.0000
+data/handwritten/test/test1457.png | pred: "подчинение" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1458.png | pred: "подчинение" | ref: "в семье" | wer: 1.0000
+data/handwritten/test/test1459.png | pred: "подчинение" | ref: "Коржова С.Н." | wer: 1.0000
+data/handwritten/test/test146.png | pred: "подчинение" | ref: "равномерно" | wer: 1.0000
+data/handwritten/test/test1460.png | pred: "подчинение" | ref: "Долженко Л. У." | wer: 1.0000
+data/handwritten/test/test1461.png | pred: "подчинение" | ref: "с материалами" | wer: 1.0000
+data/handwritten/test/test1462.png | pred: "подчинение" | ref: "гражданского дела" | wer: 1.0000
+data/handwritten/test/test1464.png | pred: "подчинение" | ref: "прошу разрешения" | wer: 1.0000
+data/handwritten/test/test1465.png | pred: "подчинение" | ref: "сделать" | wer: 1.0000
+data/handwritten/test/test1467.png | pred: "подчинение" | ref: "28 декабря 2006 г." | wer: 1.0000
+data/handwritten/test/test1468.png | pred: "подчинение" | ref: "Председателю суда" | wer: 1.0000
+data/handwritten/test/test1469.png | pred: "подчинение" | ref: "В 1942г" | wer: 1.0000
+data/handwritten/test/test147.png | pred: "подчинение" | ref: "осуществляется" | wer: 1.0000
+data/handwritten/test/test1471.png | pred: "подчинение" | ref: "переводом" | wer: 1.0000
+data/handwritten/test/test1472.png | pred: "подчинение" | ref: "медицинского" | wer: 1.0000
+data/handwritten/test/test1473.png | pred: "подчинение" | ref: "Прошу оказать" | wer: 1.0000
+data/handwritten/test/test1474.png | pred: "подчинение" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1477.png | pred: "подчинение" | ref: "Стипендию получаю" | wer: 1.0000
+data/handwritten/test/test1478.png | pred: "подчинение" | ref: "не получаю" | wer: 1.0000
+data/handwritten/test/test148.png | pred: "подчинение" | ref: "через" | wer: 1.0000
+data/handwritten/test/test1481.png | pred: "подчинение" | ref: "факультета МГУ" | wer: 1.0000
+data/handwritten/test/test1482.png | pred: "подчинение" | ref: "академику" | wer: 1.0000
+data/handwritten/test/test1483.png | pred: "подчинение" | ref: "Кафедра зоологии" | wer: 1.0000
+data/handwritten/test/test1484.png | pred: "подчинение" | ref: "беспозвоночных" | wer: 1.0000
+data/handwritten/test/test1485.png | pred: "подчинение" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1487.png | pred: "подчинение" | ref: "13.09.19" | wer: 1.0000
+data/handwritten/test/test1488.png | pred: "подчинение" | ref: "преобретен" | wer: 1.0000
+data/handwritten/test/test1489.png | pred: "подчинение" | ref: "Смартфон" | wer: 1.0000
+data/handwritten/test/test149.png | pred: "подчинение" | ref: "Имеем" | wer: 1.0000
+data/handwritten/test/test1490.png | pred: "подчинение" | ref: "по стоимости" | wer: 1.0000
+data/handwritten/test/test1491.png | pred: "подчинение" | ref: "школы 17" | wer: 1.0000
+data/handwritten/test/test1494.png | pred: "подчинение" | ref: "на сим карте" | wer: 1.0000
+data/handwritten/test/test1496.png | pred: "подчинение" | ref: "данных" | wer: 1.0000
+data/handwritten/test/test1497.png | pred: "подчинение" | ref: "телефон чист" | wer: 1.0000
+data/handwritten/test/test1498.png | pred: "подчинение" | ref: "как с нуля" | wer: 1.0000
+data/handwritten/test/test1499.png | pred: "подчинение" | ref: "27.09.19" | wer: 1.0000
+data/handwritten/test/test15.png | pred: "подчинение" | ref: "Обозначим" | wer: 1.0000
+data/handwritten/test/test150.png | pred: "подчинение" | ref: "линейных" | wer: 1.0000
+data/handwritten/test/test1500.png | pred: "подчинение" | ref: "телефон был сдан" | wer: 1.0000
+data/handwritten/test/test1501.png | pred: "подчинение" | ref: "проверку качества," | wer: 1.0000
+data/handwritten/test/test1503.png | pred: "подчинение" | ref: "пришлю заключение" | wer: 1.0000
+data/handwritten/test/test1504.png | pred: "подчинение" | ref: "о том что дефект" | wer: 1.0000
+data/handwritten/test/test1505.png | pred: "подчинение" | ref: "обнаружен" | wer: 1.0000
+data/handwritten/test/test1506.png | pred: "подчинение" | ref: "В этот же день" | wer: 1.0000
+data/handwritten/test/test1507.png | pred: "подчинение" | ref: "при осмотре" | wer: 1.0000
+data/handwritten/test/test1508.png | pred: "подчинение" | ref: "консультантом" | wer: 1.0000
+data/handwritten/test/testt1508.png | pred: "подчинение" | ref: "магазина" | wer: 1.0000
+data/handwritten/test/test1509.png | pred: "подчинение" | ref: "дефект остался" | wer: 1.0000
+data/handwritten/test/test151.png | pred: "подчинение" | ref: "метод" | wer: 1.0000
+
+AVG CER: 1.0374
+AVG WER: 1.0000

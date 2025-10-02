@@ -1,20 +1,67 @@
-@if (imageSrc) {
-<img [src]="imageSrc()" alt="document" class="image" />
-<!-- Overlay inputs -->
-@for (fg of fieldsFormArray().controls; let i = $index; track i) {
-
+@let imgData = data(); @if (imgData?.value && previewImg) {
+<img
+  [src]="previewImg()"
+  [width]="imgData.getRawValue().size[0]"
+  [height]="imgData.getRawValue().size[1]"
+  [alt]="imgData.getRawValue().documentTitle"
+  class="image"
+/>
+@for (fg of imgData.controls.fields.controls; let i = $index; track i) { @if
+(fg.controls.state.value !== fieldFormState.Hidden) {
 <div
+  cdkDrag
+  [cdkDragDisabled]="fg.controls.state.value !== fieldFormState.Moving"
   class="overlay"
   [style.left.px]="fg.value?.coords[0]"
   [style.top.px]="fg.value?.coords[1]"
+  [style.width.px]="fg.getRawValue().width || 100"
+  [style.height.px]="fg.getRawValue().height || 50"
 >
-  <mat-form-field appearance="fill" class="overlay-field">
-    <mat-label>Значение</mat-label>
-    <input
-      matInput
-      [formControl]="fg.controls.strValue"
-      placeholder="{{ fg.controls.strValue?.value }}"
-    />
-  </mat-form-field>
+  @let isMoving = fg.controls.state.value === fieldFormState.Moving;
+  <input
+    class="overlay-input"
+    [class.selected]="fg.getRawValue().isSelected"
+    cdkOverlayOrigin
+    [class.grab]="isMoving"
+    [class.resize]="isMoving"
+    [formControl]="fg.controls.strValue"
+    placeholder="{{ fg.controls.strValue?.value }}"
+    (contextmenu)="overlayHandler.click(); $event.preventDefault()"
+    [matTooltip]="
+      isMoving
+        ? 'Нажмите правой кнопкой мыши, чтобы закрепить/скрыть поле'
+        : 'Нажмите правой кнопкой мыши, чтобы передвинуть/скрыть поле'
+    "
+  />
+  <div class="overlay-handler" #overlayHandler [matMenuTriggerFor]="menu"></div>
 </div>
-} }
+}
+<mat-menu #menu="matMenu">
+  <button
+    mat-menu-item
+    (click)="fg.controls.state.setValue(fieldFormState.Hidden)"
+  >
+    <mat-icon>visibility_off</mat-icon>
+    <span>Скрыть поле</span>
+  </button>
+  @if (fg.controls.state.value !== fieldFormState.Moving) {
+  <button
+    mat-menu-item
+    (click)="fg.controls.state.setValue(fieldFormState.Moving)"
+  >
+    <mat-icon>swipe</mat-icon>
+    <span>Переместить поле</span>
+  </button>
+  } @else {
+  <button
+    mat-menu-item
+    (click)="fg.controls.state.setValue(fieldFormState.Default)"
+  >
+    <mat-icon>lock</mat-icon>
+    <span>Закрепить поле</span>
+  </button>
+  }
+</mat-menu>
+} } @else {
+<div>Не удалось загрузить документ</div>
+}

@@ -1,18 +1,24 @@
 :host {
   display: grid;
   grid-template-columns: 320px 1fr;
-  gap: 16px;
-  padding: 12px;
+  grid-template-rows: 100%;
+  gap: 1rem;
+  padding: 1rem;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.uploader {
+  grid-column: span 2;
+  margin: auto;
 }
 
 .sidebar {
-  border: 1px solid var(--mat-sys-outline-variant, #ddd);
+  padding-top: 6px;
   border-radius: 12px;
-  padding: 8px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .sidebar-header {
@@ -20,6 +26,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px;
+  height: 76px;
 }
 
 mat-nav-list {
@@ -27,27 +34,47 @@ mat-nav-list {
   flex: 1 1 auto;
 }
 
-a.mat-mdc-list-item.active {
-  background: color-mix(in lch, var(--mat-sys-primary, #3f51b5) 15%, white);
+mat-nav-list .list-item {
+  height: fit-content;
+  padding: 16px;
+  border-radius: 0;
+  gap: 8px;
+}
+
+mat-nav-list .list-item .list-item-content {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .viewer {
-  border: 1px solid var(--mat-sys-outline-variant, #ddd);
-  border-radius: 12px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
+  padding-top: 6px;
   overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 3fr 1fr;
+  gap: 0 12px;
 }
 
 .viewer-toolbar {
+  grid-column: span 2;
   display: flex;
   gap: 12px;
   align-items: center;
-  margin-bottom: 8px;
 }
 
 .doc-title {
   min-width: 320px;
   flex: 0 0 420px;
+}
+
+.viewer-list-action {
+  display: flex;
+  width: 100%;
+}
+
+.left-margin {
+  margin-left: auto;
 }

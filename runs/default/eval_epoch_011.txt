@@ -1,0 +1,515 @@
+data/handwritten/test/test0.png | pred: "применять" | ref: "ибо" | wer: 1.0000
+data/handwritten/test/test1.png | pred: "применять" | ref: "осталось" | wer: 1.0000
+data/handwritten/test/test10.png | pred: "применять" | ref: "поле" | wer: 1.0000
+data/handwritten/test/test100.png | pred: "применять" | ref: "Оптическое" | wer: 1.0000
+data/handwritten/test/test1000.png | pred: "применять" | ref: "1 класса" | wer: 1.0000
+data/handwritten/test/test1001.png | pred: "применять" | ref: "г. Ульяновск" | wer: 1.0000
+data/handwritten/test/test1002.png | pred: "применять" | ref: "На место" | wer: 1.0000
+data/handwritten/test/test1003.png | pred: "применять" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1004.png | pred: "применять" | ref: "назначение" | wer: 1.0000
+data/handwritten/test/test1005.png | pred: "применять" | ref: "отправление" | wer: 1.0000
+data/handwritten/test/test1006.png | pred: "применять" | ref: "было только" | wer: 1.0000
+data/handwritten/test/test1007.png | pred: "применять" | ref: "6.10.2017г." | wer: 1.0000
+data/handwritten/test/test1008.png | pred: "применять" | ref: "просрочив все сроки" | wer: 1.0000
+data/handwritten/test/test1009.png | pred: "применять" | ref: "которые для" | wer: 1.0000
+data/handwritten/test/test101.png | pred: "применять" | ref: "тогда" | wer: 1.0000
+data/handwritten/test/test1010.png | pred: "применять" | ref: "отправления были" | wer: 1.0000
+data/handwritten/test/test1011.png | pred: "применять" | ref: "критичны." | wer: 1.0000
+data/handwritten/test/test1012.png | pred: "применять" | ref: "Просьба разобраться" | wer: 1.0000
+data/handwritten/test/test1013.png | pred: "применять" | ref: "в ситуации," | wer: 1.0000
+data/handwritten/test/test1014.png | pred: "применять" | ref: "30. 08. 2004" | wer: 1.0000
+data/handwritten/test/test1015.png | pred: "применять" | ref: "дав обратную" | wer: 1.0000
+data/handwritten/test/test1016.png | pred: "применять" | ref: "связь" | wer: 1.0000
+data/handwritten/test/test1017.png | pred: "применять" | ref: "а также" | wer: 1.0000
+data/handwritten/test/test1018.png | pred: "применять" | ref: "которые были" | wer: 1.0000
+data/handwritten/test/test1019.png | pred: "применять" | ref: "оплачены за" | wer: 1.0000
+data/handwritten/test/test102.png | pred: "применять" | ref: "способ" | wer: 1.0000
+data/handwritten/test/test1020.png | pred: "применять" | ref: "1 класса" | wer: 1.0000
+data/handwritten/test/test1021.png | pred: "применять" | ref: "Данные по" | wer: 1.0000
+data/handwritten/test/test1023.png | pred: "применять" | ref: "Ксерокопия" | wer: 1.0000
+data/handwritten/test/test1024.png | pred: "применять" | ref: "приложена" | wer: 1.0000
+data/handwritten/test/test1025.png | pred: "применять" | ref: "выдан ОВД" | wer: 1.0000
+data/handwritten/test/test1026.png | pred: "применять" | ref: "заявлению" | wer: 1.0000
+data/handwritten/test/test1027.png | pred: "применять" | ref: "Контакты для" | wer: 1.0000
+data/handwritten/test/test1028.png | pred: "применять" | ref: "Анна Сергеевна" | wer: 1.0000
+data/handwritten/test/test1029.png | pred: "применять" | ref: "7.10.2017 г." | wer: 1.0000
+data/handwritten/test/test103.png | pred: "применять" | ref: "угольник" | wer: 1.0000
+data/handwritten/test/test1030.png | pred: "применять" | ref: "Расписка" | wer: 1.0000
+data/handwritten/test/test1031.png | pred: "применять" | ref: "10 июня 2016г." | wer: 1.0000
+data/handwritten/test/test1032.png | pred: "применять" | ref: "г. Санкт-петербург" | wer: 1.0000
+data/handwritten/test/test1033.png | pred: "применять" | ref: "Иванов Иван" | wer: 1.0000
+data/handwritten/test/test1034.png | pred: "применять" | ref: "15.02.1987г." | wer: 1.0000
+data/handwritten/test/test1035.png | pred: "применять" | ref: "рождения" | wer: 1.0000
+data/handwritten/test/test1036.png | pred: "применять" | ref: "17.10.2005" | wer: 1.0000
+data/handwritten/test/test1037.png | pred: "применять" | ref: "паспорт серия" | wer: 1.0000
+data/handwritten/test/test1039.png | pred: "применять" | ref: "18.03.2007 г" | wer: 1.0000
+data/handwritten/test/test104.png | pred: "применять" | ref: "Множество" | wer: 1.0000
+data/handwritten/test/test1040.png | pred: "применять" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1041.png | pred: "применять" | ref: "деньги" | wer: 1.0000
+data/handwritten/test/test1042.png | pred: "применять" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1043.png | pred: "применять" | ref: "18.04.1980" | wer: 1.0000
+data/handwritten/test/test1044.png | pred: "применять" | ref: "паспорт серия" | wer: 1.0000
+data/handwritten/test/test1045.png | pred: "применять" | ref: "зарегистрирован" | wer: 1.0000
+data/handwritten/test/test1046.png | pred: "применять" | ref: "г. Севаевск" | wer: 1.0000
+data/handwritten/test/test1047.png | pred: "применять" | ref: "денежную сумму" | wer: 1.0000
+data/handwritten/test/test1048.png | pred: "применять" | ref: "ул. Ленина" | wer: 1.0000
+data/handwritten/test/test1049.png | pred: "применять" | ref: "вышеуказанную" | wer: 1.0000
+data/handwritten/test/test105.png | pred: "применять" | ref: "Касательная" | wer: 1.0000
+data/handwritten/test/test1050.png | pred: "применять" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1051.png | pred: "применять" | ref: "Иванов И.И." | wer: 1.0000
+data/handwritten/test/test1052.png | pred: "применять" | ref: "28.11.11" | wer: 1.0000
+data/handwritten/test/test1053.png | pred: "применять" | ref: "14мг" | wer: 1.0000
+data/handwritten/test/test1054.png | pred: "применять" | ref: "Плоскостопие" | wer: 1.0000
+data/handwritten/test/test1055.png | pred: "применять" | ref: "обеих" | wer: 1.0000
+data/handwritten/test/test1056.png | pred: "применять" | ref: "Киров" | wer: 1.0000
+data/handwritten/test/test1057.png | pred: "применять" | ref: "ноября 2016" | wer: 1.0000
+data/handwritten/test/test1058.png | pred: "применять" | ref: "в размере 334 000" | wer: 1.0000
+data/handwritten/test/test1059.png | pred: "применять" | ref: "Вагин" | wer: 1.0000
+data/handwritten/test/test106.png | pred: "применять" | ref: "Рассмотрим" | wer: 1.0000
+data/handwritten/test/test1060.png | pred: "применять" | ref: "ОВД Юшного" | wer: 1.0000
+data/handwritten/test/test1061.png | pred: "применять" | ref: "25.06.2005." | wer: 1.0000
+data/handwritten/test/test1063.png | pred: "применять" | ref: "Ложкин Юрий" | wer: 1.0000
+data/handwritten/test/test1064.png | pred: "применять" | ref: "94 04" | wer: 1.0000
+data/handwritten/test/test1065.png | pred: "применять" | ref: "547815" | wer: 1.0000
+data/handwritten/test/test1066.png | pred: "применять" | ref: "ОВД р-на" | wer: 1.0000
+data/handwritten/test/test1067.png | pred: "применять" | ref: "16.08.2004 г." | wer: 1.0000
+data/handwritten/test/test1068.png | pred: "применять" | ref: "г. Киров" | wer: 1.0000
+data/handwritten/test/test1069.png | pred: "применять" | ref: "триста тридцать" | wer: 1.0000
+data/handwritten/test/test107.png | pred: "применять" | ref: "Директориальное" | wer: 1.0000
+data/handwritten/test/test1070.png | pred: "применять" | ref: "Шкода Фабия" | wer: 1.0000
+data/handwritten/test/test1071.png | pred: "применять" | ref: "Паспорт" | wer: 1.0000
+data/handwritten/test/test1072.png | pred: "применять" | ref: "445 тысяч" | wer: 1.0000
+data/handwritten/test/test1073.png | pred: "применять" | ref: "Три тысячи девятьсот" | wer: 1.0000
+data/handwritten/test/test1074.png | pred: "применять" | ref: "Доверенность" | wer: 1.0000
+data/handwritten/test/test1075.png | pred: "применять" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1076.png | pred: "применять" | ref: "номер" | wer: 1.0000
+data/handwritten/test/test1077.png | pred: "применять" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1078.png | pred: "применять" | ref: "отделением" | wer: 1.0000
+data/handwritten/test/test1079.png | pred: "применять" | ref: "по району" | wer: 1.0000
+data/handwritten/test/test108.png | pred: "применять" | ref: "Событие" | wer: 1.0000
+data/handwritten/test/test1080.png | pred: "применять" | ref: "рублей" | wer: 1.0000
+data/handwritten/test/test1081.png | pred: "применять" | ref: "Москве" | wer: 1.0000
+data/handwritten/test/test1082.png | pred: "применять" | ref: "код подразделения" | wer: 1.0000
+data/handwritten/test/test1083.png | pred: "применять" | ref: "проживаю" | wer: 1.0000
+data/handwritten/test/test1084.png | pred: "применять" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1085.png | pred: "применять" | ref: "квартира" | wer: 1.0000
+data/handwritten/test/test1086.png | pred: "применять" | ref: "доверяю получать" | wer: 1.0000
+data/handwritten/test/test1087.png | pred: "применять" | ref: "отправления," | wer: 1.0000
+data/handwritten/test/test1088.png | pred: "применять" | ref: "приходящие" | wer: 1.0000
+data/handwritten/test/test1089.png | pred: "применять" | ref: "на моё имя" | wer: 1.0000
+data/handwritten/test/test109.png | pred: "применять" | ref: "любое" | wer: 1.0000
+data/handwritten/test/test1090.png | pred: "применять" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1091.png | pred: "применять" | ref: "в качестве задатка" | wer: 1.0000
+data/handwritten/test/test1092.png | pred: "применять" | ref: "г. Москва," | wer: 1.0000
+data/handwritten/test/test1093.png | pred: "применять" | ref: "127 572," | wer: 1.0000
+data/handwritten/test/test1094.png | pred: "применять" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1095.png | pred: "применять" | ref: "ОВД района" | wer: 1.0000
+data/handwritten/test/test1096.png | pred: "применять" | ref: "г. Москвы," | wer: 1.0000
+data/handwritten/test/test1097.png | pred: "применять" | ref: "под подразделения" | wer: 1.0000
+data/handwritten/test/test1098.png | pred: "применять" | ref: "проживающему" | wer: 1.0000
+data/handwritten/test/test1099.png | pred: "применять" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test11.png | pred: "применять" | ref: "новое" | wer: 1.0000
+data/handwritten/test/test110.png | pred: "применять" | ref: "Вопрос" | wer: 1.0000
+data/handwritten/test/test1100.png | pred: "применять" | ref: "25. 01. 2016." | wer: 1.0000
+data/handwritten/test/test1101.png | pred: "применять" | ref: "30.09.2013" | wer: 1.0000
+data/handwritten/test/test1102.png | pred: "применять" | ref: "сентябрь," | wer: 1.0000
+data/handwritten/test/test1103.png | pred: "применять" | ref: "за автомобиль" | wer: 1.0000
+data/handwritten/test/test1104.png | pred: "применять" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test1105.png | pred: "применять" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test1106.png | pred: "применять" | ref: "12.09.2013г" | wer: 1.0000
+data/handwritten/test/test1107.png | pred: "применять" | ref: "12.09.2013 г." | wer: 1.0000
+data/handwritten/test/test1108.png | pred: "применять" | ref: "30.09.2013г" | wer: 1.0000
+data/handwritten/test/test1109.png | pred: "применять" | ref: "12.09.2013" | wer: 1.0000
+data/handwritten/test/test111.png | pred: "применять" | ref: "Использование" | wer: 1.0000
+data/handwritten/test/test1110.png | pred: "применять" | ref: "За период практики" | wer: 1.0000
+data/handwritten/test/test1111.png | pred: "применять" | ref: "Савченко И. А." | wer: 1.0000
+data/handwritten/test/test1115.png | pred: "применять" | ref: "с составленным" | wer: 1.0000
+data/handwritten/test/test1116.png | pred: "применять" | ref: "Планом" | wer: 1.0000
+data/handwritten/test/test1117.png | pred: "применять" | ref: "На основе" | wer: 1.0000
+data/handwritten/test/test1118.png | pred: "применять" | ref: "модели" | wer: 1.0000
+data/handwritten/test/test1119.png | pred: "применять" | ref: "процесса" | wer: 1.0000
+data/handwritten/test/test112.png | pred: "применять" | ref: "непустое" | wer: 1.0000
+data/handwritten/test/test1120.png | pred: "применять" | ref: "определены" | wer: 1.0000
+data/handwritten/test/test1121.png | pred: "применять" | ref: "существующие" | wer: 1.0000
+data/handwritten/test/test1122.png | pred: "применять" | ref: "и предложены" | wer: 1.0000
+data/handwritten/test/test1123.png | pred: "применять" | ref: "методы" | wer: 1.0000
+data/handwritten/test/test1124.png | pred: "применять" | ref: "отлично" | wer: 1.0000
+data/handwritten/test/test1125.png | pred: "применять" | ref: "автомобиля," | wer: 1.0000
+data/handwritten/test/test1126.png | pred: "применять" | ref: "Фоменко В.А." | wer: 1.0000
+data/handwritten/test/test1127.png | pred: "применять" | ref: "Савченко И.А." | wer: 1.0000
+data/handwritten/test/test1128.png | pred: "применять" | ref: "хорошо" | wer: 1.0000
+data/handwritten/test/test113.png | pred: "применять" | ref: "Метод:" | wer: 1.0000
+data/handwritten/test/test1130.png | pred: "применять" | ref: "отлично" | wer: 1.0000
+data/handwritten/test/test1131.png | pred: "применять" | ref: "информационная" | wer: 1.0000
+data/handwritten/test/test1132.png | pred: "применять" | ref: "эндогеодинамического" | wer: 1.0000
+data/handwritten/test/test1133.png | pred: "применять" | ref: "описание" | wer: 1.0000
+data/handwritten/test/test1137.png | pred: "применять" | ref: "на предприятий" | wer: 1.0000
+data/handwritten/test/test1138.png | pred: "применять" | ref: "параметра" | wer: 1.0000
+data/handwritten/test/test1139.png | pred: "применять" | ref: "Формирование" | wer: 1.0000
+data/handwritten/test/test114.png | pred: "применять" | ref: "значения" | wer: 1.0000
+data/handwritten/test/test1140.png | pred: "применять" | ref: "выбор" | wer: 1.0000
+data/handwritten/test/test1141.png | pred: "применять" | ref: "аргументам" | wer: 1.0000
+data/handwritten/test/test1142.png | pred: "применять" | ref: "выбор технологий" | wer: 1.0000
+data/handwritten/test/test1143.png | pred: "применять" | ref: "Расписка." | wer: 1.0000
+data/handwritten/test/test1144.png | pred: "применять" | ref: "23 марта 2012г." | wer: 1.0000
+data/handwritten/test/test1145.png | pred: "применять" | ref: "г. Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1146.png | pred: "применять" | ref: "Бугрова" | wer: 1.0000
+data/handwritten/test/test1147.png | pred: "применять" | ref: "сумму в срок" | wer: 1.0000
+data/handwritten/test/test115.png | pred: "применять" | ref: "Кривые" | wer: 1.0000
+data/handwritten/test/test1150.png | pred: "применять" | ref: "22. 07. 2010" | wer: 1.0000
+data/handwritten/test/test1152.png | pred: "применять" | ref: "Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1153.png | pred: "применять" | ref: "пр Просвещения" | wer: 1.0000
+data/handwritten/test/test1154.png | pred: "применять" | ref: "паспорт" | wer: 1.0000
+data/handwritten/test/test1155.png | pred: "применять" | ref: "40 06 799" | wer: 1.0000
+data/handwritten/test/test1156.png | pred: "применять" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1158.png | pred: "применять" | ref: "до 30 июня 2009 года" | wer: 1.0000
+data/handwritten/test/test1159.png | pred: "применять" | ref: "Санкт - Петербурга" | wer: 1.0000
+data/handwritten/test/test116.png | pred: "применять" | ref: "Случай" | wer: 1.0000
+data/handwritten/test/test1160.png | pred: "применять" | ref: "14. 12. 2003г" | wer: 1.0000
+data/handwritten/test/test1161.png | pred: "применять" | ref: "по адресу" | wer: 1.0000
+data/handwritten/test/test1162.png | pred: "применять" | ref: "Санкт - Петербург" | wer: 1.0000
+data/handwritten/test/test1163.png | pred: "применять" | ref: "деньги в сумме" | wer: 1.0000
+data/handwritten/test/test1164.png | pred: "применять" | ref: "Два" | wer: 1.0000
+data/handwritten/test/test1165.png | pred: "применять" | ref: "рублей в счет" | wer: 1.0000
+data/handwritten/test/test1166.png | pred: "применять" | ref: "стоимости квартиры" | wer: 1.0000
+data/handwritten/test/test1167.png | pred: "применять" | ref: "расположенной" | wer: 1.0000
+data/handwritten/test/test1168.png | pred: "применять" | ref: "адресу" | wer: 1.0000
+data/handwritten/test/test1169.png | pred: "применять" | ref: "24 июня 2009 г." | wer: 1.0000
+data/handwritten/test/test117.png | pred: "воинской" | ref: "второго" | wer: 1.0000
+data/handwritten/test/test1170.png | pred: "применять" | ref: "Санкт-Петербург" | wer: 1.0000
+data/handwritten/test/test1171.png | pred: "применять" | ref: "по договору" | wer: 1.0000
+data/handwritten/test/test1172.png | pred: "применять" | ref: "Претензий не имею." | wer: 1.0000
+data/handwritten/test/test1173.png | pred: "применять" | ref: "23.03.2012г." | wer: 1.0000
+data/handwritten/test/test1174.png | pred: "применять" | ref: "Бугрова В.Г." | wer: 1.0000
+data/handwritten/test/test1175.png | pred: "применять" | ref: "Михаилу" | wer: 1.0000
+data/handwritten/test/test1176.png | pred: "применять" | ref: "04. 01. 1992 г." | wer: 1.0000
+data/handwritten/test/test1177.png | pred: "применять" | ref: "16.12.1991г." | wer: 1.0000
+data/handwritten/test/test1178.png | pred: "применять" | ref: "содействие" | wer: 1.0000
+data/handwritten/test/test1179.png | pred: "применять" | ref: "промышленным" | wer: 1.0000
+data/handwritten/test/test118.png | pred: "применять" | ref: "пространство" | wer: 1.0000
+data/handwritten/test/test1180.png | pred: "применять" | ref: "Иванов" | wer: 1.0000
+data/handwritten/test/test1181.png | pred: "применять" | ref: "в части увеличения" | wer: 1.0000
+data/handwritten/test/test1182.png | pred: "применять" | ref: "выпуска продукции" | wer: 1.0000
+data/handwritten/test/test1183.png | pred: "применять" | ref: "г. Иркутск" | wer: 1.0000
+data/handwritten/test/test1184.png | pred: "применять" | ref: "одиннадцатого" | wer: 1.0000
+data/handwritten/test/test1185.png | pred: "применять" | ref: "г. Иркутск" | wer: 1.0000
+data/handwritten/test/test1186.png | pred: "применять" | ref: "Иванову" | wer: 1.0000
+data/handwritten/test/test1187.png | pred: "применять" | ref: "Мамедов.Р.Г." | wer: 1.0000
+data/handwritten/test/test1188.png | pred: "применять" | ref: "Мустафаева Ф. М" | wer: 1.0000
+data/handwritten/test/test1189.png | pred: "применять" | ref: "Максимов Р. Н" | wer: 1.0000
+data/handwritten/test/test119.png | pred: "применять" | ref: "любой" | wer: 1.0000
+data/handwritten/test/test1190.png | pred: "применять" | ref: "Мамедов Д. Х" | wer: 1.0000
+data/handwritten/test/test1191.png | pred: "применять" | ref: "07 042000" | wer: 1.0000
+data/handwritten/test/test1192.png | pred: "применять" | ref: "Момедова А.Э." | wer: 1.0000
+data/handwritten/test/test1193.png | pred: "применять" | ref: "Мамедов А Г" | wer: 1.0000
+data/handwritten/test/test1194.png | pred: "применять" | ref: "Яхьяева Э.А." | wer: 1.0000
+data/handwritten/test/test1195.png | pred: "применять" | ref: "Яхьев М Я" | wer: 1.0000
+data/handwritten/test/test1196.png | pred: "применять" | ref: "Розбекова С. Б." | wer: 1.0000
+data/handwritten/test/test1197.png | pred: "применять" | ref: "Абдуллаева С. С." | wer: 1.0000
+data/handwritten/test/test1198.png | pred: "применять" | ref: "Наталью" | wer: 1.0000
+data/handwritten/test/test1199.png | pred: "применять" | ref: "Заявление." | wer: 1.0000
+data/handwritten/test/test12.png | pred: "применять" | ref: "разрешино" | wer: 1.0000
+data/handwritten/test/test120.png | pred: "применять" | ref: "покажем" | wer: 1.0000
+data/handwritten/test/test1200.png | pred: "применять" | ref: "08.09.16г." | wer: 1.0000
+data/handwritten/test/test1201.png | pred: "применять" | ref: "от услуг" | wer: 1.0000
+data/handwritten/test/test1202.png | pred: "применять" | ref: "гор Омск" | wer: 1.0000
+data/handwritten/test/test1203.png | pred: "применять" | ref: "отказываюсь" | wer: 1.0000
+data/handwritten/test/test1204.png | pred: "применять" | ref: "адвокатов" | wer: 1.0000
+data/handwritten/test/test1205.png | pred: "применять" | ref: "свои" | wer: 1.0000
+data/handwritten/test/test1206.png | pred: "применять" | ref: "прошу" | wer: 1.0000
+data/handwritten/test/test1207.png | pred: "применять" | ref: "Вас изьять дело" | wer: 1.0000
+data/handwritten/test/test1208.png | pred: "применять" | ref: "копию," | wer: 1.0000
+data/handwritten/test/test1209.png | pred: "применять" | ref: "Ткачевой" | wer: 1.0000
+data/handwritten/test/test121.png | pred: "применять" | ref: "измеримость" | wer: 1.0000
+data/handwritten/test/test1210.png | pred: "применять" | ref: "г. Барнаула" | wer: 1.0000
+data/handwritten/test/test1211.png | pred: "применять" | ref: "железнодорожного" | wer: 1.0000
+data/handwritten/test/test1212.png | pred: "применять" | ref: "15 сентября" | wer: 1.0000
+data/handwritten/test/test1213.png | pred: "применять" | ref: "Октябрь," | wer: 1.0000
+data/handwritten/test/test1214.png | pred: "применять" | ref: "Омская обл." | wer: 1.0000
+data/handwritten/test/test1215.png | pred: "применять" | ref: "25 октября" | wer: 1.0000
+data/handwritten/test/test1216.png | pred: "применять" | ref: "Савилова" | wer: 1.0000
+data/handwritten/test/test1217.png | pred: "применять" | ref: "Абузова" | wer: 1.0000
+data/handwritten/test/test1218.png | pred: "применять" | ref: "Шаталова" | wer: 1.0000
+data/handwritten/test/test1219.png | pred: "применять" | ref: "Обласова" | wer: 1.0000
+data/handwritten/test/test122.png | pred: "применять" | ref: "Вопрос" | wer: 1.0000
+data/handwritten/test/test1220.png | pred: "применять" | ref: "Наталья Константинова" | wer: 1.0000
+data/handwritten/test/test1221.png | pred: "применять" | ref: "проходила практика" | wer: 1.0000
+data/handwritten/test/test1222.png | pred: "применять" | ref: "в качестве" | wer: 1.0000
+data/handwritten/test/test1223.png | pred: "применять" | ref: "классного руководителя" | wer: 1.0000
+data/handwritten/test/test1224.png | pred: "применять" | ref: "в 6 классе" | wer: 1.0000
+data/handwritten/test/test1225.png | pred: "применять" | ref: "в браке" | wer: 1.0000
+data/handwritten/test/test1226.png | pred: "применять" | ref: "МБОУ" | wer: 1.0000
+data/handwritten/test/test1227.png | pred: "применять" | ref: "лицей" | wer: 1.0000
+data/handwritten/test/test1228.png | pred: "применять" | ref: "г. Барнаула" | wer: 1.0000
+data/handwritten/test/test1229.png | pred: "применять" | ref: "С первого дня" | wer: 1.0000
+data/handwritten/test/test123.png | pred: "применять" | ref: "дама" | wer: 1.0000
+data/handwritten/test/test1230.png | pred: "применять" | ref: "студентке удалось" | wer: 1.0000
+data/handwritten/test/test1231.png | pred: "применять" | ref: "наладить" | wer: 1.0000
+data/handwritten/test/test1232.png | pred: "применять" | ref: "доброжелательно-" | wer: 1.0000
+data/handwritten/test/test1233.png | pred: "применять" | ref: "требовательные" | wer: 1.0000
+data/handwritten/test/test1234.png | pred: "применять" | ref: "Наталье" | wer: 1.0000
+data/handwritten/test/test1235.png | pred: "применять" | ref: "срок" | wer: 1.0000
+data/handwritten/test/test1236.png | pred: "применять" | ref: "Ивановы" | wer: 1.0000
+data/handwritten/test/test1237.png | pred: "применять" | ref: "смогла" | wer: 1.0000
+data/handwritten/test/test1238.png | pred: "применять" | ref: "с детьми," | wer: 1.0000
+data/handwritten/test/test1239.png | pred: "применять" | ref: "психологическим" | wer: 1.0000
+data/handwritten/test/test124.png | pred: "применять" | ref: "Сделаем" | wer: 1.0000
+data/handwritten/test/test1240.png | pred: "применять" | ref: "индивидуально" | wer: 1.0000
+data/handwritten/test/test1241.png | pred: "применять" | ref: "их" | wer: 1.0000
+data/handwritten/test/test1242.png | pred: "применять" | ref: "особенности" | wer: 1.0000
+data/handwritten/test/test1243.png | pred: "применять" | ref: "учитывая" | wer: 1.0000
+data/handwritten/test/test1244.png | pred: "применять" | ref: "индивидуальные" | wer: 1.0000
+data/handwritten/test/test1245.png | pred: "применять" | ref: "воздействия" | wer: 1.0000
+data/handwritten/test/test1246.png | pred: "применять" | ref: "на каждого" | wer: 1.0000
+data/handwritten/test/test1248.png | pred: "применять" | ref: "члена детского" | wer: 1.0000
+data/handwritten/test/test1249.png | pred: "применять" | ref: "коллектива" | wer: 1.0000
+data/handwritten/test/test125.png | pred: "применять" | ref: "применяем" | wer: 1.0000
+data/handwritten/test/test1250.png | pred: "применять" | ref: "методикой" | wer: 1.0000
+data/handwritten/test/test1251.png | pred: "применять" | ref: "воспитательных" | wer: 1.0000
+data/handwritten/test/test1252.png | pred: "применять" | ref: "умением" | wer: 1.0000
+data/handwritten/test/test1253.png | pred: "применять" | ref: "использовать" | wer: 1.0000
+data/handwritten/test/test1254.png | pred: "применять" | ref: "разнообразные" | wer: 1.0000
+data/handwritten/test/test1255.png | pred: "применять" | ref: "работы" | wer: 1.0000
+data/handwritten/test/test1256.png | pred: "применять" | ref: "В качестве" | wer: 1.0000
+data/handwritten/test/test1257.png | pred: "применять" | ref: "студентка" | wer: 1.0000
+data/handwritten/test/test1258.png | pred: "применять" | ref: "Онинская обл" | wer: 1.0000
+data/handwritten/test/test1259.png | pred: "применять" | ref: "с учащимся" | wer: 1.0000
+data/handwritten/test/test126.png | pred: "применять" | ref: "теорема" | wer: 1.0000
+data/handwritten/test/test1260.png | pred: "применять" | ref: "этические беседы" | wer: 1.0000
+data/handwritten/test/test1261.png | pred: "применять" | ref: "подготовку" | wer: 1.0000
+data/handwritten/test/test1262.png | pred: "применять" | ref: "мероприятиям" | wer: 1.0000
+data/handwritten/test/test1263.png | pred: "применять" | ref: "проверяла" | wer: 1.0000
+data/handwritten/test/test1264.png | pred: "применять" | ref: "в организации" | wer: 1.0000
+data/handwritten/test/test1265.png | pred: "применять" | ref: "дежурств" | wer: 1.0000
+data/handwritten/test/test1266.png | pred: "применять" | ref: "по лицею" | wer: 1.0000
+data/handwritten/test/test1267.png | pred: "применять" | ref: "в организации" | wer: 1.0000
+data/handwritten/test/test1268.png | pred: "применять" | ref: "с правилами" | wer: 1.0000
+data/handwritten/test/test1269.png | pred: "применять" | ref: "ул Ленина 11" | wer: 1.0000
+data/handwritten/test/test127.png | pred: "применять" | ref: "плотность" | wer: 1.0000
+data/handwritten/test/test1270.png | pred: "применять" | ref: "документации" | wer: 1.0000
+data/handwritten/test/test1271.png | pred: "применять" | ref: "классного" | wer: 1.0000
+data/handwritten/test/test1273.png | pred: "применять" | ref: "планов." | wer: 1.0000
+data/handwritten/test/test1274.png | pred: "применять" | ref: "Рекомендую" | wer: 1.0000
+data/handwritten/test/test1275.png | pred: "применять" | ref: "Заречнева Е.Н" | wer: 1.0000
+data/handwritten/test/test1276.png | pred: "применять" | ref: "Савилова Н.В." | wer: 1.0000
+data/handwritten/test/test1277.png | pred: "применять" | ref: "оценкой" | wer: 1.0000
+data/handwritten/test/test1279.png | pred: "применять" | ref: "для нужд" | wer: 1.0000
+data/handwritten/test/test128.png | pred: "применять" | ref: "Основные" | wer: 1.0000
+data/handwritten/test/test1281.png | pred: "применять" | ref: "избирательной" | wer: 1.0000
+data/handwritten/test/test1282.png | pred: "применять" | ref: "получил" | wer: 1.0000
+data/handwritten/test/test1283.png | pred: "применять" | ref: "Киселева В.А." | wer: 1.0000
+data/handwritten/test/test1284.png | pred: "применять" | ref: "Триста Тысяч" | wer: 1.0000
+data/handwritten/test/test1285.png | pred: "применять" | ref: "долларов США" | wer: 1.0000
+data/handwritten/test/test1286.png | pred: "применять" | ref: "22.03.2006 г." | wer: 1.0000
+data/handwritten/test/test1287.png | pred: "применять" | ref: "Свистунов А.Т." | wer: 1.0000
+data/handwritten/test/test1288.png | pred: "применять" | ref: "г. Москва" | wer: 1.0000
+data/handwritten/test/test1289.png | pred: "применять" | ref: "24.11.1986" | wer: 1.0000
+data/handwritten/test/test129.png | pred: "применять" | ref: "свойства" | wer: 1.0000
+data/handwritten/test/test1290.png | pred: "применять" | ref: "гор. Воронеж" | wer: 1.0000
+data/handwritten/test/test1291.png | pred: "применять" | ref: "Иванова" | wer: 1.0000
+data/handwritten/test/test1292.png | pred: "применять" | ref: "Сидорову" | wer: 1.0000
+data/handwritten/test/test1293.png | pred: "применять" | ref: "гор. Челябинск" | wer: 1.0000
+data/handwritten/test/test1294.png | pred: "применять" | ref: "Советская" | wer: 1.0000
+data/handwritten/test/test1295.png | pred: "применять" | ref: "Прошу вернуть" | wer: 1.0000
+data/handwritten/test/test1296.png | pred: "применять" | ref: "денежные средства" | wer: 1.0000
+data/handwritten/test/test1297.png | pred: "применять" | ref: "перечисленные" | wer: 1.0000
+data/handwritten/test/test1298.png | pred: "применять" | ref: "на номера" | wer: 1.0000
+data/handwritten/test/test1299.png | pred: "применять" | ref: "яндекс-кошелька" | wer: 1.0000
+data/handwritten/test/test13.png | pred: "применять" | ref: "15.09.2020" | wer: 1.0000
+data/handwritten/test/test130.png | pred: "применять" | ref: "деформация" | wer: 1.0000
+data/handwritten/test/test1302.png | pred: "применять" | ref: "523739" | wer: 1.0000
+data/handwritten/test/test1303.png | pred: "применять" | ref: "12.08.2012" | wer: 1.0000
+data/handwritten/test/test1304.png | pred: "применять" | ref: "88007008000" | wer: 1.0000
+data/handwritten/test/test1305.png | pred: "применять" | ref: "Лебеденко Н.Н." | wer: 1.0000
+data/handwritten/test/test1306.png | pred: "применять" | ref: "выдан" | wer: 1.0000
+data/handwritten/test/test1307.png | pred: "применять" | ref: "История операции" | wer: 1.0000
+data/handwritten/test/test1308.png | pred: "применять" | ref: "и детализацию по" | wer: 1.0000
+data/handwritten/test/test1309.png | pred: "применять" | ref: "ним предоставляю" | wer: 1.0000
+data/handwritten/test/test131.png | pred: "применять" | ref: "шейка" | wer: 1.0000
+data/handwritten/test/test1310.png | pred: "применять" | ref: "в распечатанном" | wer: 1.0000
+data/handwritten/test/test1311.png | pred: "применять" | ref: "виде" | wer: 1.0000
+data/handwritten/test/test1312.png | pred: "применять" | ref: "В конечестве" | wer: 1.0000
+data/handwritten/test/test1313.png | pred: "применять" | ref: "10.04.2000" | wer: 1.0000
+data/handwritten/test/test1314.png | pred: "применять" | ref: "Детализация" | wer: 1.0000
+data/handwritten/test/test1315.png | pred: "применять" | ref: "по каждому" | wer: 1.0000
+data/handwritten/test/test1316.png | pred: "применять" | ref: "незаконному" | wer: 1.0000
+data/handwritten/test/test1317.png | pred: "применять" | ref: "Более" | wer: 1.0000
+data/handwritten/test/test1318.png | pred: "применять" | ref: "информацию можно" | wer: 1.0000
+data/handwritten/test/test1319.png | pred: "применять" | ref: "узнать у" | wer: 1.0000
+data/handwritten/test/test132.png | pred: "применять" | ref: "Линейное" | wer: 1.0000
+data/handwritten/test/test1320.png | pred: "применять" | ref: "Яндекс-деньги" | wer: 1.0000
+data/handwritten/test/test1322.png | pred: "применять" | ref: "Контролер" | wer: 1.0000
+data/handwritten/test/test1323.png | pred: "применять" | ref: "Смоленское" | wer: 1.0000
+data/handwritten/test/test1324.png | pred: "применять" | ref: "заместитель" | wer: 1.0000
+data/handwritten/test/test1327.png | pred: "применять" | ref: "г.Пенза" | wer: 1.0000
+data/handwritten/test/test1328.png | pred: "применять" | ref: "14 ноября 2007г." | wer: 1.0000
+data/handwritten/test/test133.png | pred: "применять" | ref: "сходится" | wer: 1.0000
+data/handwritten/test/test1330.png | pred: "применять" | ref: "в размере" | wer: 1.0000
+data/handwritten/test/test1333.png | pred: "применять" | ref: "обязательств" | wer: 1.0000
+data/handwritten/test/test1334.png | pred: "применять" | ref: "в договоре" | wer: 1.0000
+data/handwritten/test/test1335.png | pred: "применять" | ref: "а именно" | wer: 1.0000
+data/handwritten/test/test1336.png | pred: "применять" | ref: "02 декабря 1980 г." | wer: 1.0000
+data/handwritten/test/test1337.png | pred: "применять" | ref: "условия поставки" | wer: 1.0000
+data/handwritten/test/test1339.png | pred: "применять" | ref: "для зачисления" | wer: 1.0000
+data/handwritten/test/test134.png | pred: "применять" | ref: "ожиданию" | wer: 1.0000
+data/handwritten/test/test1340.png | pred: "применять" | ref: "4272 2903 8396 6819" | wer: 1.0000
+data/handwritten/test/test1341.png | pred: "применять" | ref: "30101810100000000716" | wer: 1.0000
+data/handwritten/test/test1342.png | pred: "применять" | ref: "30232810481100000009" | wer: 1.0000
+data/handwritten/test/test1343.png | pred: "применять" | ref: "44525716" | wer: 1.0000
+data/handwritten/test/test1344.png | pred: "применять" | ref: "Разрыв" | wer: 1.0000
+data/handwritten/test/test1345.png | pred: "применять" | ref: "Проводить" | wer: 1.0000
+data/handwritten/test/test1346.png | pred: "применять" | ref: "27.11.2016 г" | wer: 1.0000
+data/handwritten/test/test1347.png | pred: "применять" | ref: "Г. Воронеж" | wer: 1.0000
+data/handwritten/test/test1348.png | pred: "применять" | ref: "мне было" | wer: 1.0000
+data/handwritten/test/test1349.png | pred: "применять" | ref: "в помещении" | wer: 1.0000
+data/handwritten/test/test135.png | pred: "применять" | ref: "стандартизование" | wer: 1.0000
+data/handwritten/test/test1350.png | pred: "применять" | ref: "Избирательного" | wer: 1.0000
+data/handwritten/test/test1351.png | pred: "применять" | ref: "в качестве лида" | wer: 1.0000
+data/handwritten/test/test1352.png | pred: "применять" | ref: "регистрации в качестве" | wer: 1.0000
+data/handwritten/test/test1353.png | pred: "применять" | ref: "Аналогичные" | wer: 1.0000
+data/handwritten/test/test1354.png | pred: "применять" | ref: "В соответствие" | wer: 1.0000
+data/handwritten/test/test1355.png | pred: "применять" | ref: "Бандура Д. В." | wer: 1.0000
+data/handwritten/test/test1357.png | pred: "применять" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1358.png | pred: "применять" | ref: "разведена" | wer: 1.0000
+data/handwritten/test/test136.png | pred: "применять" | ref: "сходимость" | wer: 1.0000
+data/handwritten/test/test1360.png | pred: "применять" | ref: "в городе" | wer: 1.0000
+data/handwritten/test/test1361.png | pred: "применять" | ref: "не управлял" | wer: 1.0000
+data/handwritten/test/test1364.png | pred: "применять" | ref: "В данный момент" | wer: 1.0000
+data/handwritten/test/test1365.png | pred: "применять" | ref: "Морозова" | wer: 1.0000
+data/handwritten/test/test1366.png | pred: "применять" | ref: "Генеральному" | wer: 1.0000
+data/handwritten/test/test1367.png | pred: "применять" | ref: "Российской" | wer: 1.0000
+data/handwritten/test/test1368.png | pred: "применять" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1369.png | pred: "применять" | ref: "Березкин" | wer: 1.0000
+data/handwritten/test/test137.png | pred: "применять" | ref: "совпадает" | wer: 1.0000
+data/handwritten/test/test1370.png | pred: "применять" | ref: "08.02.2012г" | wer: 1.0000
+data/handwritten/test/test1371.png | pred: "применять" | ref: "мне стало" | wer: 1.0000
+data/handwritten/test/test1373.png | pred: "применять" | ref: "представлением" | wer: 1.0000
+data/handwritten/test/test1374.png | pred: "применять" | ref: "на должность" | wer: 1.0000
+data/handwritten/test/test1375.png | pred: "применять" | ref: "Главы" | wer: 1.0000
+data/handwritten/test/test1376.png | pred: "применять" | ref: "документы" | wer: 1.0000
+data/handwritten/test/test1377.png | pred: "применять" | ref: "Галяева А. М." | wer: 1.0000
+data/handwritten/test/test138.png | pred: "применять" | ref: "означает" | wer: 1.0000
+data/handwritten/test/test1380.png | pred: "применять" | ref: "Березкина" | wer: 1.0000
+data/handwritten/test/test1381.png | pred: "применять" | ref: "наизусть" | wer: 1.0000
+data/handwritten/test/test1382.png | pred: "применять" | ref: "На этих документах" | wer: 1.0000
+data/handwritten/test/test1383.png | pred: "применять" | ref: "имеется" | wer: 1.0000
+data/handwritten/test/test1384.png | pred: "применять" | ref: "Дата и" | wer: 1.0000
+data/handwritten/test/test1386.png | pred: "применять" | ref: "Кроме того," | wer: 1.0000
+data/handwritten/test/test1387.png | pred: "применять" | ref: "13 января 2012г" | wer: 1.0000
+data/handwritten/test/test1388.png | pred: "применять" | ref: "в избирательной" | wer: 1.0000
+data/handwritten/test/test139.png | pred: "применять" | ref: "суммы," | wer: 1.0000
+data/handwritten/test/test1390.png | pred: "применять" | ref: "произведена" | wer: 1.0000
+data/handwritten/test/test1392.png | pred: "применять" | ref: "Прошу Вас" | wer: 1.0000
+data/handwritten/test/test1393.png | pred: "применять" | ref: "08 февраля 2012г." | wer: 1.0000
+data/handwritten/test/test1394.png | pred: "применять" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1395.png | pred: "применять" | ref: "Прошу" | wer: 1.0000
+data/handwritten/test/test1396.png | pred: "применять" | ref: "должности" | wer: 1.0000
+data/handwritten/test/test1397.png | pred: "применять" | ref: "государственной" | wer: 1.0000
+data/handwritten/test/test1398.png | pred: "применять" | ref: "гражданкой" | wer: 1.0000
+data/handwritten/test/test1399.png | pred: "применять" | ref: "службы" | wer: 1.0000
+data/handwritten/test/test14.png | pred: "применять" | ref: "оператор" | wer: 1.0000
+data/handwritten/test/test140.png | pred: "применять" | ref: "совокупность" | wer: 1.0000
+data/handwritten/test/test1400.png | pred: "применять" | ref: "заместителя" | wer: 1.0000
+data/handwritten/test/test1401.png | pred: "применять" | ref: "министра" | wer: 1.0000
+data/handwritten/test/test1402.png | pred: "применять" | ref: "просрочкой" | wer: 1.0000
+data/handwritten/test/test1403.png | pred: "применять" | ref: "финансов" | wer: 1.0000
+data/handwritten/test/test1404.png | pred: "применять" | ref: "Медведеву Д.А." | wer: 1.0000
+data/handwritten/test/test1405.png | pred: "применять" | ref: "Саватюгина А.Л." | wer: 1.0000
+data/handwritten/test/test1409.png | pred: "применять" | ref: "Заявление." | wer: 1.0000
+data/handwritten/test/test141.png | pred: "применять" | ref: "используем" | wer: 1.0000
+data/handwritten/test/test1411.png | pred: "применять" | ref: "Уманцу О.А." | wer: 1.0000
+data/handwritten/test/test1413.png | pred: "применять" | ref: "июля" | wer: 1.0000
+data/handwritten/test/test1414.png | pred: "применять" | ref: "желательно" | wer: 1.0000
+data/handwritten/test/testt1414.png | pred: "применять" | ref: "во время" | wer: 1.0000
+data/handwritten/test/test1415.png | pred: "применять" | ref: "предположительно" | wer: 1.0000
+data/handwritten/test/test1416.png | pred: "применять" | ref: "Дополнительно сообщу" | wer: 1.0000
+data/handwritten/test/test1417.png | pred: "применять" | ref: "Даценко С.Н." | wer: 1.0000
+data/handwritten/test/test1418.png | pred: "применять" | ref: "В ввиду" | wer: 1.0000
+data/handwritten/test/test1419.png | pred: "применять" | ref: "по февраль 2005 г." | wer: 1.0000
+data/handwritten/test/test142.png | pred: "применять" | ref: "дисперсия" | wer: 1.0000
+data/handwritten/test/test1423.png | pred: "применять" | ref: "которому" | wer: 1.0000
+data/handwritten/test/test1424.png | pred: "применять" | ref: "Макарова" | wer: 1.0000
+data/handwritten/test/test1425.png | pred: "применять" | ref: "не выплачиваю" | wer: 1.0000
+data/handwritten/test/testt1425.png | pred: "применять" | ref: "алименты" | wer: 1.0000
+data/handwritten/test/test1426.png | pred: "применять" | ref: "Приглашается" | wer: 1.0000
+data/handwritten/test/test1428.png | pred: "применять" | ref: "Фомина В. Л" | wer: 1.0000
+data/handwritten/test/test1429.png | pred: "применять" | ref: "Генеральному директору" | wer: 1.0000
+data/handwritten/test/test143.png | pred: "применять" | ref: "принцип" | wer: 1.0000
+data/handwritten/test/test1430.png | pred: "применять" | ref: "От ткача 5 разряда" | wer: 1.0000
+data/handwritten/test/test1431.png | pred: "применять" | ref: "об образовательных" | wer: 1.0000
+data/handwritten/test/test1432.png | pred: "применять" | ref: "программах" | wer: 1.0000
+data/handwritten/test/test1433.png | pred: "применять" | ref: "Л. М. Петровой" | wer: 1.0000
+data/handwritten/test/test1434.png | pred: "применять" | ref: "Платоновой В.А." | wer: 1.0000
+data/handwritten/test/test1435.png | pred: "применять" | ref: "директора" | wer: 1.0000
+data/handwritten/test/test1438.png | pred: "применять" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1439.png | pred: "применять" | ref: "должность инженера" | wer: 1.0000
+data/handwritten/test/test144.png | pred: "применять" | ref: "собака" | wer: 1.0000
+data/handwritten/test/test1440.png | pred: "применять" | ref: "1 февраля 1965г." | wer: 1.0000
+data/handwritten/test/test1441.png | pred: "применять" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1442.png | pred: "применять" | ref: "Сидоренко" | wer: 1.0000
+data/handwritten/test/test1443.png | pred: "применять" | ref: "прошу" | wer: 1.0000
+data/handwritten/test/test1444.png | pred: "применять" | ref: "Вас расторгнуть" | wer: 1.0000
+data/handwritten/test/test1445.png | pred: "применять" | ref: "договор" | wer: 1.0000
+data/handwritten/test/test1446.png | pred: "применять" | ref: "и вернуть деньги" | wer: 1.0000
+data/handwritten/test/test1447.png | pred: "применять" | ref: "в мае 1942 г." | wer: 1.0000
+data/handwritten/test/test1448.png | pred: "применять" | ref: "по Полюсу" | wer: 1.0000
+data/handwritten/test/test1449.png | pred: "применять" | ref: "транспортного" | wer: 1.0000
+data/handwritten/test/test145.png | pred: "применять" | ref: "порядок" | wer: 1.0000
+data/handwritten/test/test1450.png | pred: "применять" | ref: "средства" | wer: 1.0000
+data/handwritten/test/test1451.png | pred: "применять" | ref: "Причина" | wer: 1.0000
+data/handwritten/test/test1452.png | pred: "применять" | ref: "отказ" | wer: 1.0000
+data/handwritten/test/test1454.png | pred: "применять" | ref: "26. 03. 2014" | wer: 1.0000
+data/handwritten/test/test1455.png | pred: "применять" | ref: "Сидоренко С. В." | wer: 1.0000
+data/handwritten/test/test1456.png | pred: "применять" | ref: "Прошу разрешения" | wer: 1.0000
+data/handwritten/test/test1457.png | pred: "применять" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1458.png | pred: "применять" | ref: "в семье" | wer: 1.0000
+data/handwritten/test/test1459.png | pred: "применять" | ref: "Коржова С.Н." | wer: 1.0000
+data/handwritten/test/test146.png | pred: "применять" | ref: "равномерно" | wer: 1.0000
+data/handwritten/test/test1460.png | pred: "применять" | ref: "Долженко Л. У." | wer: 1.0000
+data/handwritten/test/test1461.png | pred: "применять" | ref: "с материалами" | wer: 1.0000
+data/handwritten/test/test1462.png | pred: "применять" | ref: "гражданского дела" | wer: 1.0000
+data/handwritten/test/test1464.png | pred: "применять" | ref: "прошу разрешения" | wer: 1.0000
+data/handwritten/test/test1465.png | pred: "применять" | ref: "сделать" | wer: 1.0000
+data/handwritten/test/test1467.png | pred: "применять" | ref: "28 декабря 2006 г." | wer: 1.0000
+data/handwritten/test/test1468.png | pred: "применять" | ref: "Председателю суда" | wer: 1.0000
+data/handwritten/test/test1469.png | pred: "применять" | ref: "В 1942г" | wer: 1.0000
+data/handwritten/test/test147.png | pred: "применять" | ref: "осуществляется" | wer: 1.0000
+data/handwritten/test/test1471.png | pred: "применять" | ref: "переводом" | wer: 1.0000
+data/handwritten/test/test1472.png | pred: "применять" | ref: "медицинского" | wer: 1.0000
+data/handwritten/test/test1473.png | pred: "применять" | ref: "Прошу оказать" | wer: 1.0000
+data/handwritten/test/test1474.png | pred: "применять" | ref: "Заявление" | wer: 1.0000
+data/handwritten/test/test1477.png | pred: "применять" | ref: "Стипендию получаю" | wer: 1.0000
+data/handwritten/test/test1478.png | pred: "применять" | ref: "не получаю" | wer: 1.0000
+data/handwritten/test/test148.png | pred: "применять" | ref: "через" | wer: 1.0000
+data/handwritten/test/test1481.png | pred: "применять" | ref: "факультета МГУ" | wer: 1.0000
+data/handwritten/test/test1482.png | pred: "применять" | ref: "академику" | wer: 1.0000
+data/handwritten/test/test1483.png | pred: "применять" | ref: "Кафедра зоологии" | wer: 1.0000
+data/handwritten/test/test1484.png | pred: "применять" | ref: "беспозвоночных" | wer: 1.0000
+data/handwritten/test/test1485.png | pred: "применять" | ref: "заявление" | wer: 1.0000
+data/handwritten/test/test1487.png | pred: "применять" | ref: "13.09.19" | wer: 1.0000
+data/handwritten/test/test1488.png | pred: "применять" | ref: "преобретен" | wer: 1.0000
+data/handwritten/test/test1489.png | pred: "применять" | ref: "Смартфон" | wer: 1.0000
+data/handwritten/test/test149.png | pred: "применять" | ref: "Имеем" | wer: 1.0000
+data/handwritten/test/test1490.png | pred: "применять" | ref: "по стоимости" | wer: 1.0000
+data/handwritten/test/test1491.png | pred: "применять" | ref: "школы 17" | wer: 1.0000
+data/handwritten/test/test1494.png | pred: "применять" | ref: "на сим карте" | wer: 1.0000
+data/handwritten/test/test1496.png | pred: "применять" | ref: "данных" | wer: 1.0000
+data/handwritten/test/test1497.png | pred: "применять" | ref: "телефон чист" | wer: 1.0000
+data/handwritten/test/test1498.png | pred: "применять" | ref: "как с нуля" | wer: 1.0000
+data/handwritten/test/test1499.png | pred: "применять" | ref: "27.09.19" | wer: 1.0000
+data/handwritten/test/test15.png | pred: "применять" | ref: "Обозначим" | wer: 1.0000
+data/handwritten/test/test150.png | pred: "применять" | ref: "линейных" | wer: 1.0000
+data/handwritten/test/test1500.png | pred: "применять" | ref: "телефон был сдан" | wer: 1.0000
+data/handwritten/test/test1501.png | pred: "применять" | ref: "проверку качества," | wer: 1.0000
+data/handwritten/test/test1503.png | pred: "применять" | ref: "пришлю заключение" | wer: 1.0000
+data/handwritten/test/test1504.png | pred: "применять" | ref: "о том что дефект" | wer: 1.0000
+data/handwritten/test/test1505.png | pred: "применять" | ref: "обнаружен" | wer: 1.0000
+data/handwritten/test/test1506.png | pred: "применять" | ref: "В этот же день" | wer: 1.0000
+data/handwritten/test/test1507.png | pred: "применять" | ref: "при осмотре" | wer: 1.0000
+data/handwritten/test/test1508.png | pred: "применять" | ref: "консультантом" | wer: 1.0000
+data/handwritten/test/testt1508.png | pred: "применять" | ref: "магазина" | wer: 1.0000
+data/handwritten/test/test1509.png | pred: "применять" | ref: "дефект остался" | wer: 1.0000
+data/handwritten/test/test151.png | pred: "применять" | ref: "метод" | wer: 1.0000
+
+AVG CER: 1.0030
+AVG WER: 1.0000
