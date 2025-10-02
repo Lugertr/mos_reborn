@@ -3,31 +3,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: rtr-backend:latest
-    container_name: rtr-backend
-    environment:
-      # По умолчанию включаем TrOCR;
-      # при необходимости можно выключить: TROCR_ENABLED=false
-      - TROCR_ENABLED=true
-      # При необходимости: - TZ=Europe/Stockholm
+    command: uvicorn main:app --host 0.0.0.0 --port 8080 --proxy-headers
     ports:
-      - "8000:8000"
-    volumes:
-      # Монтируем локальные данные и модели в контейнер
-      - ./data:/app/data
-      - ./runs:/app/runs
-      # (опционально) логи
-      - ./logs:/app/logs
+      - "8080:8080"
+    environment:
+      - TROCR_ENABLED=true
+      - TROCR_RUN_DIR=/app/runs/default
+      - TROCR_WEIGHTS_FILE=best.weights.h5
     restart: unless-stopped
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: rtr-frontend:latest
-    container_name: rtr-frontend
-    depends_on:
-      - backend
     ports:
-      - "80:80"
+      - "4200:80"
     restart: unless-stopped

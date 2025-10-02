@@ -86,7 +86,7 @@ export function buildCsv<T>(
 }
 
 /**
- * Совместимая с твоей исходной сигнатура: поля — только строки (пути), шапка — labels.
+ * поля —  пути, шапка — labels.
  */
 export function buildCsvFromFormArray<T extends object>(
   obj: T[],

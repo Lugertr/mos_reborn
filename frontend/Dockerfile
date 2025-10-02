@@ -1,44 +1,26 @@
-###
-# Multi-stage build for the Angular front-end
-###
+# ====== Build stage ======
+FROM node:20-alpine AS build
+WORKDIR /app
 
-# Stage 1: Build the Angular application.  Use the official Node image
-# because it contains all tools necessary to run npm and Angular CLI.
-FROM node:18-alpine as build
-
-WORKDIR /usr/src/app
-
-# Install global Angular CLI.  While optional, it ensures the correct
-# version of the CLI is available inside the container to build the
-# project.  npm ci is used if package-lock.json is present for faster
-# installs.
-RUN npm install -g @angular/cli@16
-
+# ставим зависимости
 COPY package*.json ./
 RUN npm ci
 
-# Copy application code and run the build.  The build command writes
-# compiled assets to the dist/ directory.  By default Angular outputs to
-# dist/<project-name>.  To simplify copy instructions, we leave the
-# directory name unspecified and copy whatever exists in dist/ to Nginx
-# later.
+# исходники
 COPY . .
-RUN ng build --configuration production
 
-# Stage 2: Serve the built application with Nginx.  Use the small
-# official Nginx image as the final runtime environment.
-FROM nginx:1.25-alpine
+# Angular 19 по умолчанию кладёт браузерный билд в dist/<project>/browser.
+# Явно фиксируем выходной путь, чтобы было однозначно куда копировать.
+RUN npx ng build --configuration=production
 
-# Remove the default Nginx site configuration
-RUN rm /etc/nginx/conf.d/default.conf
+# ====== Runtime (nginx) ======
+FROM nginx:1.27-alpine AS runtime
 
-# Copy our custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# наш главный конфиг (без include conf.d)
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copy the built Angular app from the build stage.  This copies all
-# files from the dist/ directory into Nginx's html root.  The wildcard
-# dist/* works regardless of the Angular project name.
-COPY --from=build /usr/src/app/dist/ /usr/share/nginx/html
+# билд в web-root образа
+COPY --from=build /app/dist/frontend/browser/ /usr/share/nginx/html/
 
-EXPOSE 80
+EXPOSE 4200
 CMD ["nginx", "-g", "daemon off;"]

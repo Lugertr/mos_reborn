@@ -1,10 +1,9 @@
-// progress.ts
 export interface ProgressStatus {
   text: string;
   percent: number; // 0..100
 }
 
-// фазы ровно как шлёт бэкенд
+// состояния загрузки
 export enum OcrPhase {
   Start             = 'start',
   Received          = 'received',
@@ -18,7 +17,6 @@ export enum OcrPhase {
   Error             = 'error',
 }
 
-// дефолтные проценты для фаз (с твоих примеров)
 export const STATUS_MAP: Map<OcrPhase, ProgressStatus> = new Map([
   [OcrPhase.Start,            { text: 'Запуск…',               percent: 1   }],
   [OcrPhase.Received,         { text: 'Файл получен',          percent: 3   }],
@@ -32,12 +30,10 @@ export const STATUS_MAP: Map<OcrPhase, ProgressStatus> = new Map([
   [OcrPhase.Error,            { text: 'Ошибка',                percent: 101 }],
 ]);
 
-// входящий прогресс теперь понимает обе схемы: phase/progress/note и step/percent/message
 export type OcrProgress = {
-  phase?: string;     // <= главная «фаза» от бэка
-  progress?: number;  // <= 0..100 от бэка
-  note?: string;      // <= текст от бэка
-  // поддерживаем старые/альтернативные ключи:
+  phase?: string;     // <= главная «фаза»
+  progress?: number;  // <= 0..100
+  note?: string;      // <= текст
   step?: string;
   percent?: number;
   message?: string;
@@ -49,21 +45,21 @@ export type OcrProgress = {
 export function resolveProgress(p?: OcrProgress): ProgressStatus {
   if (!p) return { text: 'Обработка…', percent: 0 };
 
-  // 1) приоритет — progress (от бэка)
+  // 1) приоритет — progress
   if (isNum(p.progress)) {
     return {
       text:  mapTextByPhaseOrStep(p.phase || p.step) || 'Обработка…',
       percent: clamp(Math.round(p.progress!)),
     };
   }
-  // 2) percent (альтернативный ключ)
+  // 2) percent
   if (isNum(p.percent)) {
     return {
       text:  mapTextByPhaseOrStep(p.phase || p.step) || 'Обработка…',
       percent: clamp(Math.round(p.percent!)),
     };
   }
-  // 3) current/total (если прислали так)
+  // 3) current/total
   if (isNum(p.current) && isNum(p.total) && p.total! > 0) {
     const pc = clamp(Math.round((p.current! / p.total!) * 100));
     return {
@@ -78,7 +74,6 @@ export function resolveProgress(p?: OcrProgress): ProgressStatus {
   return { text: 'Обработка…', percent: 0 };
 }
 
-// --- helpers ---
 function toPhase(s?: string): OcrPhase | undefined {
   if (!s) return null;
   const key = s.toLowerCase().trim() as OcrPhase;

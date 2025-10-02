@@ -60,21 +60,6 @@ export class DocumentService {
     return this.http.get<void>('/health');
   }
 
-  test(): Observable<void> {
-    return this.http.post<void>('/train/start', {
-      "mode": "finetune",
-      "data_root": "data/handwritten",
-      "base_run": "runs/default",
-      "run_dir": "runs/ft_archiveset1",
-      "weights": "best.weights.h5",
-      "freeze_encoder": false,
-      "epochs": 15,
-      "batch_size": 64,
-      "learning_rate": 3e-5,
-      "monitor_metric": "cer"
-    });
-  }
-
   predictEvents(req: InferDocReq): Observable<PredictEvent> {
     const fd = new FormData();
     fd.append('file', req.file, req.file.name);

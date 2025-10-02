@@ -67,11 +67,6 @@
       Сгенерировать
     </button>
 
-    <button mat-raised-button (click)="test()">
-      <mat-icon>auto_fix_high</mat-icon>
-      тест
-    </button>
-
     <button
       class="left-margin"
       mastToolTip="Экспорт всех документов в формате csv"
@@ -97,11 +92,11 @@
       <div class="list-item-content">
         <span
           ><small>Сегмент:<br /></small
-          ><span matTooltip="Результат основной обработки текста">{{
+          ><span matTooltip="Результат основной обработки текста (Trocr)">{{
             seg.controls.strValue?.value || ""
           }}</span>
           <br />
-          <small matTooltip="Результат предварительной обработки текста">
+          <small matTooltip="Результат предварительной обработки текста (Tesseract)">
             {{ seg.controls.strOcr?.value || "" }}</small
           >
         </span>
@@ -150,14 +145,6 @@
             <mat-icon>delete</mat-icon>
           </button>
         </div>
-        <button
-          mat-icon-button
-          aria-label="Удалить"
-          class="warn left-margin"
-          matTooltip="Удалить поле"
-        >
-          <mat-icon>add</mat-icon>
-        </button>
       </div>
     </a>
     } @empty { @let status = getSelectedLoadingStatus()?.percent; @if

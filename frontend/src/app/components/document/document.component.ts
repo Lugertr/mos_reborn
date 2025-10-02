@@ -165,10 +165,6 @@ export class DocumentComponent implements OnInit {
     arr.forEach(arrSeg => arrSeg.patchValue({ isSelected: arrSeg === seg }));
   }
 
-  test(): void {
-    this.docSrv.test().pipe(takeUntilDestroyed(this.destroyRef)).subscribe()
-  }
-
   deleteSegment(array: FormArray<FormGroup<DocumentsFieldForm>>, ind: number): void {
     array.removeAt(ind);
     this.cdr.markForCheck();
@@ -207,7 +203,7 @@ export class DocumentComponent implements OnInit {
               continue;
             }
             const [x, y] = item.coords;
-
+            console.log(item);
             docFields.push(new FormGroup({
               coords: new FormControl<[number, number]>([x || 0, y || 0]),
               strValue: new FormControl<string>(item.value),
