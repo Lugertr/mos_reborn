@@ -1,4 +1,3 @@
-# postprocessing/wer.py
 """
 Purpose
 -------

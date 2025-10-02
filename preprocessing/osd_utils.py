@@ -1,4 +1,3 @@
-# preprocessing/osd_utils.py
 """
 Purpose
 -------

@@ -1,4 +1,3 @@
-# logging_utils.py
 """
 Purpose
 -------

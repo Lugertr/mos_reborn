@@ -1,4 +1,3 @@
-# tesseract/segment_lines.py
 """
 Purpose
 -------

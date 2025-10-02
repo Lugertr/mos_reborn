@@ -78,3 +78,12 @@ mat-nav-list .list-item .list-item-content {
 .left-margin {
   margin-left: auto;
 }
+
+.chip {
+  padding: 2px 4px;
+  display: inline-flex;
+  background: var(--mat-sys-error-container);
+  border-radius: 4px;
+  line-height: 1rem;
+  margin-right: 4px;
+}

@@ -91,12 +91,16 @@
     >
       <div class="list-item-content">
         <span
-          ><small>Сегмент:<br /></small
+          ><small
+            ><span class="warn chip">WER: {{ seg.controls.wer.value }}</span
+            >Сегмент:<br /></small
           ><span matTooltip="Результат основной обработки текста (Trocr)">{{
             seg.controls.strValue?.value || ""
           }}</span>
           <br />
-          <small matTooltip="Результат предварительной обработки текста (Tesseract)">
+          <small
+            matTooltip="Результат предварительной обработки текста (Tesseract)"
+          >
             {{ seg.controls.strOcr?.value || "" }}</small
           >
         </span>

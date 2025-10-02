@@ -35,7 +35,8 @@ export interface DocumentsFieldForm {
   state: FormControl<FieldFormState>,
   width: FormControl<number>,
   height: FormControl<number>,
-  isSelected: FormControl<boolean>
+  isSelected: FormControl<boolean>,
+  wer: FormControl<number>
 }
 
 export enum FieldFormState {
@@ -211,7 +212,8 @@ export class DocumentComponent implements OnInit {
               state: new FormControl<FieldFormState>(FieldFormState.Default),
               width: new FormControl(item.width),
               height: new FormControl(item.height),
-              isSelected: new FormControl(false)
+              isSelected: new FormControl(false),
+              wer: new FormControl(item.wer)
             }));
 
           }
@@ -250,8 +252,8 @@ export class DocumentComponent implements OnInit {
         state: new FormControl<FieldFormState>(FieldFormState.Default),
         width: new FormControl(null),
         height: new FormControl(null),
-        isSelected: new FormControl(false)
-
+        isSelected: new FormControl(false),
+        wer: new FormControl(null)
       }));
     }
     this.form.push(documentForm);

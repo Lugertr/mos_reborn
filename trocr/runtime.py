@@ -1,4 +1,3 @@
-# trocr/runtime.py
 """
 Purpose
 -------
